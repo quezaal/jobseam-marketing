@@ -1,0 +1,1051 @@
+<title>JobSeam: Launch Playbook</title>
+<style>
+:root {
+  --page:   #f9f9f7;
+  --card:   #ffffff;
+  --ink:    #18181b;
+  --sub:    #52525b;
+  --muted:  #a1a1aa;
+  --rule:   #e4e4e7;
+  --blue:   #2563eb;
+  --blue-bg:#eff6ff;
+  --green:  #16a34a;
+  --green-bg:#f0fdf4;
+  --amber:  #d97706;
+  --amber-bg:#fffbeb;
+  --purple: #7c3aed;
+  --purple-bg:#f5f3ff;
+  --red:    #dc2626;
+  --red-bg: #fef2f2;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  padding: 0 0 80px;
+}
+
+/* ── Layout ── */
+.doc { max-width: 780px; margin: 0 auto; padding: 0 28px; }
+
+/* ── Cover ── */
+.cover {
+  border-bottom: 1px solid var(--rule);
+  padding: 56px 28px 40px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.cover-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--blue); margin-bottom: 14px;
+}
+.cover-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(28px, 4vw, 40px); font-weight: normal;
+  line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 14px;
+}
+.cover-sub {
+  font-size: 16px; color: var(--sub); max-width: 560px; line-height: 1.6;
+  margin-bottom: 24px;
+}
+.cover-meta {
+  display: flex; gap: 20px; flex-wrap: wrap;
+}
+.cover-meta-item {
+  font-size: 12px; color: var(--muted);
+}
+.cover-meta-item strong { color: var(--sub); font-weight: 600; }
+
+/* ── TOC ── */
+.toc {
+  padding: 28px 0; border-bottom: 1px solid var(--rule);
+  margin-bottom: 0;
+}
+.toc-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+}
+.toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 32px; }
+.toc-list li { font-size: 13px; }
+.toc-list a { color: var(--blue); text-decoration: none; }
+.toc-list a:hover { text-decoration: underline; }
+.toc-num { color: var(--muted); margin-right: 6px; font-variant-numeric: tabular-nums; }
+
+/* ── Section structure ── */
+.section {
+  padding: 44px 0 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 44px;
+}
+.section:first-of-type { margin-top: 44px; }
+.sec-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.sec-label.blue   { color: var(--blue); }
+.sec-label.green  { color: var(--green); }
+.sec-label.amber  { color: var(--amber); }
+.sec-label.purple { color: var(--purple); }
+.sec-label.red    { color: var(--red); }
+
+.sec-h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(20px, 2.6vw, 26px); font-weight: normal;
+  line-height: 1.2; letter-spacing: -.01em;
+  color: var(--ink); margin-bottom: 10px;
+}
+.sec-intro {
+  font-size: 14.5px; color: var(--sub); line-height: 1.7;
+  max-width: 640px; margin-bottom: 28px;
+}
+
+/* ── Callout boxes ── */
+.callout {
+  border-radius: 8px; padding: 16px 20px; margin: 20px 0;
+  font-size: 13.5px; line-height: 1.6;
+}
+.callout-head {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.callout.blue   { background: var(--blue-bg);   border-left: 3px solid var(--blue); }
+.callout.green  { background: var(--green-bg);  border-left: 3px solid var(--green); }
+.callout.amber  { background: var(--amber-bg);  border-left: 3px solid var(--amber); }
+.callout.purple { background: var(--purple-bg); border-left: 3px solid var(--purple); }
+.callout.red    { background: var(--red-bg);    border-left: 3px solid var(--red); }
+.callout.blue   .callout-head { color: var(--blue); }
+.callout.green  .callout-head { color: var(--green); }
+.callout.amber  .callout-head { color: var(--amber); }
+.callout.purple .callout-head { color: var(--purple); }
+.callout.red    .callout-head { color: var(--red); }
+
+/* ── Tables ── */
+.data-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px; margin: 20px 0;
+}
+.data-table th {
+  text-align: left; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); padding: 8px 12px;
+  border-bottom: 1px solid var(--rule); background: var(--page);
+}
+.data-table td {
+  padding: 12px 12px; border-bottom: 1px solid var(--rule);
+  vertical-align: top; color: var(--sub); line-height: 1.5;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #fafaf8; }
+.data-table td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+.data-table .badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 100px; white-space: nowrap;
+}
+.badge-blue   { background: var(--blue-bg);   color: var(--blue); }
+.badge-green  { background: var(--green-bg);  color: var(--green); }
+.badge-amber  { background: var(--amber-bg);  color: var(--amber); }
+.badge-purple { background: var(--purple-bg); color: var(--purple); }
+
+/* ── Hosting options ── */
+.hosting-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0;
+}
+.hosting-card {
+  background: var(--card); border: 1px solid var(--rule);
+  border-radius: 10px; padding: 18px 20px;
+}
+.hosting-card.recommended { border-color: var(--green); background: var(--green-bg); }
+.hc-title {
+  font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px;
+}
+.hc-cost {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--green); margin-bottom: 8px;
+}
+.hc-cost.paid { color: var(--amber); }
+.hc-desc { font-size: 12.5px; color: var(--sub); line-height: 1.55; }
+.hc-rec {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  background: var(--green); color: #fff;
+  padding: 2px 8px; border-radius: 100px; margin-bottom: 8px;
+}
+
+/* ── Steps ── */
+.steps { margin: 20px 0; counter-reset: step; }
+.step {
+  display: flex; gap: 16px; padding: 14px 0;
+  border-bottom: 1px solid var(--rule); align-items: flex-start;
+}
+.step:last-child { border-bottom: none; }
+.step-num {
+  counter-increment: step;
+  flex-shrink: 0; width: 28px; height: 28px;
+  border-radius: 50%; background: var(--blue);
+  color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.step-body { font-size: 13.5px; color: var(--sub); line-height: 1.6; }
+.step-body strong { color: var(--ink); }
+.step-body code {
+  background: #f1f1ef; color: #374151;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 12px; padding: 1px 5px; border-radius: 4px;
+}
+
+/* ── Day plan grid ── */
+.week-block { margin-bottom: 32px; }
+.week-title {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--purple);
+  padding: 8px 0; border-bottom: 2px solid var(--purple);
+  margin-bottom: 0;
+}
+.day-row {
+  display: grid; grid-template-columns: 56px 1fr;
+  border-bottom: 1px solid var(--rule); min-height: 48px;
+}
+.day-row:last-child { border-bottom: none; }
+.day-num {
+  font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums;
+  color: var(--muted); padding: 10px 8px 10px 0;
+  display: flex; align-items: flex-start; padding-top: 12px;
+  border-right: 1px solid var(--rule); margin-right: 16px;
+}
+.day-content { padding: 10px 0; }
+.day-tasks { display: flex; flex-direction: column; gap: 4px; }
+.day-task {
+  font-size: 12.5px; color: var(--sub); line-height: 1.45;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.day-tag {
+  flex-shrink: 0; font-size: 9px; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 100px; margin-top: 1px;
+}
+.tag-content  { background: #eff6ff; color: #1d4ed8; }
+.tag-outreach { background: #f5f3ff; color: #6d28d9; }
+.tag-demo     { background: #f0fdf4; color: #15803d; }
+.tag-setup    { background: #fff7ed; color: #c2410c; }
+.tag-publish  { background: #faf5ff; color: #7c3aed; }
+.tag-video    { background: #fef2f2; color: #dc2626; }
+
+/* ── Material cards ── */
+.material-block {
+  background: var(--card); border: 1px solid var(--rule);
+  border-radius: 10px; padding: 22px 24px; margin-bottom: 16px;
+}
+.mat-title-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.mat-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px; font-weight: normal; color: var(--ink);
+}
+.mat-file {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 11px; color: var(--muted); background: var(--page);
+  padding: 2px 7px; border-radius: 4px; border: 1px solid var(--rule);
+  margin-left: auto;
+}
+.mat-body { font-size: 13.5px; color: var(--sub); line-height: 1.65; margin-bottom: 14px; }
+.mat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.mat-field { font-size: 12px; }
+.mat-field-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 3px;
+}
+.mat-field-value { color: var(--sub); line-height: 1.5; }
+
+/* ── Inline code ── */
+code {
+  background: #f1f1ef; color: #374151;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 12.5px; padding: 1px 5px; border-radius: 4px;
+}
+
+/* ── Utilities ── */
+ul.plain { list-style: none; }
+ul.plain li { padding: 3px 0 3px 16px; position: relative; font-size: 13.5px; color: var(--sub); }
+ul.plain li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
+ul.plain li strong { color: var(--ink); }
+
+p { margin-bottom: 12px; }
+p:last-child { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  .hosting-grid { grid-template-columns: 1fr; }
+  .mat-row { grid-template-columns: 1fr; }
+  .toc-list { grid-template-columns: 1fr; }
+  .cover { padding: 36px 20px 28px; }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #111113; --card: #18181b; --ink: #f4f4f5;
+    --sub: #a1a1aa; --muted: #52525b; --rule: #27272a;
+    --blue-bg: #1e3a5f20; --green-bg: #14532d20;
+    --amber-bg: #78350f20; --purple-bg: #4c1d9520; --red-bg: #7f1d1d20;
+  }
+  code { background: #27272a; color: #d4d4d8; }
+  .data-table tr:hover td { background: #1c1c1e; }
+  .mat-file { background: #27272a; }
+  .day-tag, .badge { opacity: .9; }
+}
+:root[data-theme="dark"] {
+  --page: #111113; --card: #18181b; --ink: #f4f4f5;
+  --sub: #a1a1aa; --muted: #52525b; --rule: #27272a;
+  --blue-bg: #1e3a5f20; --green-bg: #14532d20;
+  --amber-bg: #78350f20; --purple-bg: #4c1d9520; --red-bg: #7f1d1d20;
+}
+:root[data-theme="light"] {
+  --page: #f9f9f7; --card: #ffffff; --ink: #18181b;
+  --sub: #52525b; --muted: #a1a1aa; --rule: #e4e4e7;
+  --blue-bg: #eff6ff; --green-bg: #f0fdf4;
+  --amber-bg: #fffbeb; --purple-bg: #f5f3ff; --red-bg: #fef2f2;
+}
+</style>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-eyebrow">Internal Document</div>
+  <h1 class="cover-title">JobSeam Marketing<br>Launch Playbook</h1>
+  <p class="cover-sub">What each marketing file does, where and how to publish it, whether you need hosting, and a day-by-day execution plan from pre-launch to first paying customer.</p>
+  <div class="cover-meta">
+    <span class="cover-meta-item"><strong>Version</strong> 1.0</span>
+    <span class="cover-meta-item"><strong>Updated</strong> July 2026</span>
+    <span class="cover-meta-item"><strong>Audience</strong> Founder / Founding team</span>
+    <span class="cover-meta-item"><strong>Folder</strong> jobseam-marketing/</span>
+  </div>
+</div>
+
+<div class="doc">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <ol class="toc-list">
+      <li><a href="#materials"><span class="toc-num">1.</span> What each file is</a></li>
+      <li><a href="#hosting"><span class="toc-num">2.</span> Do you need hosting?</a></li>
+      <li><a href="#publishing"><span class="toc-num">3.</span> Where and how to publish</a></li>
+      <li><a href="#how-to-use"><span class="toc-num">4.</span> How to use each material</a></li>
+      <li><a href="#day-plan"><span class="toc-num">5.</span> Day-by-day 30-day plan</a></li>
+      <li><a href="#platform-hosting"><span class="toc-num">6.</span> When to host the platform itself</a></li>
+    </ol>
+  </div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 1. What each file is -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="materials">
+    <div class="sec-label blue">Section 1</div>
+    <h2 class="sec-h2">What each file is</h2>
+    <p class="sec-intro">Five HTML files and one PPTX in the <code>jobseam-marketing/</code> folder. All HTML files are fully self-contained — screenshots, styles, and scripts are embedded — so they open in any browser with no server, no internet connection, and no dependencies.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>What it is</th>
+          <th>Format</th>
+          <th>Size</th>
+          <th>Audience</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>jobseam-onepager.html</td>
+          <td>Single-page sales overview. Features, ROI strip, multi-context comparison with live screenshots. First thing a cold prospect should see.</td>
+          <td><span class="badge badge-blue">HTML</span></td>
+          <td>~340 KB</td>
+          <td>Cold prospects, warm intros</td>
+        </tr>
+        <tr>
+          <td>jobseam-deck.html</td>
+          <td>12-slide pitch deck in the browser. Problem, solution, platform features, market, traction, ask. For investor meetings and deep-dive prospect calls.</td>
+          <td><span class="badge badge-blue">HTML</span></td>
+          <td>~46 KB</td>
+          <td>Investors, serious prospects</td>
+        </tr>
+        <tr>
+          <td>jobseam-deck.pptx</td>
+          <td>Same deck as PowerPoint. Use for live screen-share presentations when you need slide control, or to email as an attachment.</td>
+          <td><span class="badge badge-amber">PPTX</span></td>
+          <td>~2 MB</td>
+          <td>Live presentations</td>
+        </tr>
+        <tr>
+          <td>jobseam-video.html</td>
+          <td>Full-screen animated player (19 scenes, auto-advance) + complete annotated walkthrough below. Every role, every feature, live screenshots. Your best "see it in action" link.</td>
+          <td><span class="badge badge-blue">HTML</span></td>
+          <td>~6 MB</td>
+          <td>Anyone who wants to see the product</td>
+        </tr>
+        <tr>
+          <td>jobseam-feature-guide-detailed.html</td>
+          <td>Complete feature reference: every filter, every column, every setting. Side-by-side screenshots of consulting vs. university context. For technical buyers who want to vet before committing to a demo.</td>
+          <td><span class="badge badge-blue">HTML</span></td>
+          <td>~350 KB</td>
+          <td>Technical buyers, power users</td>
+        </tr>
+        <tr>
+          <td>jobseam-go-to-market.html</td>
+          <td>Internal playbook: 30-day content calendar, YouTube script, channel tactics, outreach messaging. Not for prospects — this is your execution plan. Reference it daily.</td>
+          <td><span class="badge badge-purple">Internal</span></td>
+          <td>~54 KB</td>
+          <td>Founder only (internal)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber">
+      <div class="callout-head">One rule for sharing</div>
+      Never send all five files at once. Each material has a specific moment in the sales sequence. Sending everything upfront overwhelms prospects and removes your reason to follow up. See Section 4 for when to send what.
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 2. Do you need hosting? -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="hosting">
+    <div class="sec-label green">Section 2</div>
+    <h2 class="sec-h2">Do you need dedicated hosting?</h2>
+    <p class="sec-intro">Short answer: no, not yet. The long answer depends on what you're hosting — the marketing pages are a completely different question from the product platform.</p>
+
+    <div class="callout green">
+      <div class="callout-head">Marketing materials (the HTML files)</div>
+      These are 100% static files. No database, no backend, no server process. A $0 GitHub Pages deployment gives you a permanent public URL in under 5 minutes. A VPS would be pure waste for this.
+    </div>
+
+    <div class="callout amber">
+      <div class="callout-head">The JobSeam platform (for demos)</div>
+      Currently running on Docker at localhost. For screen-share demos — Zoom, Google Meet — this is exactly right. You control the data, the environment, and the flow. No public access needed until you're ready to send "try it yourself" links.
+    </div>
+
+    <div class="callout blue">
+      <div class="callout-head">The decision rule</div>
+      Get to your first 3 paying customers with screen-share demos and static marketing pages. Then spend $6/month on a VPS (DigitalOcean, Hetzner) to run a live demo instance publicly. Custom domain costs $12/year. Nothing else is needed in year one.
+    </div>
+
+    <h3 style="font-family:Georgia,serif;font-size:17px;font-weight:normal;color:var(--ink);margin:28px 0 14px;">Hosting options for the marketing pages</h3>
+
+    <div class="hosting-grid">
+      <div class="hosting-card recommended">
+        <div class="hc-rec">Recommended</div>
+        <div class="hc-title">GitHub Pages</div>
+        <div class="hc-cost">Free forever</div>
+        <div class="hc-desc">Push the marketing folder to a GitHub repo, enable Pages in settings. Get a URL like <code>jilani20.github.io/jobseam-marketing</code>. Add a custom domain for free later. Takes 5 minutes to set up.</div>
+      </div>
+      <div class="hosting-card">
+        <div class="hc-title">Netlify Drop</div>
+        <div class="hc-cost">Free</div>
+        <div class="hc-desc">Drag the <code>jobseam-marketing/</code> folder onto netlify.com/drop. Get a URL in 30 seconds. No account required for a quick share. Good for one-off sending before GitHub Pages is set up.</div>
+      </div>
+      <div class="hosting-card">
+        <div class="hc-title">Cloudflare Pages</div>
+        <div class="hc-cost">Free</div>
+        <div class="hc-desc">Connect your GitHub repo. Auto-deploys every time you push. Best CDN performance globally. Good choice if you expect international prospects early.</div>
+      </div>
+      <div class="hosting-card">
+        <div class="hc-title">Custom Domain</div>
+        <div class="hc-cost paid">~$12/year</div>
+        <div class="hc-desc">Buy <code>jobseam.io</code> (or <code>.com</code>) from Namecheap or Cloudflare Registrar. Point it to GitHub Pages. Subdomains like <code>demo.jobseam.io</code> and <code>deck.jobseam.io</code> are free once you own the domain.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 3. Where and how to publish -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="publishing">
+    <div class="sec-label blue">Section 3</div>
+    <h2 class="sec-h2">Where and how to publish each file</h2>
+    <p class="sec-intro">Step-by-step: getting URLs for every file using GitHub Pages. Do this once — then every update is a <code>git push</code>.</p>
+
+    <h3 style="font-family:Georgia,serif;font-size:16px;font-weight:normal;color:var(--ink);margin:20px 0 10px;">One-time setup: GitHub Pages</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Create a GitHub repository.</strong> Go to github.com, create a new repo named <code>jobseam-marketing</code>. Set it to Public (required for free GitHub Pages).
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Push the marketing folder.</strong> In your terminal:<br>
+          <code>cd /Users/jshaik/quezaal/jobseam-marketing</code><br>
+          <code>git init &amp;&amp; git add *.html *.pdf *.pptx</code><br>
+          <code>git commit -m "Initial marketing materials"</code><br>
+          <code>git remote add origin https://github.com/jilani20/jobseam-marketing.git</code><br>
+          <code>git push -u origin main</code>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Enable GitHub Pages.</strong> In the repo → Settings → Pages → Source: Deploy from a branch → Branch: main → folder: / (root). Click Save. Pages deploys in ~60 seconds.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>Your URLs are live.</strong> Every file in the repo gets a URL at:<br>
+          <code>https://jilani20.github.io/jobseam-marketing/[filename].html</code><br>
+          Save each URL — these are your shareable links for every campaign.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>Optional: custom domain.</strong> In Pages settings, add <code>marketing.jobseam.io</code> or similar. Add a CNAME record at your DNS provider pointing to <code>jilani20.github.io</code>. Takes about 10 minutes. From then on, every file is at <code>https://marketing.jobseam.io/[filename].html</code>.
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:Georgia,serif;font-size:16px;font-weight:normal;color:var(--ink);margin:28px 0 10px;">Per-file publishing summary</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Publish as</th>
+          <th>Primary share method</th>
+          <th>Do NOT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>jobseam-onepager.html</td>
+          <td>GitHub Pages URL<br><code>/jobseam-onepager.html</code></td>
+          <td>Link in LinkedIn DMs, link in cold outreach email, pin to LinkedIn profile</td>
+          <td>Attach as a file — prospects won't open .html attachments</td>
+        </tr>
+        <tr>
+          <td>jobseam-video.html</td>
+          <td>GitHub Pages URL<br><code>/jobseam-video.html</code></td>
+          <td>LinkedIn post CTA, YouTube description, post-demo follow-up email</td>
+          <td>Send as first contact — too much. Save it for warm leads.</td>
+        </tr>
+        <tr>
+          <td>jobseam-deck.html</td>
+          <td>GitHub Pages URL<br><code>/jobseam-deck.html</code></td>
+          <td>Share link with investors; send after a discovery call when prospect asks "can you send something?"</td>
+          <td>Use for live screen-share — use the PPTX instead</td>
+        </tr>
+        <tr>
+          <td>jobseam-deck.pptx</td>
+          <td>Google Drive or Dropbox<br>(not GitHub — binary file)</td>
+          <td>Open in PowerPoint/Keynote for live Zoom presentations. Share Drive link if they ask for slides.</td>
+          <td>Email as attachment — too large for most inboxes</td>
+        </tr>
+        <tr>
+          <td>jobseam-feature-guide-detailed.html</td>
+          <td>GitHub Pages URL<br><code>/jobseam-feature-guide-detailed.html</code></td>
+          <td>Send to prospects who ask technical questions, or after an intro call to close a demo</td>
+          <td>Send cold — overwhelming for first contact</td>
+        </tr>
+        <tr>
+          <td>jobseam-go-to-market.html</td>
+          <td>Local only — do not publish</td>
+          <td>Open in your browser, reference daily. Contains your outreach strategy.</td>
+          <td>Publish publicly — this is an internal strategy document</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 4. How to use each material -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="how-to-use">
+    <div class="sec-label purple">Section 4</div>
+    <h2 class="sec-h2">How to use each material</h2>
+    <p class="sec-intro">Each file has a specific role in a specific moment of the funnel. Using the wrong material at the wrong moment either under-informs or overwhelms.</p>
+
+    <div class="material-block">
+      <div class="mat-title-row">
+        <div class="mat-title">One-Pager</div>
+        <div class="mat-file">jobseam-onepager.html</div>
+      </div>
+      <div class="mat-body">
+        Your broadest-reach asset. It answers "what does this do?" in under two minutes of reading. Use it as the first link you share with anyone — cold or warm. It has enough to create curiosity, not so much that it replaces a conversation.
+      </div>
+      <div class="mat-row">
+        <div class="mat-field">
+          <div class="mat-field-label">When to send</div>
+          <div class="mat-field-value">Cold DMs, cold emails, LinkedIn post CTAs, after someone asks "what is this?"</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">What you say</div>
+          <div class="mat-field-value">"Here's a quick overview of what we've built: [link]. Happy to walk through it live if relevant."</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">Goal</div>
+          <div class="mat-field-value">Get a reply. Get them to book a demo. Not to close.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="material-block">
+      <div class="mat-title-row">
+        <div class="mat-title">Video Walkthrough</div>
+        <div class="mat-file">jobseam-video.html</div>
+      </div>
+      <div class="mat-body">
+        The highest-converting single asset you have. The full-screen player auto-plays and walks through the real product in 19 scenes with narration. The detailed annotated walkthrough below it covers every feature, every role, and every group context with actual screenshots. Send this when someone says "I'd like to see it before booking a call."
+      </div>
+      <div class="mat-row">
+        <div class="mat-field">
+          <div class="mat-field-label">When to send</div>
+          <div class="mat-field-value">After initial interest, as YouTube description link, in post-demo follow-up, in LinkedIn posts as "watch it in action"</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">What you say</div>
+          <div class="mat-field-value">"Full platform walkthrough here — the player at the top auto-plays. Scroll down for annotated detail on every feature."</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">Goal</div>
+          <div class="mat-field-value">Self-serve demo. Book a live call for the 30% who want to talk after watching.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="material-block">
+      <div class="mat-title-row">
+        <div class="mat-title">Pitch Deck (HTML)</div>
+        <div class="mat-file">jobseam-deck.html</div>
+      </div>
+      <div class="mat-body">
+        Use the HTML version for async sharing — investors, advisors, and warm intros who want to review at their own pace. It loads in a browser and works on any device. The narrative arc is: problem → why now → solution → platform → market → traction → ask.
+      </div>
+      <div class="mat-row">
+        <div class="mat-field">
+          <div class="mat-field-label">When to send</div>
+          <div class="mat-field-value">Investor intros, after discovery calls when prospect asks to share with their team, warm referrals</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">What you say</div>
+          <div class="mat-field-value">"Deck is here: [link]. Opens in a browser, no download needed."</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">Goal</div>
+          <div class="mat-field-value">Fundraise conversations. Warm up referrals who will forward to a prospect.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="material-block">
+      <div class="mat-title-row">
+        <div class="mat-title">Pitch Deck (PPTX)</div>
+        <div class="mat-file">jobseam-deck.pptx</div>
+      </div>
+      <div class="mat-body">
+        Use this for live presentations. Open in PowerPoint or Keynote before the call, share screen, and present slide-by-slide. You control the pace, you can skip slides based on the conversation, and you can add live annotations.
+      </div>
+      <div class="mat-row">
+        <div class="mat-field">
+          <div class="mat-field-label">When to use</div>
+          <div class="mat-field-value">Zoom investor calls, in-person demo meetings, conference presentations</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">Tip</div>
+          <div class="mat-field-value">Keep slides 8–12 (platform features) ready but skip to what's relevant. Don't force all 12 in 30 minutes.</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">Goal</div>
+          <div class="mat-field-value">Drive to the "can I try it?" or "what does a pilot look like?" question by slide 10.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="material-block">
+      <div class="mat-title-row">
+        <div class="mat-title">Feature Guide</div>
+        <div class="mat-file">jobseam-feature-guide-detailed.html</div>
+      </div>
+      <div class="mat-body">
+        Your technical close asset. Send it after an intro call when someone says "I want to understand exactly what filters exist" or "how does the matching actually work?" It has the full filter list, every column, 2FA, AI pipeline details, and side-by-side screenshots from consulting vs. university contexts.
+      </div>
+      <div class="mat-row">
+        <div class="mat-field">
+          <div class="mat-field-label">When to send</div>
+          <div class="mat-field-value">After discovery call, when prospect is evaluating seriously, to technical co-founder / CTO at a potential customer</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">What you say</div>
+          <div class="mat-field-value">"Full feature reference here — covers every filter, column, AI pipeline, 2FA, and group context. Let me know if anything is missing for your evaluation."</div>
+        </div>
+        <div class="mat-field">
+          <div class="mat-field-label">Goal</div>
+          <div class="mat-field-value">Remove objections before they become blockers. Answer "does it do X?" before it's asked.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout purple">
+      <div class="callout-head">The share sequence</div>
+      Cold outreach → <strong>One-Pager</strong> link. They reply with interest → book a call. Pre-call → <strong>Video</strong> link. On call, share screen → <strong>PPTX deck</strong>. Post-call follow-up → <strong>Feature Guide</strong> if they're evaluating. Investor intro → <strong>HTML deck</strong> async.
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 5. Day-by-day plan -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="day-plan">
+    <div class="sec-label purple">Section 5</div>
+    <h2 class="sec-h2">Day-by-day 30-day launch plan</h2>
+    <p class="sec-intro">This maps directly to the content calendar in <code>jobseam-go-to-market.html</code>, but adds the marketing materials, hosting steps, and outreach cadence in one view. The goal by day 30: at least 3 active demo conversations and 1 signed pilot or paid trial.</p>
+
+    <div class="callout blue">
+      <div class="callout-head">Activity types</div>
+      <span class="day-tag tag-setup">Setup</span> One-time infra tasks &nbsp;
+      <span class="day-tag tag-publish">Publish</span> Put something live &nbsp;
+      <span class="day-tag tag-content">Content</span> LinkedIn / YouTube posts &nbsp;
+      <span class="day-tag tag-outreach">Outreach</span> Direct messages / emails &nbsp;
+      <span class="day-tag tag-demo">Demo</span> Live product sessions &nbsp;
+      <span class="day-tag tag-video">Video</span> Record / upload
+    </div>
+
+    <!-- Pre-launch -->
+    <div class="week-block" style="margin-top:24px;">
+      <div class="week-title">Pre-Launch (Before Day 1)</div>
+      <div class="day-row">
+        <div class="day-num">P–3</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> Create GitHub repo <code>jobseam-marketing</code>. Push all HTML files. Enable GitHub Pages. Save all live URLs.</div>
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> Buy a domain if you don't have one (jobseam.io, ~$12). Point it to GitHub Pages.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">P–2</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-video">Video</span> Record the YouTube walkthrough using the script in <code>jobseam-go-to-market.html</code>. Don't over-produce. One good take, screen capture, USB mic.</div>
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> Build your LinkedIn prospect list: 150 IT staffing owners (Sales Navigator: 11-200 employees, VP/Owner/Director title). Save to spreadsheet.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">P–1</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> Upload YouTube video. Set title: "JobSeam: AI-powered bench sales platform demo." Add one-pager URL and video walkthrough URL to description.</div>
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> Update your LinkedIn profile: headline mentions JobSeam + AI talent matching. Featured section: pin one-pager URL.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 1 -->
+    <div class="week-block">
+      <div class="week-title">Week 1 · Days 1–7 · Announce + First Wave</div>
+      <div class="day-row">
+        <div class="day-num">Day 1</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-publish">Publish</span> Post LinkedIn launch announcement. Pain-first: "We built JobSeam because bench sales teams spend 4 hours/day reading vendor emails…" Link to one-pager. Pin to profile.</div>
+            <div class="day-task"><span class="day-tag tag-content">Content</span> Share the YouTube video on LinkedIn as a second post (or the same day, a few hours later): "Watch the full platform walkthrough."</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 2</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> LinkedIn DM Wave 1: send to 50 prospects from your list. Message 1: empathy + insight, no pitch. "Running into this specific pain?" Not "check out my product."</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 3</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Join 5 bench sales WhatsApp groups or Facebook groups. Introduce yourself as someone building staffing tools. No pitch. Just presence.</div>
+            <div class="day-task"><span class="day-tag tag-content">Content</span> Respond to every LinkedIn comment on the Day 1 post. Algorithm rewards engagement in the first 24–48 hours.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 4</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-content">Content</span> Post: "What if you walked in to this" — screenshot of the Match page with scored consultants. Real numbers. No sales copy. Let the product speak.</div>
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Follow up with anyone who replied to Wave 1 DMs. Offer the one-pager link or book a 20-min demo directly.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 5</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> LinkedIn DM Wave 1 follow-up: message 2 to those who opened but didn't reply. More specific — reference their firm size or market.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 6</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-content">Content</span> Thought leadership post: "Hot take — the bench sales bottleneck isn't sourcing, it's matching speed." Engage replies for 48 hours. Follower growth driver.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 7</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> Week 1 review. Which post got the most views? Which DM message got replies? Adjust Wave 2 message template based on what worked. Update your prospect spreadsheet with status.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 2 -->
+    <div class="week-block">
+      <div class="week-title">Week 2 · Days 8–14 · Content + Demos</div>
+      <div class="day-row">
+        <div class="day-num">Day 8</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-task"><span class="day-tag tag-content">Content</span> Post: "Candidate-angle" — talk to the consultant, not the firm. "Your recruiter's job is easier with better tools." Reaches a broader audience who will share with their employer.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 9</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> LinkedIn DM Wave 2: 50 new prospects. Adjust message based on Week 1 learnings. Target bench sales managers this wave (different angle from firm owners).</div>
+            <div class="day-task"><span class="day-tag tag-video">Video</span> Record Video 2: live demo format. Pick a real vendor email, paste it into Req Inbox, show the AI extraction, run a match. No script — just the product working.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 10</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-demo">Demo</span> Run demo sessions with anyone who replied from Wave 1. Use <strong>PPTX deck</strong> for first 5 slides, then switch to live product on localhost. Share video walkthrough link after.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 11</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-publish">Publish</span> Upload Video 2 to YouTube. Share on LinkedIn with "requested by several people who wanted to see the AI extraction live" framing.</div>
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Follow up with demo attendees. Send <strong>feature guide</strong> link to anyone who asked technical questions.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 12</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-content">Content</span> University angle post: "We run the same platform for universities placing CS graduates. Same match engine. Different labels." Share the comparison screenshots from the video walkthrough.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 13</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Wave 2 follow-up: message 2 to those who haven't replied. More specific insight. Offer the video link directly ("here's a 5-minute watch before we book time").</div>
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Start university outreach: 20 career services department heads at mid-size universities. Separate message track — lead with "placement-readiness" not "bench sales."</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 14</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> Week 2 review. How many demos ran? What objections came up? Update the pitch to address the top 2 objections before they surface next time. Note which materials people actually opened.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 3 -->
+    <div class="week-block">
+      <div class="week-title">Week 3 · Days 15–21 · Proof Points + Scale</div>
+      <div class="day-row">
+        <div class="day-num">Day 15</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-content">Content</span> "What we've seen in the data" post. Use real numbers from the live system: 22,000+ jobs indexed, N sources, average match time. Market data earns trust.</div>
+            <div class="day-task"><span class="day-tag tag-demo">Demo</span> Run demo batch 2 — university prospects from Day 13 outreach + anyone new from Wave 2.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 16</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Wave 3: 50 new staffing firm prospects. This wave: target people who commented on industry posts (they're engaged, they're online now). Connection request + note, then DM if they accept.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 17</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-content">Content</span> Individual user angle post: "You don't have to be a staffing firm to use this. If you're a consultant managing your own job search, there's a solo tier." Link to one-pager.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 18</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-video">Video</span> Record Video 3: university context. Show the Students page, the cohort view, the placement-readiness breakdown. Fresh angle for a different audience.</div>
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Post-demo follow-up to Week 2 demos. "Any questions after reviewing? Happy to do a technical deep-dive if that helps." Offer feature guide link.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 19</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-publish">Publish</span> Upload Video 3 to YouTube. Share with the university audience specifically.</div>
+            <div class="day-task"><span class="day-tag tag-demo">Demo</span> First pilot conversation: for any prospect who attended 2 demos and asked detailed questions, move to "what does a 30-day paid pilot look like?" No free trials — a paid pilot validates intent.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 20</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Community engagement: post something genuinely useful in the bench sales WhatsApp/Facebook groups. Answer a question someone asked. Build credibility before pitching in communities.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 21</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> Week 3 review. Which channel drove the best conversations — LinkedIn content, direct DMs, communities? Double the best one in Week 4. Drop the worst one entirely.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 4 -->
+    <div class="week-block">
+      <div class="week-title">Week 4 · Days 22–30 · Convert + Commit</div>
+      <div class="day-row">
+        <div class="day-num">Day 22</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-content">Content</span> Post the content type that got the highest engagement in Weeks 1–3. Repeat the format, not the topic.</div>
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Warm leads re-engagement: anyone who opened a link, watched the video, or replied but went quiet. One more touch, with a new angle or data point.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 23–25</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-demo">Demo</span> Run all pending demo sessions. For each one: lead with the pain they described, not the product. Show the specific feature that solves their specific problem. Ask for pilot commitment at end.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 26–28</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-outreach">Outreach</span> Wave 4 outreach based entirely on what worked. Same prospect profile as your best Wave 1–3 responses. Message based on what language got replies.</div>
+            <div class="day-task"><span class="day-tag tag-content">Content</span> 2–3 more posts based on highest-engagement format from previous weeks.</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-num">Day 29–30</div>
+        <div class="day-content">
+          <div class="day-tasks">
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> 30-day retrospective. How many demos? How many pilots proposed? How many paying? Which marketing material was referenced most in conversations? Use this to plan Month 2.</div>
+            <div class="day-task"><span class="day-tag tag-setup">Setup</span> If you have even 1 paying pilot: write a one-sentence description of exactly who they are and what made them convert. That's your ICP. Build everything in Month 2 around finding more of them.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 6. Platform hosting -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="platform-hosting">
+    <div class="sec-label amber">Section 6</div>
+    <h2 class="sec-h2">When to host the platform itself</h2>
+    <p class="sec-intro">The marketing files are solved by GitHub Pages. The JobSeam platform — the Docker stack running at localhost — is a separate question. Here's how to think about it.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Demo method</th>
+          <th>Hosting needed</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First 0–10 demos</td>
+          <td>Screen-share (Zoom, Meet). You run the app locally, share your screen. You control everything.</td>
+          <td>None. Localhost is ideal — real data, full control, instant reset.</td>
+          <td>$0</td>
+        </tr>
+        <tr>
+          <td>Prospects ask to try it themselves</td>
+          <td>Self-serve trial access. They need a URL they can open independently.</td>
+          <td>VPS with Docker. Deploy the full stack. One server, one environment.</td>
+          <td>$6–$12/mo (DigitalOcean, Hetzner)</td>
+        </tr>
+        <tr>
+          <td>Multiple pilots running concurrently</td>
+          <td>Each customer needs their own group and data isolation.</td>
+          <td>Same VPS works for 3–5 groups. Add more resources when needed. Still no dedicated infra required.</td>
+          <td>$12–$24/mo</td>
+        </tr>
+        <tr>
+          <td>First paying tier</td>
+          <td>Production environment. Customers expect uptime and backups.</td>
+          <td>Two servers: app + database, or managed Postgres (Supabase/Neon). Set up backups. Add SSL certificate (free with Let's Encrypt).</td>
+          <td>$20–$40/mo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout green">
+      <div class="callout-head">Recommended path for the platform</div>
+      <p style="margin-bottom:8px;"><strong>When your first prospect says "can I log in and try it myself?"</strong> — that's the trigger. Not before. Set up a $6/mo DigitalOcean droplet, deploy the Docker Compose stack, add a free SSL cert with Certbot, create a demo group for them. Total setup time: 2–3 hours.</p>
+      <p>Use Hetzner (€3.79/mo) if cost matters more than location. Use Railway or Render if you want the platform managed (no SSH required, ~$20/mo). Railway in particular supports Docker Compose and deploys from GitHub.</p>
+    </div>
+
+    <div class="callout amber">
+      <div class="callout-head">Don't do this before you need it</div>
+      Setting up hosted infrastructure before you have a prospect asking for self-serve access is a distraction. Every hour spent on DevOps is an hour not spent on the 3 conversations that could get you your first paying customer. Screen-share demos close deals. Perfect uptime does not.
+    </div>
+
+    <h3 style="font-family:Georgia,serif;font-size:16px;font-weight:normal;color:var(--ink);margin:28px 0 12px;">Quick-reference: what to set up and when</h3>
+
+    <ul class="plain">
+      <li><strong>Today (pre-launch):</strong> GitHub Pages for marketing files. That's it.</li>
+      <li><strong>When the first prospect asks for a self-serve trial:</strong> DigitalOcean droplet ($6/mo), Docker Compose up, Certbot SSL, one demo group created.</li>
+      <li><strong>When you have 3+ concurrent pilots:</strong> Add a second droplet for Postgres, or move to managed Postgres (Supabase free tier is fine). Set up daily backups.</li>
+      <li><strong>Custom domain for the platform:</strong> <code>app.jobseam.io</code> — buy the domain when you buy it for the marketing site ($12/yr total, covers both).</li>
+      <li><strong>What you never need in year one:</strong> Kubernetes, dedicated servers, CDN for the app, multi-region deployment. Build those when you have customers who need them.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:56px;padding-top:24px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+    <span>JobSeam Marketing Playbook &nbsp;·&nbsp; Internal use only</span>
+    <span>Updated July 2026 &nbsp;·&nbsp; <code style="font-size:11px;">jobseam-launch-guide.html</code></span>
+  </div>
+
+</div>

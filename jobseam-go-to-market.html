@@ -1,0 +1,939 @@
+<title>JobSeam: Go-to-Market Kit</title>
+<style>
+:root {
+  --ink:#0c1220; --steel:#162440; --panel:#1a2d4a;
+  --electric:#2563eb; --spark:#06b6d4; --gold:#f59e0b;
+  --mist:#8a9bb5; --snow:#f1f5f9; --green:#10b981; --red:#ef4444;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',sans-serif;
+  --mono:'SF Mono','Fira Code','Consolas',monospace;
+}
+@media (prefers-color-scheme:dark){:root{--bg:var(--ink);--bg2:var(--steel);--bg3:var(--panel);--text:var(--snow);--sub:#94a3b8;--border:#233554;}}
+@media (prefers-color-scheme:light){:root{--bg:#f8fafc;--bg2:#fff;--bg3:#f1f5f9;--text:#0f172a;--sub:#475569;--border:#e2e8f0;}}
+:root[data-theme="dark"]{--bg:var(--ink);--bg2:var(--steel);--bg3:var(--panel);--text:var(--snow);--sub:#94a3b8;--border:#233554;}
+:root[data-theme="light"]{--bg:#f8fafc;--bg2:#fff;--bg3:#f1f5f9;--text:#0f172a;--sub:#475569;--border:#e2e8f0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.6;}
+
+/* NAV */
+.top-nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:50;overflow-x:auto;}
+.nav-logo{font-size:16px;font-weight:800;letter-spacing:-.03em;color:var(--text);padding:14px 0;margin-right:24px;white-space:nowrap;}
+.nav-logo span{color:var(--electric);}
+.nav-tab{background:none;border:none;border-bottom:2px solid transparent;padding:14px 16px;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;white-space:nowrap;font-family:var(--font);transition:color .15s,border-color .15s;margin-bottom:-1px;}
+.nav-tab.active{color:var(--electric);border-bottom-color:var(--electric);}
+
+/* SECTIONS */
+.section{display:none;max-width:1080px;margin:0 auto;padding:48px 40px;}
+.section.active{display:block;}
+
+/* HEADERS */
+.sec-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--electric);margin-bottom:8px;}
+.sec-h1{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.04em;margin-bottom:10px;}
+.sec-sub{font-size:15px;color:var(--sub);max-width:680px;line-height:1.65;margin-bottom:36px;}
+
+/* CARDS */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:20px;}
+.card-title{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;}
+.card-meta{font-size:11px;color:var(--sub);margin-bottom:14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;}
+.tag-blue{background:rgba(37,99,235,.1);color:var(--electric);border:1px solid rgba(37,99,235,.2);}
+.tag-gold{background:rgba(245,158,11,.1);color:var(--gold);border:1px solid rgba(245,158,11,.2);}
+.tag-green{background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.2);}
+.tag-red{background:rgba(239,68,68,.08);color:var(--red);border:1px solid rgba(239,68,68,.15);}
+
+/* POST CARDS */
+.post-box{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:18px 20px;font-size:13px;line-height:1.7;color:var(--text);margin-bottom:10px;white-space:pre-line;position:relative;}
+.copy-btn{position:absolute;top:10px;right:10px;background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 10px;font-size:11px;color:var(--sub);cursor:pointer;font-family:var(--font);transition:color .15s;}
+.copy-btn:hover{color:var(--electric);}
+.copy-btn.copied{color:var(--green);}
+.char-count{font-size:10px;color:var(--sub);margin-top:6px;}
+
+/* AUDIENCE GRID */
+.aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:32px;}
+.aud-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:22px;}
+.aud-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.aud-icon{font-size:24px;}
+.aud-title{font-size:15px;font-weight:700;letter-spacing:-.02em;}
+.aud-where{margin-bottom:12px;}
+.aud-where-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--sub);margin-bottom:6px;}
+.channel-list{display:flex;flex-wrap:wrap;gap:6px;}
+.channel-chip{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--bg3);border:1px solid var(--border);color:var(--sub);}
+.aud-message{font-size:12px;color:var(--sub);line-height:1.6;padding:10px 12px;background:var(--bg3);border-radius:6px;border-left:2px solid var(--electric);}
+
+/* VIDEO STORYBOARD */
+.scene{background:var(--bg2);border:1px solid var(--border);border-radius:10px;margin-bottom:16px;overflow:hidden;}
+.scene-header{background:var(--bg3);padding:10px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);}
+.scene-num{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--sub);}
+.scene-title{font-size:13px;font-weight:700;}
+.scene-dur{font-size:11px;color:var(--sub);margin-left:auto;}
+.scene-body{padding:16px;display:grid;grid-template-columns:1fr 2fr;gap:20px;}
+.scene-visual{background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:80px;}
+.scene-visual .icon{font-size:28px;margin-bottom:6px;}
+.scene-visual .caption{font-size:10px;color:var(--sub);}
+.scene-script{font-size:12px;line-height:1.65;color:var(--sub);}
+.scene-script strong{color:var(--text);}
+.scene-vo{margin-top:8px;padding:8px 10px;background:rgba(37,99,235,.06);border-radius:5px;font-size:11px;color:var(--sub);font-style:italic;}
+
+/* TARGETING GRID */
+.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+.target-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px 16px;}
+.target-icon{font-size:20px;margin-bottom:10px;}
+.target-title{font-size:13px;font-weight:700;margin-bottom:6px;}
+.target-body{font-size:12px;color:var(--sub);line-height:1.55;}
+.target-tactic{margin-top:10px;font-size:11px;color:var(--electric);font-weight:600;}
+
+/* HASHTAG CLOUD */
+.hashtag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
+.ht{font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);color:var(--sub);cursor:pointer;transition:all .15s;}
+.ht:hover{border-color:var(--electric);color:var(--electric);}
+.ht.primary{border-color:rgba(37,99,235,.3);color:var(--electric);background:rgba(37,99,235,.06);}
+
+/* CONTENT CALENDAR */
+.cal-row{display:grid;grid-template-columns:80px 1fr 120px;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:8px;}
+.cal-day{background:var(--bg3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;border-right:1px solid var(--border);text-align:center;}
+.cal-day .d{font-size:20px;font-weight:900;letter-spacing:-.04em;font-family:var(--mono);}
+.cal-day .m{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;}
+.cal-content{padding:12px 16px;}
+.cal-content .type{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--sub);margin-bottom:3px;}
+.cal-content .title{font-size:13px;font-weight:600;}
+.cal-content .desc{font-size:11px;color:var(--sub);margin-top:2px;}
+.cal-metric{display:flex;align-items:center;justify-content:center;padding:12px;border-left:1px solid var(--border);text-align:center;}
+.cal-metric .kpi{font-size:13px;font-weight:700;color:var(--gold);}
+.cal-metric .kpi-l{font-size:10px;color:var(--sub);}
+
+@media (max-width:700px){
+  .section{padding:32px 20px;}
+  .aud-grid,.target-grid{grid-template-columns:1fr;}
+  .scene-body{grid-template-columns:1fr;}
+  .cal-row{grid-template-columns:60px 1fr;}
+  .cal-metric{display:none;}
+  .top-nav{padding:0 20px;}
+}
+</style>
+
+<nav class="top-nav">
+  <div class="nav-logo">Job<span>Seam</span></div>
+  <button class="nav-tab active" onclick="showSec('targeting')">🎯 Targeting Guide</button>
+  <button class="nav-tab" onclick="showSec('linkedin')">💼 LinkedIn Posts</button>
+  <button class="nav-tab" onclick="showSec('youtube')">▶ YouTube Script</button>
+  <button class="nav-tab" onclick="showSec('website')">🌐 Website Copy</button>
+  <button class="nav-tab" onclick="showSec('calendar')">📅 Content Calendar</button>
+  <button class="nav-tab" onclick="showSec('video')">🎬 Video Storyboard</button>
+</nav>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━ TARGETING GUIDE ━━━━━━━━━━━━━━━━━ -->
+<div class="section active" id="sec-targeting">
+  <div class="sec-eyebrow">Go-to-Market · Audience Targeting</div>
+  <h1 class="sec-h1">Who to target, where to find them, what to say.</h1>
+  <p class="sec-sub">Four distinct audiences, each with a different entry point, platform preference, and message that converts. Start with one segment, prove the motion, then expand.</p>
+
+  <div class="aud-grid">
+    <div class="aud-card">
+      <div class="aud-header">
+        <div class="aud-icon">🏢</div>
+        <div>
+          <div class="aud-title">IT Staffing Company Owners</div>
+          <div style="font-size:12px;color:var(--sub)">Primary buyer · Highest LTV · Firmographic target</div>
+        </div>
+      </div>
+      <div class="aud-where">
+        <div class="aud-where-title">Where to Reach Them</div>
+        <div class="channel-list">
+          <span class="channel-chip">LinkedIn (Company page followers)</span>
+          <span class="channel-chip">StaffingTec conference</span>
+          <span class="channel-chip">ASA (Staffing Association)</span>
+          <span class="channel-chip">Local IT staffing WhatsApp groups</span>
+          <span class="channel-chip">TechServe Alliance</span>
+        </div>
+      </div>
+      <div class="aud-where" style="margin-top:12px;">
+        <div class="aud-where-title">LinkedIn Filters (Sales Navigator)</div>
+        <div class="channel-list">
+          <span class="channel-chip">Title: Owner, CEO, VP Operations</span>
+          <span class="channel-chip">Industry: Staffing & Recruiting</span>
+          <span class="channel-chip">Company size: 11–200</span>
+          <span class="channel-chip">Keywords: "bench sales", "C2C", "H1B"</span>
+        </div>
+      </div>
+      <div class="aud-message" style="margin-top:14px;">
+        <strong style="color:var(--text)">Resonating message:</strong> "Your bench sales team is leaving money on the table — not because they're bad at their jobs, but because they're drowning in vendor emails and manual matching. JobSeam automates that. Four hours per rep per day — run the numbers."
+      </div>
+    </div>
+
+    <div class="aud-card">
+      <div class="aud-header">
+        <div class="aud-icon">📞</div>
+        <div>
+          <div class="aud-title">Bench Sales Consultants</div>
+          <div style="font-size:12px;color:var(--sub)">Champion + influencer · Recommends up to owner</div>
+        </div>
+      </div>
+      <div class="aud-where">
+        <div class="aud-where-title">Where to Reach Them</div>
+        <div class="channel-list">
+          <span class="channel-chip">LinkedIn posts/hashtags</span>
+          <span class="channel-chip">Facebook groups (C2C, H1B)</span>
+          <span class="channel-chip">Reddit: r/ITCareerQuestions</span>
+          <span class="channel-chip">WhatsApp bench sales groups</span>
+          <span class="channel-chip">Discord tech staffing servers</span>
+        </div>
+      </div>
+      <div class="aud-where" style="margin-top:12px;">
+        <div class="aud-where-title">Hashtags (LinkedIn / Twitter)</div>
+        <div class="channel-list">
+          <span class="channel-chip">#benchsales</span>
+          <span class="channel-chip">#c2c</span>
+          <span class="channel-chip">#h1b</span>
+          <span class="channel-chip">#itconsulting</span>
+          <span class="channel-chip">#staffing</span>
+        </div>
+      </div>
+      <div class="aud-message" style="margin-top:14px;">
+        <strong style="color:var(--text)">Resonating message:</strong> "What if you walked in every morning to a list of already-matched reqs with your consultants scored? No inbox triage. No guesswork. Just the 5 best submissions for today — ready to go."
+      </div>
+    </div>
+
+    <div class="aud-card">
+      <div class="aud-header">
+        <div class="aud-icon">📊</div>
+        <div>
+          <div class="aud-title">Bench Sales Managers</div>
+          <div style="font-size:12px;color:var(--sub)">Power user · Drives org-wide adoption</div>
+        </div>
+      </div>
+      <div class="aud-where">
+        <div class="aud-where-title">Where to Reach Them</div>
+        <div class="channel-list">
+          <span class="channel-chip">LinkedIn DM (Sales Navigator)</span>
+          <span class="channel-chip">IT staffing Slack communities</span>
+          <span class="channel-chip">Industry webinars</span>
+          <span class="channel-chip">Referral from reps</span>
+        </div>
+      </div>
+      <div class="aud-where" style="margin-top:12px;">
+        <div class="aud-where-title">LinkedIn Filters</div>
+        <div class="channel-list">
+          <span class="channel-chip">Title: Bench Sales Manager, Director</span>
+          <span class="channel-chip">Industry: Staffing & Recruiting</span>
+          <span class="channel-chip">Seniority: Manager+</span>
+        </div>
+      </div>
+      <div class="aud-message" style="margin-top:14px;">
+        <strong style="color:var(--text)">Resonating message:</strong> "Do you actually know which of your reps sent an RTR today? Which consultants haven't been marketed in 2 weeks? JobSeam gives you real-time visibility into your bench pipeline — without chasing your team for status updates."
+      </div>
+    </div>
+
+    <div class="aud-card">
+      <div class="aud-header">
+        <div class="aud-icon">👤</div>
+        <div>
+          <div class="aud-title">IT Consultants on Bench</div>
+          <div style="font-size:12px;color:var(--sub)">End beneficiary · Advocates who push employers to buy</div>
+        </div>
+      </div>
+      <div class="aud-where">
+        <div class="aud-where-title">Where to Reach Them</div>
+        <div class="channel-list">
+          <span class="channel-chip">LinkedIn job content</span>
+          <span class="channel-chip">Reddit: r/cscareerquestions</span>
+          <span class="channel-chip">YouTube: tech job content</span>
+          <span class="channel-chip">Desi tech Facebook groups</span>
+          <span class="channel-chip">H1B forums</span>
+        </div>
+      </div>
+      <div class="aud-where" style="margin-top:12px;">
+        <div class="aud-where-title">Hashtags</div>
+        <div class="channel-list">
+          <span class="channel-chip">#h1b</span>
+          <span class="channel-chip">#opt</span>
+          <span class="channel-chip">#javadeveloper</span>
+          <span class="channel-chip">#jobsearch</span>
+          <span class="channel-chip">#usjobs</span>
+        </div>
+      </div>
+      <div class="aud-message" style="margin-top:14px;">
+        <strong style="color:var(--text)">Resonating message:</strong> "Your recruiter might be sending you on the wrong roles — not because they don't care, but because they're matching by title, not skills. Ask them if they're using AI matching. Your placement speed will thank you."
+      </div>
+    </div>
+
+    <div class="aud-card">
+      <div class="aud-header">
+        <div class="aud-icon">🎓</div>
+        <div>
+          <div class="aud-title">Universities & Training Institutes</div>
+          <div style="font-size:12px;color:var(--sub)">Institutional buyer · Placement director or program manager</div>
+        </div>
+      </div>
+      <div class="aud-where">
+        <div class="aud-where-title">Where to Reach Them</div>
+        <div class="channel-list">
+          <span class="channel-chip">LinkedIn: #HigherEd, #CareerServices</span>
+          <span class="channel-chip">NACE (National Association of Colleges and Employers)</span>
+          <span class="channel-chip">Coding bootcamp director communities</span>
+          <span class="channel-chip">University career center conferences</span>
+          <span class="channel-chip">IT training institute forums</span>
+        </div>
+      </div>
+      <div class="aud-where" style="margin-top:12px;">
+        <div class="aud-where-title">LinkedIn Filters (Sales Navigator)</div>
+        <div class="channel-list">
+          <span class="channel-chip">Title: "Placement Director", "Career Services", "Program Director", "Director of Outcomes"</span>
+          <span class="channel-chip">Industry: Higher Education, E-Learning, Vocational Training</span>
+          <span class="channel-chip">Company size: 11–500</span>
+        </div>
+      </div>
+      <div class="aud-message" style="margin-top:14px;">
+        <strong style="color:var(--text)">Resonating message:</strong> "Your placement team is trying to match dozens of students to hundreds of jobs — manually, in spreadsheets. JobSeam AI-scores every student against every live job and gives you a ranked placement-readiness dashboard. Know exactly who to focus on and which skills are holding your cohort back."
+      </div>
+    </div>
+
+    <div class="aud-card">
+      <div class="aud-header">
+        <div class="aud-icon">🔍</div>
+        <div>
+          <div class="aud-title">Individual Job Seekers</div>
+          <div style="font-size:12px;color:var(--sub)">Self-serve user · Direct signup · No firm or institution required</div>
+        </div>
+      </div>
+      <div class="aud-where">
+        <div class="aud-where-title">Where to Reach Them</div>
+        <div class="channel-list">
+          <span class="channel-chip">Reddit: r/cscareerquestions, r/jobs, r/datascience</span>
+          <span class="channel-chip">LinkedIn: job search content audience</span>
+          <span class="channel-chip">YouTube: "how to get a job in tech" search traffic</span>
+          <span class="channel-chip">H1B / OPT forums and Facebook groups</span>
+          <span class="channel-chip">Product Hunt launch audience</span>
+        </div>
+      </div>
+      <div class="aud-where" style="margin-top:12px;">
+        <div class="aud-where-title">Hashtags</div>
+        <div class="channel-list">
+          <span class="channel-chip">#jobsearch</span>
+          <span class="channel-chip">#techjobs</span>
+          <span class="channel-chip">#careeradvice</span>
+          <span class="channel-chip">#resumetips</span>
+          <span class="channel-chip">#h1b</span>
+          <span class="channel-chip">#opt</span>
+          <span class="channel-chip">#softwaredeveloper</span>
+        </div>
+      </div>
+      <div class="aud-message" style="margin-top:14px;">
+        <strong style="color:var(--text)">Resonating message:</strong> "You're applying to 50 jobs and getting silence. JobSeam shows you your exact match % for every role you're targeting, which skills are missing, and which resume changes actually improve your score. Stop guessing. Start closing gaps."
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:8px;">
+    <div class="sec-eyebrow" style="margin-bottom:16px;">Targeting Tactics: Channel by Channel</div>
+    <div class="target-grid">
+      <div class="target-card">
+        <div class="target-icon">💼</div>
+        <div class="target-title">LinkedIn Organic</div>
+        <div class="target-body">Post 3x/week. Mix: 1 insight post (industry pain), 1 product demo clip, 1 customer story or use case. Engage on #benchsales and #staffing posts daily. Comment with value, not promotion.</div>
+        <div class="target-tactic">Builds authority and warm inbound</div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">📧</div>
+        <div class="target-title">LinkedIn DM Outbound</div>
+        <div class="target-body">Sales Navigator: target Owner/CEO/VP at IT staffing firms, 11–200 employees. 5-message sequence: empathy, insight, hook, social proof, ask. Never pitch in message 1.</div>
+        <div class="target-tactic">Target: 20 demos per month</div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">▶</div>
+        <div class="target-title">YouTube Content</div>
+        <div class="target-body">2 videos/month. Tutorial: "How to run AI bench matching in 5 minutes." Pain: "Why bench sales reps miss 30% of reqs." SEO: "bench sales software," "staffing automation." Build subscriber list as warm prospects.</div>
+        <div class="target-tactic">SEO rankings and warm demo requests</div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">👥</div>
+        <div class="target-title">Community Groups</div>
+        <div class="target-body">Join 10+ WhatsApp/Facebook groups for bench sales, H1B, C2C staffing. Be present for 4 weeks before any promotion. Share genuinely useful content. Build credibility before the ask.</div>
+        <div class="target-tactic">High trust, high conversion</div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">🤝</div>
+        <div class="target-title">Partner Referrals</div>
+        <div class="target-body">Target immigration attorneys, C2C facilitators, staffing consultants. They serve the same customers. Offer 20% MRR rev-share for 12 months per referred customer. Simple affiliate link.</div>
+        <div class="target-tactic">Trusted referral, low acquisition cost</div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">🎤</div>
+        <div class="target-title">Industry Events</div>
+        <div class="target-body">StaffingTec, ASA Staffing World, regional SHRM events. Sponsor a lunch roundtable (not a booth). Present a 20-min "AI in Bench Sales" talk. Follow up every attendee within 48 hrs.</div>
+        <div class="target-tactic">High-quality enterprise leads</div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">🎓</div>
+        <div class="target-title">Education Sector Outreach</div>
+        <div class="target-body">Target coding bootcamps, IT training institutes, and university career centers directly. Cold email placement directors with cohort-size-specific ROI framing. NACE conference presence. "AI placement dashboard" demo video gets strong engagement in this segment.</div>
+        <div class="target-tactic">High-value, low-competition segment</div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">🔍</div>
+        <div class="target-title">Individual User Acquisition</div>
+        <div class="target-body">Product Hunt launch (day-1 visibility). YouTube SEO: "how to see your job match score," "AI resume gap analysis." Reddit AMAs in r/cscareerquestions. Free individual tier drives . Individuals become internal champions when they join firms later.</div>
+        <div class="target-tactic">Viral loop and future enterprise pipeline</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-eyebrow" style="margin-bottom:12px;">Recommended Hashtag Set</div>
+    <div class="hashtag-cloud">
+      <span class="ht primary">#JobSeam</span>
+      <span class="ht primary">#BenchSales</span>
+      <span class="ht primary">#ITStaffing</span>
+      <span class="ht primary">#C2C</span>
+      <span class="ht primary">#H1B</span>
+      <span class="ht">#ArtificialIntelligence</span>
+      <span class="ht">#Staffing</span>
+      <span class="ht">#Recruiting</span>
+      <span class="ht">#TechStaffing</span>
+      <span class="ht">#ITRecruiting</span>
+      <span class="ht">#StaffingTech</span>
+      <span class="ht">#WorkforceTech</span>
+      <span class="ht">#HRTech</span>
+      <span class="ht">#AIRecruitment</span>
+      <span class="ht">#OPT</span>
+      <span class="ht">#ConsultantLife</span>
+    </div>
+  </div>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━ LINKEDIN POSTS ━━━━━━━━━━━━━━━━━ -->
+<div class="section" id="sec-linkedin">
+  <div class="sec-eyebrow">Social Media Kit · LinkedIn</div>
+  <h1 class="sec-h1">Ready-to-post LinkedIn content: copy, paste, publish.</h1>
+  <p class="sec-sub">Six post types covering pain points, product demos, social proof, and thought leadership. Rotate formats weekly. Add screenshots from your own app for best engagement.</p>
+
+  <div class="card">
+    <div class="card-title">Post 1: Pain Point (for Owners)</div>
+    <div class="card-meta"><span class="tag tag-red">Pain</span><span class="tag tag-blue">Owner audience</span><span>Best time: Tue/Thu 8am</span></div>
+    <div class="post-box" id="p1">
+I asked 40 bench sales managers the same question:
+
+"How does your team decide which consultant to market for a req?"
+
+The most common answer?
+
+"We read the req, think about who we have, and go with gut feel."
+
+The second most common?
+
+"We check a spreadsheet we haven't updated in 3 weeks."
+
+The bench-to-req matching process is the core of a $85B industry. It still runs on instinct and luck.
+
+Not because people are lazy. Because there was no better option.
+
+Until now.
+
+JobSeam scores every consultant on your bench against every open req in seconds. Exact skill match. Semantic equivalence. Rate, visa, seniority filters built in.
+
+Your team walks in every morning to a ranked list of matches, not a pile of emails.
+
+DM me if you want to see it live. I'll show you a match run on your own consultant data.
+
+#BenchSales #ITStaffing #C2C #Staffing #AIRecruitment</div>
+    <button class="copy-btn" onclick="copyPost('p1', this)">Copy</button>
+    <div class="char-count">~900 chars · LinkedIn algorithm prefers 1,000–1,300 on engagement posts</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Post 2: Product Demo Hook (for Reps)</div>
+    <div class="card-meta"><span class="tag tag-green">Product</span><span class="tag tag-blue">Rep audience</span><span>Best time: Mon 9am</span></div>
+    <div class="post-box" id="p2">
+What if you walked in every morning to this:
+
+✅ 12 new reqs from vendor emails: already extracted, structured, ready to review
+✅ Top 5 consultants scored for each req, ranked by % match
+✅ One-click RTR for the top candidates
+
+No inbox triage. No spreadsheet hunting. No guessing.
+
+That's a real JobSeam workflow. Not a mockup.
+
+What happens behind the scenes overnight:
+
+1. Vendor emails hit a dedicated mailbox you configure
+2. AI reads every email, extracts job title, skills, rate, location, visa
+3. Duplicate reqs from the same blast auto-group: no noise
+4. You review in 10 minutes. Approve the real ones. Set rules to auto-approve trusted vendors.
+5. Match runs against your bench: every consultant scored
+
+Your morning just changed.
+
+Who else is tired of starting the day with 50 vendor emails to sort?
+
+👇 Drop a comment. Let's talk about what this could look like for your team.
+
+#BenchSales #C2C #Staffing #JobSeam #WorkforceTech</div>
+    <button class="copy-btn" onclick="copyPost('p2', this)">Copy</button>
+    <div class="char-count">~950 chars</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Post 3: ROI / Numbers (for Owners & Managers)</div>
+    <div class="card-meta"><span class="tag tag-gold">ROI</span><span class="tag tag-blue">Owner + Manager</span><span>Best time: Wed 10am</span></div>
+    <div class="post-box" id="p3">
+The math that most IT staffing firms are ignoring:
+
+Your bench sales rep spends 4 hours/day on:
+Reading vendor email blasts
+Manually matching skills to requirements
+Tracking who they marketed to which vendor
+
+At 5 reps × $60K/yr loaded cost = $300K/year in labor.
+
+60% of that time is match-research and email triage.
+
+= $180,000/year in work that AI can do in 4 seconds.
+
+That's not hypothetical. That's the average across firms I've spoken to.
+
+JobSeam automates the scanning, structuring, deduplication, and matching. Your team still makes every decision. They just make it with ranked data, not a blank screen.
+
+The question isn't whether you can afford it.
+
+The question is how many placements you're losing to slow RTRs right now.
+
+#ITStaffing #BenchSales #StaffingTech #ROI #C2C</div>
+    <button class="copy-btn" onclick="copyPost('p3', this)">Copy</button>
+    <div class="char-count">~820 chars</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Post 4: Thought Leadership (Industry Insight)</div>
+    <div class="card-meta"><span class="tag tag-blue">Thought Leadership</span><span>All audiences</span><span>Best time: Thu 8am</span></div>
+    <div class="post-box" id="p4">
+Hot take: The biggest missed opportunity in IT staffing isn't sourcing. It's matching.
+
+Every firm I've seen has a decently-sized bench.
+Most have a steady flow of vendor reqs.
+
+The gap is in connecting them: reliably, at speed, at scale.
+
+The traditional workflow:
+1. Read the req email manually
+2. Think of who might fit
+3. Check your spreadsheet or ATS
+4. Draft the RTR from memory
+5. Send it, maybe 30 minutes later, maybe not until tomorrow
+
+The new way:
+1. Email auto-processed overnight
+2. Walk in to scored candidates
+3. One-click RTR by 9am
+
+Same bench. Same reqs. 10× faster cycle.
+
+In a market where a prime vendor routes to whoever responds first, that gap is everything.
+
+This is the shift we're building for at JobSeam. Curious what others are seeing in their shops.
+
+#ITStaffing #BenchSales #FutureOfWork #HRTech #AI</div>
+    <button class="copy-btn" onclick="copyPost('p4', this)">Copy</button>
+    <div class="char-count">~870 chars</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Post 5: Candidate Angle (Reach consultants who'll push their employers)</div>
+    <div class="card-meta"><span class="tag tag-green">Candidate</span><span>Consultant audience</span><span>Best time: Fri 9am</span></div>
+    <div class="post-box" id="p5">
+If you're a consultant on bench feeling frustrated with slow placements, this might explain why.
+
+Most bench sales teams are still matching skills to reqs manually.
+
+That means they might be missing roles where your exact skills fit, because the title didn't match, the email got buried, or someone else got to the RTR first.
+
+What changes when your team uses AI matching:
+
+Your resume gets AI-parsed into a structured skills profile
+Every live req is scored against your exact skills, not just job title
+Skill gaps get identified before you submit, so you get coached, not rejected
+Visa and rate filters applied upfront: no surprises at offer stage
+
+If you're not getting enough relevant submissions, ask your recruiter if they're using AI-assisted matching.
+
+It's the single biggest lever for faster placements.
+
+Consultants: what's your current experience with how your recruiter matches you to roles?
+
+#H1B #OPT #Consulting #TechJobs #JobSearch #ITStaffing</div>
+    <button class="copy-btn" onclick="copyPost('p5', this)">Copy</button>
+    <div class="char-count">~930 chars</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Post 6: Short Hook (for LinkedIn algorithm / high reach)</div>
+    <div class="card-meta"><span class="tag tag-gold">High reach</span><span>All audiences</span><span>Best time: Mon/Wed 7am</span></div>
+    <div class="post-box" id="p6">
+Bench sales in 2024:
+
+❌ 50 vendor emails in the inbox
+❌ Manual skill matching
+❌ Duplicate RTRs to the same vendor
+❌ Zero audit trail
+❌ Guessing which consultant to market
+
+Bench sales with JobSeam:
+
+✅ Emails auto-processed overnight
+✅ AI scores every consultant vs every req
+✅ Dedup + auto-approve rules
+✅ Full audit log: every action timestamped
+✅ Walk in to ranked matches, ready to send
+
+Same market. Different game.
+
+#BenchSales #ITStaffing #C2C #JobSeam</div>
+    <button class="copy-btn" onclick="copyPost('p6', this)">Copy</button>
+    <div class="char-count">~490 chars · Short hook format, higher algorithm reach</div>
+  </div>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━ YOUTUBE SCRIPT ━━━━━━━━━━━━━━━━━ -->
+<div class="section" id="sec-youtube">
+  <div class="sec-eyebrow">Video Content · YouTube</div>
+  <h1 class="sec-h1">YouTube scripts for two high-intent videos.</h1>
+  <p class="sec-sub">One awareness video (pain-focused) and one demo video (product walkthrough). Both optimized for the "bench sales software" and "IT staffing automation" search terms.</p>
+
+  <div class="card">
+    <div class="card-title">Video 1: "How Bench Sales Teams Are Wasting 4 Hours Every Day" (Awareness, ~5 min)</div>
+    <div class="card-meta"><span class="tag tag-red">Pain awareness</span><span>Target: Owners, Managers</span><span>SEO: "bench sales software", "IT staffing tools"</span></div>
+    <div class="post-box" id="yt1">[0:00–0:30]
+"If you run an IT staffing firm and your bench sales team is manually reading vendor email blasts every morning. I want to show you exactly how much that's costing you. Not just in time. In placements."
+
+[0:30–1:30]
+"The C2C and bench-to-bench staffing market processes millions of job req emails every single day. Vendor blasts, prime vendor lists, recruiter group emails. And the way 80% of bench sales teams handle it? Copy. Paste. Scan. Guess. Send."
+
+"I interviewed 40 bench sales managers. The average rep spends 3–4 hours per day on req research and manual matching. At 5 reps on a team, that's 20 hours per day (or $180,000 per year) just to answer the question 'who on my bench fits this req?'"
+
+[1:30–2:30]
+"It's not just about time. It's about what happens when you're slow. In bench sales, whoever sends the RTR first gets the interview slot. If you're 6 hours behind a competitor because your process is manual, you're losing placements to firms that are moving faster. Not smarter. Just faster."
+
+[2:30–3:30]
+"JobSeam is an AI-powered bench sales platform that automates three things: first, it reads your vendor email inbox and extracts structured req data overnight. Second, it scores every consultant on your bench against every open req in seconds. Third, it gives your team a one-click RTR workflow with a full audit trail."
+
+"This isn't an ATS. You're not looking for candidates. You already have them. This is the missing tool for the firm that has a bench and needs to move faster on reqs."
+
+[3:30–4:30]
+"The ROI: if your team sends 3x more relevant RTRs per day because the matching is instant, and your placement rate stays the same, you've just tripled your pipeline output without hiring anyone. That's not a projection. That's what happens when you remove the bottleneck."
+
+[4:30–5:00]
+"If you want to see exactly how this works: drop a comment below, or click the link in the description to book a 20-minute demo. I'll run a live match against your own consultant data so you can see the scores before we talk pricing."
+
+"Hit subscribe if you want more videos on automating the bench sales workflow. New content every two weeks."</div>
+    <button class="copy-btn" onclick="copyPost('yt1', this)">Copy</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Video 2: "JobSeam Demo: AI Bench Sales Matching in 5 Minutes" (Product demo)</div>
+    <div class="card-meta"><span class="tag tag-green">Product demo</span><span>Target: All buyers</span><span>SEO: "jobseam demo", "bench sales automation", "IT staffing AI"</span></div>
+    <div class="post-box" id="yt2">[0:00–0:20]
+"I'm going to show you the entire JobSeam bench sales workflow in 5 minutes, from a new req arriving by email to a scored match to a sent RTR. Everything live."
+
+[0:20–1:30]
+[Screen: Req Inbox]
+"So here's the Req Inbox. These are vendor emails that arrived overnight, already parsed by AI into structured job cards. I can see the job title, the required skills, the rate range, location, and visa requirements, all extracted automatically from the original email."
+
+"See this group here: 'Java Tech Lead, Remote, $75-85/hr'? This req arrived from three different vendors on the same day. JobSeam auto-grouped them, so I see one entry, not three duplicates. I can expand to see every version side by side and pick the best one."
+
+"I'm going to approve this one. It moves straight into the Jobs page."
+
+[1:30–3:00]
+[Screen: Match page]
+"Now I'm on the Match page. I've selected that Java Tech Lead req. JobSeam has already scored every consultant on my bench against it. I can see the match percentage, the matched skills in green, the missing skills in amber, seniority, and visa status."
+
+"Arjun at 94% is the obvious first call. Spring Boot maps to Spring Framework. That's semantic matching, not just keyword search. He's got 8 years, H1B, and his rate expectation is within the req range."
+
+"If I click into his profile I can see his full resume, RTR history, notes, and which vendors he's already been submitted to."
+
+[3:00–4:00]
+[Screen: RTR workflow]
+"To send an RTR: one click. The system logs the action, the timestamp, which consultant, which req, which vendor contact. That's the audit trail. If a manager or client ever asks 'did we submit this person to this vendor?' The answer is right here, with a timestamp."
+
+[4:00–5:00]
+"That's the full workflow. Req ingestion, AI matching, scored results, one-click RTR, full audit. All in a single platform."
+
+"Link in the description to try it yourself, or book a 30-minute demo where I'll do this live with your own consultant data. The match scores get a lot more interesting when they're real."</div>
+    <button class="copy-btn" onclick="copyPost('yt2', this)">Copy</button>
+  </div>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━ WEBSITE COPY ━━━━━━━━━━━━━━━━━ -->
+<div class="section" id="sec-website">
+  <div class="sec-eyebrow">Website Copy</div>
+  <h1 class="sec-h1">Landing page copy, ready to implement.</h1>
+  <p class="sec-sub">Headline variants, subheadlines, feature descriptions, and CTAs. Test headline A/B variants with 500+ visitors before committing to one.</p>
+
+  <div class="card">
+    <div class="card-title">Hero Headline Options (A/B Test These)</div>
+    <div class="card-meta"><span class="tag tag-blue">Headline variants</span></div>
+    <div style="display:grid;gap:10px;margin-top:4px;">
+      <div style="padding:14px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;">
+        <div style="font-size:11px;font-weight:700;color:var(--electric);margin-bottom:4px;">VARIANT A — Pain-first</div>
+        <div style="font-size:18px;font-weight:800;letter-spacing:-.03em;">"Stop losing placements to slow RTRs."</div>
+        <div style="font-size:12px;color:var(--sub);margin-top:4px;">Subhead: JobSeam automates bench-to-req matching so your team sends the right candidate first — every time.</div>
+      </div>
+      <div style="padding:14px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;">
+        <div style="font-size:11px;font-weight:700;color:var(--electric);margin-bottom:4px;">VARIANT B — Benefit-first</div>
+        <div style="font-size:18px;font-weight:800;letter-spacing:-.03em;">"Your bench. Every open req. Matched in seconds."</div>
+        <div style="font-size:12px;color:var(--sub);margin-top:4px;">Subhead: AI-powered bench sales platform for IT staffing firms. From vendor email to scored match to sent RTR — automatically.</div>
+      </div>
+      <div style="padding:14px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;">
+        <div style="font-size:11px;font-weight:700;color:var(--electric);margin-bottom:4px;">VARIANT C — Outcome-first</div>
+        <div style="font-size:18px;font-weight:800;letter-spacing:-.03em;">"3× more RTRs. Same team. No extra hours."</div>
+        <div style="font-size:12px;color:var(--sub);margin-top:4px;">Subhead: JobSeam automates the manual work in bench sales — req extraction, skill matching, RTR workflow — so your reps focus on closing, not searching.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Feature Section Copy</div>
+    <div class="card-meta"><span class="tag tag-blue">Website sections</span></div>
+    <div class="post-box" id="wc1">SECTION: "How It Works"
+Headline: "From inbox chaos to ranked matches, overnight."
+Subhead: "Configure a dedicated email address. Point your vendors at it. JobSeam does the rest."
+
+Step 1: "Email arrives": "Vendor blasts, prime vendor lists, recruiter emails. They all flow into your dedicated JobSeam inbox."
+Step 2: "AI extracts": "Our LLM reads every email and pulls out structured job data: title, skills, rate, visa requirements. Multi-req emails split automatically."
+Step 3: "You review": "Approve the real ones in minutes. Set rules to auto-approve your trusted vendors. They flow straight through."
+Step 4: "AI matches": "Every consultant on your bench is scored against every approved req. Exact skill matching + semantic equivalence."
+Step 5: "RTR sent": "One click from the match panel. Logged, timestamped, attributed. Full audit trail."
+
+SECTION: "Why JobSeam"
+Headline: "Built by people who lived the problem."
+Body: "We built JobSeam because we've been in the bench sales workflow ourselves, reading vendor blasts manually, matching skills in spreadsheets, losing placements to slow RTRs. Every feature in this product traces to a specific, documented pain point. Not a guess about what the market needs. Direct experience."
+
+SECTION: Platform Fact Block
+22,000+ jobs indexed. 13+ sources. AI match scores delivered overnight, so your team walks in to scored matches, not a pile of vendor emails. That's the operational shift JobSeam makes.
+
+SECTION: CTA Block
+Headline: "Ready to see what your bench can actually do?"
+Subhead: "Book a 20-minute demo. We'll run a live match against your own consultant data. No setup required."
+Primary CTA: "Book a Demo →"
+Secondary: "See Pricing"</div>
+    <button class="copy-btn" onclick="copyPost('wc1', this)">Copy</button>
+  </div>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━ CONTENT CALENDAR ━━━━━━━━━━━━━━━━━ -->
+<div class="section" id="sec-calendar">
+  <div class="sec-eyebrow">Publishing Plan · 30-Day Content Calendar</div>
+  <h1 class="sec-h1">30 days of content: mapped, sequenced, ready to execute.</h1>
+  <p class="sec-sub">A mix of LinkedIn posts, YouTube uploads, community engagement, and outbound touchpoints. Week 1 establishes presence; Week 2–4 drive demo requests.</p>
+
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">1</div><div class="m">Mon</div></div>
+    <div class="cal-content"><div class="type">LinkedIn Post</div><div class="title">Announce JobSeam launch: pain-first messaging</div><div class="desc">Post 6 (short hook format) + product screenshot. Pin to profile.</div></div>
+    <div class="cal-metric"><div class="kpi">2K+</div><div class="kpi-l">Target impressions</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">2</div><div class="m">Tue</div></div>
+    <div class="cal-content"><div class="type">YouTube Upload</div><div class="title">"How Bench Sales Teams Are Wasting 4 Hours Every Day"</div><div class="desc">Video 1 script. Thumbnail: calculator + clock. SEO title optimized.</div></div>
+    <div class="cal-metric"><div class="kpi">500+</div><div class="kpi-l">Target views</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">3</div><div class="m">Wed</div></div>
+    <div class="cal-content"><div class="type">LinkedIn Post</div><div class="title">ROI math post (Post 3)</div><div class="desc">$180K/yr in labor on manual matching. Numbers-first format.</div></div>
+    <div class="cal-metric"><div class="kpi">3K+</div><div class="kpi-l">Target impressions</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">4</div><div class="m">Thu</div></div>
+    <div class="cal-content"><div class="type">Outbound</div><div class="title">LinkedIn DM campaign: Wave 1 (50 prospects)</div><div class="desc">Sales Navigator: IT staffing owners, 11–200 employees. Message 1: empathy + insight, no pitch.</div></div>
+    <div class="cal-metric"><div class="kpi">50</div><div class="kpi-l">DMs sent</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">7</div><div class="m">Mon</div></div>
+    <div class="cal-content"><div class="type">LinkedIn Post</div><div class="title">Pain point storytelling post (Post 1)</div><div class="desc">"I asked 40 bench sales managers..." Long-form engagement post.</div></div>
+    <div class="cal-metric"><div class="kpi">5K+</div><div class="kpi-l">Target impressions</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">9</div><div class="m">Wed</div></div>
+    <div class="cal-content"><div class="type">YouTube Upload</div><div class="title">"JobSeam Demo: AI Bench Sales Matching in 5 Minutes"</div><div class="desc">Video 2. Screen recording of live match run. Link in description → demo booking.</div></div>
+    <div class="cal-metric"><div class="kpi">200+</div><div class="kpi-l">Target views</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">10</div><div class="m">Thu</div></div>
+    <div class="cal-content"><div class="type">Outbound</div><div class="title">LinkedIn DM: Wave 1 follow-up (those who opened)</div><div class="desc">Message 2: specific insight about their firm size / market.</div></div>
+    <div class="cal-metric"><div class="kpi">10–15</div><div class="kpi-l">Expected replies</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">14</div><div class="m">Mon</div></div>
+    <div class="cal-content"><div class="type">LinkedIn Post</div><div class="title">Product demo post (Post 2): "What if you walked in to this"</div><div class="desc">Use real screenshot from the app. Add 2-min screen recording in comments.</div></div>
+    <div class="cal-metric"><div class="kpi">4K+</div><div class="kpi-l">Target impressions</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">18</div><div class="m">Fri</div></div>
+    <div class="cal-content"><div class="type">Community</div><div class="title">Join 5 bench sales WhatsApp groups / Facebook groups</div><div class="desc">Introduce yourself as building staffing tools. No pitch yet, just presence.</div></div>
+    <div class="cal-metric"><div class="kpi">5</div><div class="kpi-l">Groups joined</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">21</div><div class="m">Mon</div></div>
+    <div class="cal-content"><div class="type">LinkedIn Post</div><div class="title">Thought leadership (Post 4): "Hot take: matching, not sourcing"</div><div class="desc">Engage on replies for 48 hrs. This one drives follower growth.</div></div>
+    <div class="cal-metric"><div class="kpi">6K+</div><div class="kpi-l">Target impressions</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">25</div><div class="m">Fri</div></div>
+    <div class="cal-content"><div class="type">Outbound</div><div class="title">LinkedIn DM: Wave 2 (50 new prospects)</div><div class="desc">Different title angle: target Bench Sales Managers instead of owners. Message 1.</div></div>
+    <div class="cal-metric"><div class="kpi">50</div><div class="kpi-l">DMs sent</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">28</div><div class="m">Mon</div></div>
+    <div class="cal-content"><div class="type">LinkedIn Post</div><div class="title">Candidate-angle post (Post 5)</div><div class="desc">Broader audience reach: consultants share with their employers. Referral flywheel.</div></div>
+    <div class="cal-metric"><div class="kpi">5K+</div><div class="kpi-l">Target impressions</div></div>
+  </div>
+  <div class="cal-row">
+    <div class="cal-day"><div class="d">30</div><div class="m">Wed</div></div>
+    <div class="cal-content"><div class="type">Retrospective</div><div class="title">Review: demos booked, replies received, video views, top post</div><div class="desc">Decide which post format resonated most. Double down in Month 2.</div></div>
+    <div class="cal-metric"><div class="kpi">5+</div><div class="kpi-l">Target demos</div></div>
+  </div>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━ VIDEO STORYBOARD ━━━━━━━━━━━━━━━━━ -->
+<div class="section" id="sec-video">
+  <div class="sec-eyebrow">Video Production · Storyboard</div>
+  <h1 class="sec-h1">Visual storyboard for a 90-second product overview video.</h1>
+  <p class="sec-sub">Optimized for LinkedIn native video, YouTube pre-roll, and website hero. Narration script + visual direction for each scene. Can be produced with screen recording + simple captions.</p>
+
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-num">SCENE 01</span>
+      <span class="scene-title">Hook: The Morning Problem</span>
+      <span class="scene-dur">0:00–0:12</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-visual">
+        <div class="icon">📬</div>
+        <div class="caption">Inbox overflowing with vendor emails (47 unread)</div>
+      </div>
+      <div class="scene-script">
+        <strong>Visual:</strong> Closeup of a email inbox. Subject lines scrolling: "Java Dev available", "Hot reqs – urgent", "React developer bench", "Please market our consultants"... 47 unread, 3 starred, none processed. Clock shows 8:45am.
+        <div class="scene-vo">Voiceover: "Every morning, your bench sales team wakes up to this. 40 vendor emails. No time to read them all. And somewhere in there, the req that could have been your next placement."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-num">SCENE 02</span>
+      <span class="scene-title">Introducing JobSeam: The Contrast</span>
+      <span class="scene-dur">0:12–0:28</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-visual">
+        <div class="icon">⚡</div>
+        <div class="caption">JobSeam dashboard, clean req inbox with 12 structured cards</div>
+      </div>
+      <div class="scene-script">
+        <strong>Visual:</strong> Cut to the JobSeam Req Inbox. Clean UI. 12 job cards, already extracted and structured. Title, skills, rate range, location, visa all visible at a glance. A "94% match · Arjun M." badge glows.
+        <div class="scene-vo">Voiceover: "With JobSeam, those 40 emails become 12 structured req cards overnight. AI reads every one, extracts the job data, and groups the duplicates."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-num">SCENE 03</span>
+      <span class="scene-title">The Match: Core Product Moment</span>
+      <span class="scene-dur">0:28–0:52</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-visual">
+        <div class="icon">🎯</div>
+        <div class="caption">Match view with animated score bars filling up</div>
+      </div>
+      <div class="scene-script">
+        <strong>Visual:</strong> Match page. A req selected. Match score bars animate in: 94% (green), 87% (green), 61% (amber). Skill chips: green = matched, amber = partial. Click on Arjun → detail pane slides in: full skills, experience, visa, RTR history.
+        <strong style="display:block;margin-top:8px;">Key visual:</strong> Bar fills from 0 to 94% with a soft ease curve. This is the brand moment. Show it in full.
+        <div class="scene-vo">Voiceover: "Open any req and see every consultant on your bench already scored. Not just keyword matching. Semantic equivalence. Spring Boot and Spring Framework. Java and J2EE. Real matching."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-num">SCENE 04</span>
+      <span class="scene-title">One-Click RTR</span>
+      <span class="scene-dur">0:52–1:08</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-visual">
+        <div class="icon">📧</div>
+        <div class="caption">RTR button click → success state → audit log entry</div>
+      </div>
+      <div class="scene-script">
+        <strong>Visual:</strong> "Send RTR" button highlighted in toolbar. Click. Brief send animation. Confirmation: "RTR sent, logged at 9:03am." Cut to audit log row: timestamp, actor, candidate name, req ID, vendor. All in 2 seconds.
+        <div class="scene-vo">Voiceover: "One click. RTR sent, logged, timestamped. Every submission traceable. No more 'did we send this person to that vendor?' The answer is right here."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-num">SCENE 05</span>
+      <span class="scene-title">Close: CTA</span>
+      <span class="scene-dur">1:08–1:30</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-visual">
+        <div class="icon">🚀</div>
+        <div class="caption">JobSeam logo lockup with URL and "Book a Demo"</div>
+      </div>
+      <div class="scene-script">
+        <strong>Visual:</strong> Zoom out to full dashboard. Multiple match runs visible. Stats ticker: "94% avg match speed improvement · 3× RTRs/day · 0 missed reqs." Fade to dark. JobSeam wordmark with tagline.
+        <div class="scene-vo">Voiceover: "JobSeam is the AI-powered bench sales platform built for IT staffing firms that can't afford to miss a placement. Book a 20-minute demo. See the matches on your own consultant data."</div>
+        <div style="margin-top:8px;font-size:11px;color:var(--sub)"><strong>End card:</strong> Subscribe button (YouTube). Link overlay: "Book Demo" → demo booking page. Related video: "How Bench Sales Teams Are Wasting 4 Hours Every Day"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-title">Production Notes</div>
+    <div class="card-meta"><span class="tag tag-blue">Production</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:12px;color:var(--sub);line-height:1.65;">
+      <div>
+        <strong style="color:var(--text);display:block;margin-bottom:6px;">What you need to produce this:</strong>
+        <ul style="list-style:none;">
+          <li>· Screen recording tool (Loom, OBS, or QuickTime)</li>
+          <li>· Microphone (USB condenser, $60-80, makes a huge difference)</li>
+          <li>· Simple video editor: CapCut, DaVinci Resolve (free)</li>
+          <li>· Live JobSeam data for the match scene (use real consultant data)</li>
+          <li>· Background music: low-tempo electronic (YouTube Audio Library)</li>
+        </ul>
+      </div>
+      <div>
+        <strong style="color:var(--text);display:block;margin-bottom:6px;">Distribution plan:</strong>
+        <ul style="list-style:none;">
+          <li>· YouTube: upload as unlisted first, review, then public</li>
+          <li>· LinkedIn: native upload (NOT YouTube link) for 3× reach</li>
+          <li>· Website hero: autoplay muted loop (scenes 2–4 only, 25s)</li>
+          <li>· Cold outreach: Loom version with personalized intro overlay</li>
+          <li>· Sales deck: embed link in slide 3 (Solution slide)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showSec(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function copyPost(id, btn) {
+  const text = document.getElementById(id).textContent.replace('Copy','').replace('copied','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+const mq = window.matchMedia('(prefers-color-scheme: dark)');
+document.documentElement.setAttribute('data-theme', mq.matches ? 'dark' : 'light');
+mq.addEventListener('change', e => document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light'));
+</script>
