@@ -1,0 +1,184 @@
+
+:root{--ink:#111d2b;--green:#b9d889;--olive:#4c682a;--muted:#586474;--line:#dce2da;--paper:#f6f7f2;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0;line-height:1.65}
+a{color:inherit;text-underline-offset:4px}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,p{margin:0 0 18px}
+h1{font-size:clamp(42px,5.5vw,76px);line-height:1.07;letter-spacing:-.055em}
+h2{font-size:clamp(30px,3.5vw,46px);line-height:1.15;letter-spacing:-.04em}
+h3{font-size:21px;line-height:1.3}
+p{color:var(--muted)}
+.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+.skip{position:absolute;left:16px;top:-100px;background:white;padding:12px;z-index:10}
+.skip:focus{top:8px}
+header{border-bottom:1px solid var(--line);background:var(--paper)}
+.nav{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font:700 28px Georgia,serif;text-decoration:none;letter-spacing:-1px;white-space:nowrap}
+.brand span{color:var(--olive)}
+.brand small{font:11px system-ui;display:block;letter-spacing:.02em;color:var(--muted)}
+nav{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:600}
+nav a{text-decoration:none}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:6px;background:var(--ink);color:white;text-decoration:none;font-weight:650;font-size:14px;border:1px solid var(--ink);cursor:pointer;font-family:inherit}
+.button.light{background:var(--green);color:var(--ink);border-color:var(--green)}
+.button.outline{background:transparent;color:inherit;border-color:currentColor}
+.actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:28px 0 20px}
+.eyebrow{font-size:11px;letter-spacing:.15em;font-weight:750;text-transform:uppercase;color:var(--olive);margin-bottom:22px}
+.hero{padding:76px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center}
+.hero p{font-size:18px;max-width:600px}
+.hero h1 em{font-style:normal;color:var(--olive)}
+.small,.hero .small{font-size:13px}
+.product{background:#e6ebdf;border:1px solid #ced7c6;border-radius:12px;padding:18px;box-shadow:0 24px 64px #12202b12;transform:rotate(1deg)}
+.product-top{display:flex;justify-content:space-between;font-size:11px;font-weight:650;margin-bottom:14px}
+.product img{border:1px solid var(--line);border-radius:5px}
+.product figcaption{font-size:11px;color:var(--muted);margin-top:12px}
+figure{margin:0}
+.strip{border-block:1px solid var(--line);padding:23px 0}
+.strip .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;font-weight:600}
+.section{padding:80px 0}
+.section-heading{max-width:660px;margin-bottom:36px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{padding:28px;background:white;border:1px solid var(--line);border-radius:9px}
+.card p:last-child{margin-bottom:0}
+.number{display:block;font:13px monospace;color:var(--olive);margin-bottom:28px}
+.dark{background:var(--ink);color:white}
+.dark p{color:#bac6ce}
+.dark .eyebrow{color:var(--green)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.steps{padding:0;list-style:none;counter-reset:steps}
+.steps li{counter-increment:steps;border-bottom:1px solid #ffffff24;padding:17px 0;display:flex;gap:20px;align-items:center}
+.steps li:before{content:'0' counter(steps);font:12px monospace;color:var(--green)}
+.offer{border:1px solid #c4d2b4;background:#e9efdf;padding:36px;border-radius:10px}
+.offer .price{font-size:60px;letter-spacing:-.05em;font-weight:750;line-height:1.2}
+.price small{font-size:16px;letter-spacing:0;font-weight:400}
+.checklist{padding-left:20px;color:var(--muted)}
+.checklist li{padding:5px 0}
+.text-link{font-weight:650;font-size:14px}
+.video{aspect-ratio:16/9;background:#0b1320;display:grid;place-content:center;text-align:center;border-radius:10px;padding:28px;color:white}
+.video p{color:#bac6ce}
+.video .play{font-size:38px;color:var(--green)}
+.faq{max-width:820px}
+.faq details{padding:22px 0;border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:650}
+details p{margin:14px 0 0}
+.cta{padding:56px;border-radius:12px;background:var(--ink);color:white}
+.cta p{color:#bac6ce}
+.page-title{max-width:800px}
+.plans{align-items:stretch}
+.plan{display:flex;flex-direction:column}
+.plan.featured{background:#e9efdf;border-color:#a6bd89}
+.plan .price{font-size:46px;letter-spacing:-.05em;font-weight:750}
+.plan .button{margin-top:auto}
+.pill{display:inline-block;color:var(--olive);font-size:11px;font-weight:750;letter-spacing:.07em;margin-bottom:18px}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;text-align:left}
+th,td{padding:16px;border-bottom:1px solid var(--line)}
+thead{background:#e9efdf}
+caption{text-align:left;font-weight:700;font-size:22px;margin:0 0 20px}
+.booking{min-height:740px;background:white;border:1px solid var(--line);border-radius:10px}
+.booking-note{padding:20px}
+.success{padding:20px;background:#e9efdf;border-radius:8px;margin-bottom:20px}
+footer{padding:38px 0;border-top:1px solid var(--line);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+:focus-visible{outline:3px solid #397fc0;outline-offset:5px}
+[hidden]{display:none!important}
+@media(max-width:800px){.hero-grid,.split{grid-template-columns:1fr;gap:36px}
+.grid3{grid-template-columns:1fr}
+.hero{padding:48px 0}
+.section{padding:52px 0}
+.nav{flex-wrap:wrap;padding:18px 0;gap:16px}
+nav{gap:16px;flex-wrap:wrap;font-size:13px}
+nav .button{padding:10px 13px}
+.product{transform:none}
+.cta{padding:28px}
+.wrap{width:calc(100% - 32px)}
+th,td{padding:12px}
+.booking{min-height:780px}
+.strip .wrap{gap:12px 24px}
+}
+@media print{header,footer,.actions,.booking{display:none}
+.section,.hero{padding:20px 0}
+.dark,.cta{background:white;color:#111}
+.dark p,.cta p{color:#333}
+.grid3{grid-template-columns:repeat(3,1fr)}
+.card{break-inside:avoid}
+body{background:white}
+}
+
+
+nav a[aria-current="page"]:not(.button){color:var(--olive);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
+.workflow-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+@media(max-width:1000px){.nav{flex-wrap:wrap;padding:18px 0}nav{flex-wrap:wrap}}
+@media(max-width:800px){.workflow-grid{grid-template-columns:1fr}}
+
+/* Calendly uses a percentage-height iframe: give its parent an explicit height. */
+.booking{height:780px;min-width:0;position:relative;overflow:hidden}
+.booking iframe{display:block;width:100%;height:100%;border:0}
+@media(max-width:800px){.booking{height:900px}}
+
+.foot{align-items:flex-start}
+.foot-links{align-items:center}
+.foot-links a{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:800px){.foot{flex-direction:column;gap:16px}.foot-links{gap:8px 20px}}
+
+.match-example{background:var(--ink);color:#f1f5f9;padding:32px;border:1px solid #314356;border-radius:12px;min-width:0}
+.match-example .eyebrow{display:block;color:#b9d889;margin-bottom:12px}
+.match-example h3{font-size:26px;margin-bottom:8px}
+.match-example p{color:#c0cbd5}
+.match-example ul{list-style:none;padding:0;margin:28px 0}
+.match-example-row{margin-bottom:24px}
+.match-example-label{display:flex;justify-content:space-between;gap:16px;margin-bottom:10px}
+.match-example-label strong{color:#b9d889}
+.match-example-track{height:10px;border-radius:6px;overflow:hidden;background:#314356}
+.match-example-track span{display:block;height:100%;border-radius:6px}
+.match-example-track .high{background:#a5c970}
+.match-example-track .partial{background:#f5b342}
+.match-example-status{display:inline-block;margin-top:8px;font-size:12px;color:#dae6cf;background:#253a30;padding:3px 8px;border-radius:4px}
+.match-example .match-example-note{font-size:12px;margin:0;line-height:1.6}
+.faq summary{min-height:44px;padding:8px 0}
+@media(max-width:480px){.match-example{padding:24px 20px}}
+
+/* Compact the explanatory page without reducing body-text legibility. */
+.workflow-page .hero{padding:44px 0 24px}
+.workflow-page h1{font-size:clamp(36px,4.5vw,60px)}
+.workflow-page .hero p{font-size:16px}
+.workflow-page .section{padding:32px 0}
+.workflow-page h2{font-size:clamp(28px,3vw,36px)}
+.workflow-page p{margin-bottom:12px}
+.workflow-page .eyebrow{margin-bottom:12px}
+.workflow-page .split{gap:36px}
+.workflow-page .section-heading{margin-bottom:22px;max-width:760px}
+.workflow-page .workflow-grid{gap:16px}
+.workflow-page .card{padding:20px}
+.workflow-page .card h3{font-size:18px;margin-bottom:10px}
+.workflow-page .number{margin-bottom:12px}
+.workflow-page .match-example{width:100%;max-width:440px;justify-self:center;padding:22px 24px}
+.workflow-page .match-example h3{font-size:20px;margin-bottom:4px}
+.workflow-page .match-example figcaption p{font-size:12px;margin-bottom:0}
+.workflow-page .match-example ul{margin:18px 0 14px}
+.workflow-page .match-example-row{margin-bottom:12px}
+.workflow-page .match-example-label{font-size:14px;margin-bottom:6px}
+.workflow-page .match-example-track{height:7px}
+.workflow-page .match-example-status{font-size:11px;padding:1px 6px;margin-top:4px}
+.workflow-page .match-example-note{font-size:11px;margin:0}
+.workflow-page .cta{padding:32px}
+.workflow-faq-link{padding-top:16px}
+@media(max-width:800px){.workflow-page .hero{padding-top:32px}.workflow-page .section{padding:24px 0}.workflow-page .split{gap:24px}.workflow-page .match-example{max-width:100%}}
+
+/* Workflow step rows with screenshots */
+.workflow-steps{display:flex;flex-direction:column;gap:52px;margin-top:8px}
+.workflow-step{display:flex;gap:44px;align-items:center}
+.workflow-step:nth-child(even){flex-direction:row-reverse}
+.step-text{flex:0 0 36%;min-width:0}
+.step-text .number{display:block;margin-bottom:14px}
+.step-text h3{font-size:20px;margin-bottom:10px}
+.step-text p{margin-bottom:0;font-size:15px;color:var(--sub)}
+.step-screen{flex:1 1 0;min-width:0}
+.step-screen img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);box-shadow:0 8px 32px #12202b0f}
+@media(max-width:800px){.workflow-step,.workflow-step:nth-child(even){flex-direction:column;gap:20px}.step-text{flex:none;width:100%}}
+
+.parent-brand{display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+.parent-logo{display:inline-flex;align-items:center;justify-content:center;min-height:0;padding:4px 8px;background:#fff;border:1px solid var(--line);border-radius:8px}
+.parent-logo img{display:block;width:auto;height:18px}

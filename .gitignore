@@ -216,6 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
-JobSeam-3-Day-Pitch-Launch-Plan.docx
-jobseam-demo-subdomain-cloudflare-tunnel.docx
-jobseam-day2-day3-copy-paste-detail.docx
+# Word / Excel / PowerPoint working files (not published assets)
+*.docx
+~$*
+# Old version files
+index_v1.html

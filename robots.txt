@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow internal / non-public pages
+Disallow: /index_v1.html
+Disallow: /jobseam-go-to-market.html
+Disallow: /jobseam-launch-guide.html
+Disallow: /jobseam-deck.html
+
+# Sitemap location
+Sitemap: https://jobseam.com/sitemap.xml
