@@ -55,7 +55,7 @@
   <!-- Product overview (one-pager) — downloadable reference -->
   <url>
     <loc>https://jobseam.com/jobseam-onepager.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -63,7 +63,7 @@
   <!-- Complete feature reference guide -->
   <url>
     <loc>https://jobseam.com/jobseam-feature-guide-detailed.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

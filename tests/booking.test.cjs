@@ -10,9 +10,9 @@ function setup(search = '', blocked = false) {
     'booking-success': {hidden: true}, 'booking-fallback': {}, 'plan-interest': {hidden: true}
   };
   let listener, script;
-  const window = { location: {search}, addEventListener: (_, fn) => listener = fn };
+  const window = { dispatchEvent() {}, location: {search}, addEventListener: (_, fn) => listener = fn };
   const document = {querySelectorAll: () => [], querySelector: () => null, getElementById: id => nodes[id], createElement: () => ({}), head: {appendChild: x => script = x}};
-  vm.runInNewContext(code, {window, document, URL, URLSearchParams, sessionStorage: {
+  vm.runInNewContext(code, {CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options.detail; } }, window, document, URL, URLSearchParams, sessionStorage: {
     getItem() { if (blocked) throw Error(); return null; }, setItem() { if (blocked) throw Error(); }
   }});
   const event = {origin: 'https://calendly.com', source, data: {event: 'calendly.event_scheduled', payload: {event: {uri: 'https://api.calendly.com/scheduled_events/example'}}}};

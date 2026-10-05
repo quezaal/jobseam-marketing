@@ -53,6 +53,7 @@
     // Do not map clicks, calendar views, or form starts to this conversion.
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({event: 'jobseam_demo_booked', product: 'JobSeam', plan_interest: bookingPlan || 'unspecified'});
+    window.dispatchEvent(new CustomEvent('jobseam:demo-booked', {detail: {plan_interest: bookingPlan || 'unspecified'}}));
   });
   const widget = document.createElement('script');
   widget.src = 'https://assets.calendly.com/assets/external/widget.js';
