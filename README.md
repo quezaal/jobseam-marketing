@@ -4,7 +4,7 @@ Static website for jobseam.com. No build step. Preview from this directory with 
 
 ## Current sales pages
 
-- `index.html`: IT staffing / bench sales landing page, product screenshot, walkthrough link, workflow and founding offer.
+- `index.html`: Job market intelligence landing page with staffing, placement, and individual use cases, product screenshot, walkthrough link, workflow and founding offer.
 - `faq.html`: dedicated workflow questions and answers.
 - `how-it-works.html`: dedicated step-by-step workflow and product walkthrough.
 - `features.html`: capability overview linking to the detailed feature reference.
@@ -26,7 +26,7 @@ The existing detailed feature guide remains available for evaluation. `index_v1.
 
 The event integration follows Calendly's documentation: https://developer.calendly.com/api-docs/overview/embedding/notifying-the-parent-window and https://calendly.com/help/advanced-calendly-embed-for-developers.
 
-Send product ads to jobseam.com. Quezaal remains the parent-company credibility site at https://quezaal.com/jobseam. Its repository has not been modified here. This review has not been deployed.
+Send product ads to jobseam.com. Quezaal remains the parent-company credibility site at https://quezaal.com/jobseam. Its product, portfolio, and services pages share the job market intelligence positioning. This review has not been deployed.
 
 ## Verification
 
