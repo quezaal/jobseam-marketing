@@ -1,9 +1,9 @@
 /* FAQ-only layout: keep the shared marketing pages unchanged. */
 .faq-page .hero{padding:36px 0 24px}
 .faq-page .page-title{max-width:1160px}
-.faq-page h1{font-size:clamp(32px,4vw,48px);letter-spacing:-.04em;margin-bottom:12px}
+.faq-page h1{font-size:clamp(30px,4vw,48px);letter-spacing:-.04em;margin-bottom:12px}
 .faq-page .hero p{font-size:16px;max-width:740px;margin-bottom:12px}
-.faq-layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:start;padding-bottom:32px}
+.faq-layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start;padding-bottom:32px}
 .faq-topics{position:sticky;top:20px;background:white;border:1px solid var(--line);border-radius:12px;padding:18px}
 .faq-topics h2{font-size:16px;letter-spacing:0;margin-bottom:12px}
 .faq-topics nav{display:flex;flex-direction:column;align-items:stretch;gap:4px;font-size:13px}

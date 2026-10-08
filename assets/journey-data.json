@@ -1,0 +1,77 @@
+{
+  "staffing": {
+    "label": "Staffing & recruiting",
+    "profile": "Alex Morgan \u00b7 Java consultant",
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "SQL"
+    ],
+    "role": "Java application developer",
+    "required": [
+      "Java",
+      "Spring Framework",
+      "SQL",
+      "AWS"
+    ],
+    "matches": [
+      "Java",
+      "Spring Boot \u2192 Spring Framework",
+      "SQL"
+    ],
+    "gap": "AWS experience needs review",
+    "next": "Review the missing requirement before deciding whether to request Right-to-Represent.",
+    "access": "Compare staffing plans",
+    "href": "pricing.html"
+  },
+  "education": {
+    "label": "Education & placement",
+    "profile": "Taylor Chen \u00b7 Data student",
+    "skills": [
+      "Python",
+      "SQL",
+      "Tableau"
+    ],
+    "role": "Junior data analyst",
+    "required": [
+      "Python",
+      "SQL",
+      "Tableau",
+      "Statistics"
+    ],
+    "matches": [
+      "Python",
+      "SQL",
+      "Tableau"
+    ],
+    "gap": "Statistics evidence needs review",
+    "next": "Discuss the gap with an advisor and update the profile before applying.",
+    "access": "Discuss education access",
+    "href": "demo.html?use_case=education"
+  },
+  "individual": {
+    "label": "My job search",
+    "profile": "Jordan Lee \u00b7 Software developer",
+    "skills": [
+      "JavaScript",
+      "React",
+      "HTML"
+    ],
+    "role": "Frontend developer",
+    "required": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "Accessibility"
+    ],
+    "matches": [
+      "JavaScript",
+      "React",
+      "HTML"
+    ],
+    "gap": "Accessibility experience needs review",
+    "next": "Add relevant project evidence and review your application shortlist.",
+    "access": "Discuss individual access",
+    "href": "demo.html?use_case=individual"
+  }
+}
