@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JobSeam Feature Reference</title>
+<link rel="stylesheet" href="assets/marketing.css">
+<style>
+/* ── Document-level overrides ── */
+.doc-cover{padding:56px 0 40px;border-bottom:2px solid var(--line)}
+.doc-cover h1{font-size:clamp(28px,3.5vw,44px);margin-bottom:10px}
+.doc-cover p{font-size:15px;max-width:640px;color:var(--muted)}
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:28px 0 0}
+.toc-card{background:white;border:1px solid var(--line);border-radius:9px;padding:18px 20px;text-decoration:none;color:var(--ink);transition:border-color .15s}
+.toc-card:hover{border-color:var(--olive)}
+.toc-cat{font-size:10px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);margin-bottom:6px}
+.toc-title{font-size:15px;font-weight:650;margin-bottom:4px}
+.toc-count{font-size:12px;color:var(--muted)}
+.feat-section{padding:40px 0 20px;border-top:1px solid var(--line);scroll-margin-top:24px}
+.feat-section+.feat-section{border-top:1px solid var(--line)}
+.feat-section h2{font-size:22px;letter-spacing:-.03em;margin-bottom:6px}
+.feat-section .section-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.feat-card{background:white;border:1px solid var(--line);border-radius:9px;padding:18px 20px}
+.feat-card.planned{border-style:dashed;background:#fafaf8}
+.feat-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+.feat-name{font-size:14px;font-weight:650;line-height:1.3}
+.badge-ship{display:inline-block;font-size:10px;font-weight:750;letter-spacing:.06em;padding:2px 7px;border-radius:4px;white-space:nowrap;background:#e6f0db;color:var(--olive);flex-shrink:0}
+.badge-plan{display:inline-block;font-size:10px;font-weight:750;letter-spacing:.06em;padding:2px 7px;border-radius:4px;white-space:nowrap;background:#fef3c7;color:#92400e;flex-shrink:0}
+.badge-build{display:inline-block;font-size:10px;font-weight:750;letter-spacing:.06em;padding:2px 7px;border-radius:4px;white-space:nowrap;background:#dbeafe;color:#1d4ed8;flex-shrink:0}
+.badge-phase{display:inline-block;font-size:10px;font-weight:750;letter-spacing:.04em;padding:2px 7px;border-radius:4px;white-space:nowrap;background:#dbeafe;color:#1e40af;flex-shrink:0}
+.feat-desc{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+.feat-meta{margin-top:8px;font-size:11px;color:#8a9ba8;font-style:italic}
+.back-top{display:inline-block;margin-top:14px;font-size:12px;font-weight:650;color:var(--olive);text-decoration:none}
+.back-top:hover{text-decoration:underline}
+.q-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;padding:1px 6px;border-radius:3px;background:#f1f0ec;color:#5a5a52;margin-left:6px;font-style:normal}
+.stats-row{display:flex;gap:24px;flex-wrap:wrap;margin:20px 0 0;padding:16px 20px;background:#e9efdf;border-radius:9px}
+.stat-item{text-align:center}
+.stat-num{font-size:28px;font-weight:750;letter-spacing:-.04em;color:var(--olive);display:block}
+.stat-lbl{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:640px){.toc{grid-template-columns:1fr}.feat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav wrap">
+    <a class="brand" href="index.html">Job<span>Seam</span><small>A Quezaal product</small></a>
+    <nav>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="demo.html" class="button light">Book a demo</a>
+    </nav>
+  </nav>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- Cover -->
+  <section class="doc-cover">
+    <div class="eyebrow">Internal document</div>
+    <h1>JobSeam Feature Reference</h1>
+    <p>Complete catalogue of shipped and planned product features, organized by category. Use the index below to jump to any section. Last updated: October 2026.</p>
+    <div class="stats-row">
+      <div class="stat-item"><span class="stat-num">31</span><span class="stat-lbl">Shipped</span></div>
+      <div class="stat-item"><span class="stat-num">8</span><span class="stat-lbl">Planned</span></div>
+      <div class="stat-item"><span class="stat-num">5</span><span class="stat-lbl">Deal-breakers (all shipped)</span></div>
+      <div class="stat-item"><span class="stat-num">4</span><span class="stat-lbl">Categories</span></div>
+    </div>
+  </section>
+
+  <!-- Table of contents -->
+  <section style="padding:32px 0 8px">
+    <div class="eyebrow">Index</div>
+    <h2 style="font-size:20px;margin-bottom:4px">Jump to a category</h2>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:0">Click any card to navigate directly to that section.</p>
+    <div class="toc">
+      <a class="toc-card" href="#market-intelligence">
+        <div class="toc-cat">Category 1</div>
+        <div class="toc-title">Market Intelligence &amp; Sourcing</div>
+        <div class="toc-count">9 shipped &middot; 2 planned</div>
+      </a>
+      <a class="toc-card" href="#candidate-management">
+        <div class="toc-cat">Category 2</div>
+        <div class="toc-title">Candidate Management</div>
+        <div class="toc-count">12 shipped &middot; 2 planned</div>
+      </a>
+      <a class="toc-card" href="#operations">
+        <div class="toc-cat">Category 3</div>
+        <div class="toc-title">Operations &amp; RTR Pipeline</div>
+        <div class="toc-count">7 shipped &middot; 2 planned</div>
+      </a>
+      <a class="toc-card" href="#platform">
+        <div class="toc-cat">Category 4</div>
+        <div class="toc-title">Platform &amp; Back-Office</div>
+        <div class="toc-count">3 shipped &middot; 2 planned</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Category 1: Market Intelligence ── -->
+  <section class="feat-section" id="market-intelligence">
+    <div class="eyebrow">Category 1</div>
+    <h2>Market Intelligence &amp; Sourcing</h2>
+    <p class="section-sub">How JobSeam harvests, enriches, and surfaces job market data from public and private sources.</p>
+    <div class="feat-grid">
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Multi-source job harvesting</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Collects postings from 15+ portals: LinkedIn, Indeed, Glassdoor, ZipRecruiter, Monster, Dice, Greenhouse, Lever, and more. Two ingestion paths: Apify actors (production) and python-jobspy (dev). Runs continuously, deduplicates by job_id.</p>
+        <div class="feat-meta">Phase 1 core</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Direct-from-ATS harvesting</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Catches roles before they hit a board by polling 12 ATS platforms directly: Workday, Taleo, iCIMS, Ashby, Lever, Greenhouse, and others. Zero marginal cost per integration.</p>
+        <div class="feat-meta">Phase 1 core</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">AI job enrichment</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Every posting is enriched by JobSeam's pre-configured AI model: skills, seniority, salary range, work-authorization requirements, developer type, and domain. Runs entirely on private infrastructure. No data leaves your server.</p>
+        <div class="feat-meta">Phase 1 core &mdash; system_admin gated resource</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Salary normalization</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Converts 15+ currencies and all pay-period formats (hourly, daily, monthly, annual, LPA) to USD annual equivalents. Refreshes automatically when FX rates are updated. Enables direct comparison of a London day-rate with a Bangalore monthly salary.</p>
+        <div class="feat-meta">Phase 1 core</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Live analytics dashboard</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">17 configurable panels: job timeline, top skills, top companies, top locations, role categories, seniority distribution, remote vs onsite, jobs by market, market explorer, job drill-down, and placement funnel. Draggable, resizable, hideable. Filters persist across sessions.</p>
+        <div class="feat-meta">Phase 1 core</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Email requirement inbox</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Recruiters forward job requirement emails to a dedicated mailbox. The system parses skills, rate, duration, location, visa chain, and vendor details automatically. Parsed requirements appear in the Req Inbox with approval and match workflow.</p>
+        <div class="feat-meta">Phase 3 / Email Ingestion</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">17 global markets</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Coverage across US, UK, Canada, Australia, India, Germany, Singapore, UAE, and 9 additional markets. Per-market filters on every view. Market explorer drill-down shows city-level breakdown within each market.</p>
+        <div class="feat-meta">Phase 1 core</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Consultant match explanations</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Each match shows a per-requirement verdict (met, partial, gap) derived from resume text using TF-IDF paragraph similarity. No LLM required for explanation, making it deterministic and auditable. Optionally enhanced with LLM narrative summary.</p>
+        <div class="feat-meta">Phase 2 / AI analysis</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Live market rate benchmarking</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Shows where a consultant's salary expectation falls relative to active market data: P25, median (P50), and P75 percentiles from real job postings in the same role and market. Displayed as a visual bar in the candidate detail pane. Updates instantly when a candidate is selected.</p>
+        <div class="feat-meta">Deal-breaker feature<span class="q-badge">Q4 2026</span></div>
+      </div>
+
+      <div class="feat-card planned">
+        <div class="feat-head">
+          <div class="feat-name">VMS integration</div>
+          <span class="badge-plan">Planned</span>
+        </div>
+        <p class="feat-desc">Native integration with Vendor Management Systems (Beeline, Fieldglass, Coupa, and others). Allows direct job submission and status sync without leaving JobSeam. Bullhorn includes VMS pass-through; this closes that gap for JobSeam.</p>
+        <div class="feat-meta"><span class="q-badge">H1 2027</span></div>
+      </div>
+
+      <div class="feat-card planned">
+        <div class="feat-head">
+          <div class="feat-name">Multi-board job posting</div>
+          <span class="badge-plan">Planned</span>
+        </div>
+        <p class="feat-desc">Post open roles to multiple job boards (LinkedIn, Indeed, ZipRecruiter, Dice) from a single interface. Currently JobSeam only harvests from boards; posting is outbound and requires this separate pipeline.</p>
+        <div class="feat-meta"><span class="q-badge">H1 2027</span></div>
+      </div>
+
+    </div>
+    <a class="back-top" href="#top">Back to top</a>
+  </section>
+
+  <!-- ── Category 2: Candidate Management ── -->
+  <section class="feat-section" id="candidate-management">
+    <div class="eyebrow">Category 2</div>
+    <h2>Candidate Management</h2>
+    <p class="section-sub">Tools for advisors, recruiters, and candidates to manage profiles, intake, matching, and work authorization.</p>
+    <div class="feat-grid">
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">CSV roster import</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Import an entire cohort in one CSV upload. No resume required to start. Automatically creates intake links for each student. Supports bulk email send or copy-link workflows. Advisors can import, filter, and re-import incrementally.</p>
+        <div class="feat-meta">Phase 3 / onboarding</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Self-service intake form</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Each candidate receives a personal link to complete their own profile: resume upload, skills confirmation, sponsorship need, target role, target market, and salary expectation. No account required. Multi-use link valid for 60 days.</p>
+        <div class="feat-meta">Phase 3 / intake</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Resume parsing with OCR fallback</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Uploaded resumes (PDF, DOCX, DOC, TXT) are parsed by the local LLM to extract skills, seniority, titles held, experience years, education, and industries. Scanned PDFs go through Tesseract OCR before parsing. Parse status tracked per-candidate.</p>
+        <div class="feat-meta">Phase 2 / resume pipeline</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Two-way candidate matching</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Matches a consultant profile against active job postings using skill overlap, seniority alignment, market fit, and sponsorship compatibility. Currently returns a real count; ranked results with hard filters are the next matching engine phase.</p>
+        <div class="feat-meta">Phase 3 / matching</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Sponsorship-first matching</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Sponsorship need is declared first, not buried. The intake form opens with: "Do you need visa sponsorship?" and confirms: "We'll only show you employers who sponsor." Filters out non-sponsoring roles at the system level, not as an afterthought filter.</p>
+        <div class="feat-meta">Phase 3 core design</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Onboarding funnel tracking</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Advisor sees exactly who is at which onboarding stage: invited only, resume only, preferences only, or fully complete. Bulk action to send or resend intake links. Member type tabs for multi-cohort groups.</p>
+        <div class="feat-meta">Phase 3 / onboarding dashboard</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Candidate notes</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Advisors and recruiters can attach timestamped notes to any candidate record. Notes appear in a floating panel alongside the candidate table. Separate from the audit trail, which captures system events.</p>
+        <div class="feat-meta">Phase 2 / CRM layer</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Configurable member labels</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Groups can relabel "Candidate" to "Consultant," "Student," or any term that fits the workflow. Advisor, Pod, and Program labels are similarly configurable. All UI strings respect the group-level label configuration.</p>
+        <div class="feat-meta">Phase 3 / multi-context</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Consultant match page</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Per-consultant match view showing ranked job opportunities with per-requirement breakdown. Recruiter can send an RTR directly from this page. Skills gap is highlighted alongside matched skills for each requirement.</p>
+        <div class="feat-meta">Phase 2 / match detail</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Work authorization tracking</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Captures visa type (H-1B, OPT, OPT STEM, CPT, GC EAD, GC, Citizen, TN, E-3, H-4 EAD, L-1), expiry date for time-limited statuses, and H-1B cap-subject flag. Daily email digest to advisors listing expirations within 90 days. Color-coded urgency badges in the candidate detail pane and onboarding page banner.</p>
+        <div class="feat-meta">Deal-breaker feature<span class="q-badge">Q4 2026</span></div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Bench velocity alerts</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Identifies consultants who have been in ready/new status for 30, 60, or 90+ days with no active submission. Shows a red/amber banner on the Onboarding page with names and days on bench. Helps advisors prioritize outreach before consultants go stale.</p>
+        <div class="feat-meta">Deal-breaker feature<span class="q-badge">Q4 2026</span></div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Duplicate submission guard</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Candidate-centric cross-tenant visibility. When a consultant confirms an RTR that arrives while they already have active submissions from other companies on JobSeam, they see: "You have N other active submissions from other companies." They choose to review all or confirm anyway. Platform never reveals one agency to another.</p>
+        <div class="feat-meta">Deal-breaker feature<span class="q-badge">Q4 2026</span></div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Interview scheduling (v1)</div>
+          <span class="badge-build">Building</span>
+        </div>
+        <p class="feat-desc">Recruiter proposes 2-3 time slots in the pipeline board; consultant receives an email and selects one via a one-click link (same token-action pattern as RTR confirm/decline). Confirmation email goes to both parties. No external calendar account needed for v1.</p>
+        <div class="feat-meta">No external deps &middot; reuses candidate_action_tokens pattern<span class="q-badge">Q1 2027</span></div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Mass email outreach</div>
+          <span class="badge-build">Building</span>
+        </div>
+        <p class="feat-desc">Send a templated email to a filtered consultant list directly from the Candidates page (e.g., all OPT expiring within 60 days, all bench consultants for a given role). Uses the existing SMTP stack. Filter criteria match the existing candidate filter controls.</p>
+        <div class="feat-meta">No external deps &middot; reuses existing SMTP + candidate filter API<span class="q-badge">Q1 2027</span></div>
+      </div>
+
+    </div>
+    <a class="back-top" href="#top">Back to top</a>
+  </section>
+
+  <!-- ── Category 3: Operations & RTR Pipeline ── -->
+  <section class="feat-section" id="operations">
+    <div class="eyebrow">Category 3</div>
+    <h2>Operations &amp; RTR Pipeline</h2>
+    <p class="section-sub">The full submission lifecycle: from sending an RTR to tracking a placement and scoring client engagement.</p>
+    <div class="feat-grid">
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">RTR workflow</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Recruiter sends a Right-to-Represent email directly from the Match page. Consultant receives a branded email with one-click Confirm and Decline buttons requiring no account. Confirmation triggers automatic stage progression to Client Review.</p>
+        <div class="feat-meta">Phase 4 / placement tracking</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Kanban pipeline board</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Tracks every submission across all active stages: RTR Sent, Client Review, Interview Scheduled, Interview Done, Shortlisted, Offer Extended, Placed. Each card click opens a stage update modal with an immutable append-only audit trail. Placed and closed submissions capture details for funnel analysis.</p>
+        <div class="feat-meta">Phase 4 / placement tracking</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Placement details capture</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">When a submission reaches Placed, the recruiter records contract rate, contract type (C2C / W2 / full-time), and start date. Rejection and close-out submissions capture a close reason for downstream funnel analysis.</p>
+        <div class="feat-meta">Phase 4 / placement tracking</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Placement funnel dashboard widget</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">30-day conversion funnel on the dashboard: RTRs sent to Interviews, Interviews to Shortlisted, Shortlisted to Placed. Percentage rates at each step. Panel is resizable and hideable like all dashboard panels.</p>
+        <div class="feat-meta">Phase 4 / placement tracking</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Candidate self-service portal</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Consultants access a private portal at /portal.html via a 72-hour magic link in the RTR email. No account required. Shows all their submissions across every company on JobSeam in a single view, with current stage and contract details for placed roles.</p>
+        <div class="feat-meta">Phase 4 / candidate portal</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Cross-company submission visibility</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">A consultant who receives RTRs from multiple staffing firms using JobSeam sees all submissions in one portal view. Each company's details stay private from the others. The candidate is the only entity with cross-tenant visibility.</p>
+        <div class="feat-meta">Phase 4 / global_candidates architecture</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Client engagement scoring</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Derives a 0-100 engagement score per client company from the submission audit trail. Score weights: stage progression rate (30%), interview conversion (40%), placement rate (30%). Displayed as a sortable table on the Dashboard "Client Engagement" panel with color-coded scores.</p>
+        <div class="feat-meta">Deal-breaker feature<span class="q-badge">Q4 2026</span></div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Invoicing and timesheets</div>
+          <span class="badge-build">Building</span>
+        </div>
+        <p class="feat-desc">Consultant submits weekly timesheets linked to a placement. Recruiter reviews and approves. Invoice PDF auto-generated from approved hours and the contract rate already stored in the placement record. All data is in JobSeam already.</p>
+        <div class="feat-meta">No external deps &middot; new timesheets + invoices tables &middot; PDF generation in-house<span class="q-badge">Q1 2027</span></div>
+      </div>
+
+      <div class="feat-card planned">
+        <div class="feat-head">
+          <div class="feat-name">Background check integrations</div>
+          <span class="badge-plan">Planned</span>
+        </div>
+        <p class="feat-desc">Native integrations with background screening providers (Checkr, Sterling, First Advantage). Ceipal leads in breadth here. Would allow placement workflow to continue through onboarding without leaving the platform.</p>
+        <div class="feat-meta"><span class="q-badge">H2 2027</span></div>
+      </div>
+
+    </div>
+    <a class="back-top" href="#top">Back to top</a>
+  </section>
+
+  <!-- ── Category 4: Platform & Back-Office ── -->
+  <section class="feat-section" id="platform">
+    <div class="eyebrow">Category 4</div>
+    <h2>Platform &amp; Back-Office</h2>
+    <p class="section-sub">Infrastructure, access control, deployment, and the features that run underneath everything else.</p>
+    <div class="feat-grid">
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Four-tier role model</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">system_admin manages the platform. group_admin manages a company account. pod_admin manages a team or pod within a company. user is a recruiter or advisor. Every API endpoint is scoped to the caller's role, and group_id/pod_id scope all data. LLM/compute-intensive features are system_admin gated.</p>
+        <div class="feat-meta">Core architecture</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Private AI infrastructure</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">All AI runs on your own infrastructure using JobSeam's pre-configured private AI model. No job data, resume text, or candidate information is ever sent to a third-party cloud AI API. Each consumer (harvester, enricher, resume parser) scales independently with Docker Compose.</p>
+        <div class="feat-meta">Core architecture</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">System admin portal</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Dedicated admin interface for managing groups, users, system logs, feature flags, harvest runs, and resource gates. Audit log viewer with severity filtering and 90-day retention. Group and user management with invite and role management flows.</p>
+        <div class="feat-meta">Core architecture</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Hiring manager portal</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Recruiters generate a read-only link for a hiring manager to track submitted candidates, current stage, and role details. No account or login required on the client side. Links are per-company, expire in 30 days, and can be regenerated at any time. Feedback button planned for v2.</p>
+        <div class="feat-meta">Shipped Q4 2026 &middot; /client-portal.html &middot; client_portal_tokens table<span class="q-badge">Q4 2026</span></div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Consulting partner portal</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Recruiters generate a read-only link for a C2C or consulting company to track all their consultants across active submissions. The portal shows each consultant's current stage, client company, job title, and submission date. The consulting company sees only their own consultants. BSC (bench sales consultant) at the partner company receives email notifications at interview proposal and confirmation: informational only at proposal (no slot links), confirmation at slot selection. Links are per-company, expire in 30 days, and can be regenerated at any time. Implementation: consulting_contact_name, consulting_contact_email, consulting_company, consulting_contact_phone columns added to the candidates table; consulting_portal_tokens table for token management; four API routes (create_link, verify/{token} PUBLIC, submissions/{token} PUBLIC, links); /consulting-portal.html frontend page; "Consulting Portal" button in the placement pipeline toolbar.</p>
+        <div class="feat-meta">Shipped Oct 2026 &middot; /consulting-portal.html &middot; consulting_portal_tokens table &middot; candidates.consulting_* columns<span class="q-badge">Q4 2026</span></div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-name">Interview scheduling v1</div>
+          <span class="badge-ship">Shipped</span>
+        </div>
+        <p class="feat-desc">Recruiter proposes up to 3 interview time slots directly from the placement pipeline (client_review stage). The candidate receives a branded email with one-click confirm links (token-gated, no login required). Confirming a slot advances the submission to interview_scheduled, emails the recruiter confirmation, and emails the BSC at the consulting partner company. Transparency-first: all three parties (candidate, recruiter, BSC) are notified at each step. Implementation: interview_proposals table; propose_interview, confirm/{token} (PUBLIC), and interview_proposals list routes; "Propose interview" button on client_review pipeline cards; candidate_action_tokens reused with action = "interview_slot:{proposal_id}:{slot_num}".</p>
+        <div class="feat-meta">Shipped Oct 2026 &middot; interview_proposals table &middot; /api/submissions/{id}/propose_interview &middot; /api/interview/confirm/{token}<span class="q-badge">Q4 2026</span></div>
+      </div>
+
+      <div class="feat-card planned">
+        <div class="feat-head">
+          <div class="feat-name">Mobile app</div>
+          <span class="badge-plan">Planned</span>
+        </div>
+        <p class="feat-desc">iOS and Android apps for recruiters to manage submissions and receive bench velocity and visa expiry push notifications. The web app is mobile-responsive but a native app improves notification reliability and offline capability.</p>
+        <div class="feat-meta"><span class="q-badge">H2 2027</span></div>
+      </div>
+
+    </div>
+    <a class="back-top" href="#top">Back to top</a>
+  </section>
+
+  <!-- Legend -->
+  <section style="padding:32px 0 48px;border-top:1px solid var(--line);margin-top:12px">
+    <div class="eyebrow">Legend</div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:13px">
+      <div style="display:flex;align-items:center;gap:8px"><span class="badge-ship">Shipped</span> Available in the current build</div>
+      <div style="display:flex;align-items:center;gap:8px"><span class="badge-phase">Phase A-E</span> Deal-breaker features, all shipped Oct 2026</div>
+      <div style="display:flex;align-items:center;gap:8px"><span class="badge-build">Building</span> In active development, no external accounts required</div>
+      <div style="display:flex;align-items:center;gap:8px"><span class="badge-plan">Planned</span> On the roadmap, requires external integration or account</div>
+      <div style="display:flex;align-items:center;gap:8px"><span class="q-badge" style="margin-left:0">Q4 2026 / H1 2027</span> Estimated ship quarter shown on planned items; no date is committed for shipped items without a quarter tag</div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:16px">Capability assessments for competitor comparison are based on published feature documentation and G2/Capterra review data (2025). "Planned" features are on the JobSeam roadmap; no delivery date is committed. This document is for internal use.</p>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand" style="font-size:20px;margin-bottom:4px">Job<span style="color:var(--olive)">Seam</span></div>
+      <div style="font-size:12px;color:var(--muted)">A Quezaal product &middot; Internal feature reference &middot; Last updated Oct 2026</div>
+    </div>
+    <div class="foot-links">
+      <a href="features.html">Public features page</a>
+      <a href="pricing.html">Pricing comparison</a>
+      <a href="jobseam-feature-guide-detailed.html">Detailed feature guide</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
