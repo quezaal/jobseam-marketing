@@ -3,15 +3,15 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const fs = require('node:fs');
 const code = fs.readFileSync(require('node:path').join(__dirname, '../assets/marketing.js'), 'utf8');
-function setup(search = '', blocked = false) {
+function setup(search = '', blocked = false, links = []) {
   const source = {};
   const nodes = {
     'booking-calendar': { querySelector: () => ({contentWindow: source}), replaceChildren() {} },
     'booking-success': {hidden: true}, 'booking-fallback': {}, 'plan-interest': {hidden: true}
   };
   let listener, script;
-  const window = { dispatchEvent() {}, location: {search}, addEventListener: (_, fn) => listener = fn };
-  const document = {querySelectorAll: () => [], querySelector: () => null, getElementById: id => nodes[id], createElement: () => ({}), head: {appendChild: x => script = x}};
+  const window = { dispatchEvent() {}, location: {search, href: 'https://jobseam.com/'}, addEventListener: (_, fn) => listener = fn };
+  const document = {querySelectorAll: () => links, querySelector: () => null, getElementById: id => nodes[id], createElement: () => ({}), head: {appendChild: x => script = x}};
   vm.runInNewContext(code, {CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options.detail; } }, window, document, URL, URLSearchParams, sessionStorage: {
     getItem() { if (blocked) throw Error(); return null; }, setItem() { if (blocked) throw Error(); }
   }});
@@ -42,4 +42,19 @@ test('fallback retains campaign attribution and works with storage blocked', () 
   assert.equal(s.nodes['booking-fallback'].href, 'https://calendly.com/connect-quezaal/20min?utm_source=youtube');
   assert.equal(s.nodes['plan-interest'].hidden, true);
   assert.equal(s.script.src, 'https://assets.calendly.com/assets/external/widget.js');
+});
+
+test('clean demo URLs retain popup booking and use-case links retain their page journey', () => {
+  for (const path of ['/demo?plan=growth', '/demo.html?plan=growth', '/demo/']) {
+    let click, prevented = false, opened = false;
+    const link = {href: 'https://jobseam.com' + path, addEventListener: (_, fn) => click = fn};
+    const s = setup('', false, [link]);
+    s.window.Calendly = {initPopupWidget() { opened = true; }};
+    click({button: 0, preventDefault() { prevented = true; }});
+    assert.ok(prevented);
+    assert.ok(opened);
+  }
+  let intercepted = false;
+  setup('', false, [{href: 'https://jobseam.com/demo?use_case=education', addEventListener() { intercepted = true; }}]);
+  assert.equal(intercepted, false);
 });

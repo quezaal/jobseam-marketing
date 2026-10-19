@@ -38,6 +38,8 @@
 .faq-page .cta .button{grid-column:2;grid-row:1/4}
 .faq-page [hidden]{display:none!important}
 @media(max-width:900px){.faq-layout{grid-template-columns:200px minmax(0,1fr);gap:20px}.faq-topics{padding:14px}.faq-page .cta{display:block}.faq-page .cta p{margin:10px 0 16px}}
-@media(max-width:640px){.faq-page .hero{padding:24px 0 18px}.faq-layout{grid-template-columns:1fr;gap:18px}.faq-topics{position:static;padding:14px}.faq-topics nav{display:grid;grid-template-columns:1fr 1fr;gap:4px}.faq-group{margin-bottom:20px}.faq-group summary{padding:13px 14px;font-size:15px}.faq-group details p{padding:0 14px 14px}.faq-page .cta{padding:24px}.faq-page .cta h2{font-size:25px}.faq-page .cta .button{width:100%}}
+@media(max-width:640px){.faq-page .hero{padding:28px 0 18px}.faq-layout{grid-template-columns:1fr;gap:18px}.faq-topics{position:static;padding:14px}.faq-topics nav{display:grid;grid-template-columns:1fr 1fr;gap:4px}.faq-group{margin-bottom:20px}.faq-group summary{padding:13px 14px;font-size:15px}.faq-group details p{padding:0 14px 14px}.faq-page .cta{padding:24px}.faq-page .cta h2{font-size:25px}.faq-page .cta .button{width:100%}}
 @media(prefers-reduced-motion:no-preference){html:has(.faq-page){scroll-behavior:smooth}}
 @media print{.faq-topics,.faq-search{display:none}.faq-layout{display:block}.faq-group details{break-inside:avoid}.faq-group details:not([open])>p{display:block}}
+
+@media(min-width:641px) and (max-width:800px){.faq-page .hero{padding-top:28px}}

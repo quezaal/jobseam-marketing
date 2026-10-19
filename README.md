@@ -1,6 +1,6 @@
 # JobSeam marketing
 
-Static website for jobseam.com. No build step. Preview from this directory with `python3 -m http.server 8080`, then open http://localhost:8080.
+Static website for jobseam.com. No build step. Preview from this directory with `python3 serve.py 8080`, then open http://localhost:8080. This resolves clean URLs such as `/how-it-works` and `/talent`, and redirects old `.html` links while keeping query strings. Stop any old server on port 8080 first. The standard `python3 -m http.server` does not resolve these clean routes.
 
 ## Current sales pages
 
@@ -41,3 +41,13 @@ Run `node --test tests/*.test.cjs` for booking conversion checks. These tests si
 - Product subscription enforcement, load testing, invoices, and the YouTube ad itself were not modified. Public prices remain $199 Founding / $299 Starter / $699 Growth.
 
 SEO references: https://developers.google.com/search/docs/crawling-indexing/block-indexing and https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap.
+
+## Quezaal talent applications
+
+`talent.html` (public URL `/talent`) hosts the consultant profile form moved from Quezaal. Quezaal’s `/talent` page links directly to this application. The existing Web3Forms delivery and structured PROFILE_JSON payload are preserved; this is a recruiting submission, not account registration or a profile dashboard. Verify the production Web3Forms allowed domains include jobseam.com and confirm delivery/ingestion with a consented test before launch. Deploy the JobSeam page before the Quezaal handoff.
+
+## Clean URLs and hosting
+
+HTML files remain the single editable source per page. Shared navigation, footer links, canonical metadata, and sitemap entries use extensionless URLs. Apache deployments can use the included `.htaccess`; other hosts need equivalent clean-URL routing. For static directory-only hosting, run `python3 build.py` and publish `_site/`, which contains generated route directories and assets. Generated output is not a second editable source.
+
+The talent application provides Quick Submit (name, email, role) and the full profile form. Candidates choose one; both use the recruiting delivery workflow and structured profile payload. Quezaal retains only its recruiting overview and a single application CTA.

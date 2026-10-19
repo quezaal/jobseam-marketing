@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Redirect explicit HTML requests while retaining query strings.
+RewriteCond %{THE_REQUEST} \s/+index\.html[?\s] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[?\s] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Resolve clean URLs against the single HTML source for each page.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^.]+?)/?$ $1.html [L]

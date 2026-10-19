@@ -223,3 +223,5 @@ __marimo__/
 index_v1.html
 
 ads/
+_site/
+__pycache__/

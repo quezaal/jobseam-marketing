@@ -14,7 +14,7 @@
 
   <!-- Demo booking — primary conversion page -->
   <url>
-    <loc>https://jobseam.com/demo.html</loc>
+    <loc>https://jobseam.com/demo</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
 
   <!-- Pricing — key decision page, update when plans change -->
   <url>
-    <loc>https://jobseam.com/pricing.html</loc>
+    <loc>https://jobseam.com/pricing</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
 
   <!-- Features — product overview, updated when features ship -->
   <url>
-    <loc>https://jobseam.com/features.html</loc>
+    <loc>https://jobseam.com/features</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
 
   <!-- How it works — workflow walkthrough -->
   <url>
-    <loc>https://jobseam.com/how-it-works.html</loc>
+    <loc>https://jobseam.com/how-it-works</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -46,7 +46,7 @@
 
   <!-- FAQ — trust and objection handling -->
   <url>
-    <loc>https://jobseam.com/faq.html</loc>
+    <loc>https://jobseam.com/faq</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -54,7 +54,7 @@
 
   <!-- Product overview (one-pager) — downloadable reference -->
   <url>
-    <loc>https://jobseam.com/jobseam-onepager.html</loc>
+    <loc>https://jobseam.com/jobseam-onepager</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -62,7 +62,7 @@
 
   <!-- Complete feature reference guide -->
   <url>
-    <loc>https://jobseam.com/jobseam-feature-guide-detailed.html</loc>
+    <loc>https://jobseam.com/jobseam-feature-guide-detailed</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -70,10 +70,11 @@
 
   <!-- Product walkthrough video page -->
   <url>
-    <loc>https://jobseam.com/jobseam-video.html</loc>
+    <loc>https://jobseam.com/jobseam-video</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
+  <url><loc>https://jobseam.com/talent</loc><lastmod>2026-10-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

@@ -29,7 +29,7 @@
   let bookingPlan = selectedPlan;
   document.querySelectorAll('a[href]').forEach(link => {
     const target = new URL(link.href, window.location.href);
-    if (!target.pathname.endsWith('/demo.html')) return;
+    if (!/^\/demo(?:\.html)?\/?$/.test(target.pathname)) return;
     if (target.searchParams.has('use_case')) return;
     link.addEventListener('click', event => {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !window.Calendly) return;

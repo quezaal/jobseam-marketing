@@ -1,0 +1,80 @@
+    .form-section { background: var(--off); }
+    .form-layout {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start;
+    }
+    .form-intro h2 { margin-bottom: 1rem; }
+    .form-intro p  { color: var(--muted); font-size: .95rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .why-list-sm { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .why-list-sm li { display: flex; gap: .7rem; align-items: flex-start; font-size: .9rem; color: var(--muted); }
+    .why-list-sm .wico { color: var(--green); font-size: .95rem; flex-shrink: 0; margin-top: .1rem; }
+
+    /* form card */
+    .profile-form-card {
+      background: #fff; border-radius: 16px; padding: 2.5rem;
+      border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(26,58,107,.07);
+    }
+    .profile-form-card h3 { font-size: 1.4rem; color: var(--navy-d); margin-bottom: .3rem; }
+    .form-note { font-size: .83rem; color: var(--muted); margin-bottom: 1.8rem; }
+    .fg { margin-bottom: 1.25rem; }
+    .fg label {
+      display: block; font-size: .72rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; color: var(--navy); margin-bottom: .4rem;
+    }
+    .fg input, .fg select, .fg textarea {
+      width: 100%; padding: .72rem .9rem;
+      border: 1px solid var(--border); border-radius: 7px;
+      font-family: 'Source Sans 3', sans-serif; font-size: .92rem; color: var(--text);
+      background: #fff; transition: border-color .2s, box-shadow .2s;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus {
+      outline: none; border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(26,58,107,.09);
+    }
+    .fg textarea { resize: vertical; min-height: 90px; }
+    .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fg-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    .form-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+    .fg-section-label {
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 1rem; margin-top: .25rem;
+    }
+    .checkbox-row {
+      display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .4rem;
+    }
+    .check-opt {
+      display: flex; align-items: center; gap: .45rem;
+      font-size: .88rem; color: var(--muted); cursor: pointer;
+    }
+    .check-opt input[type="checkbox"] { width: auto; margin: 0; accent-color: var(--navy); }
+    .submit-btn-t {
+      width: 100%; padding: 1rem; background: var(--navy); color: #fff;
+      border: none; border-radius: 7px; font-size: .9rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+      transition: background .25s; margin-top: .6rem;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .submit-btn-t:hover { background: var(--green); }
+    .privacy-note { font-size: .78rem; color: var(--muted); text-align: center; margin-top: .8rem; line-height: 1.5; }
+
+    #form-success {
+      display: none; text-align: center; padding: 2.5rem 1.5rem;
+    }
+    #form-success .tick { font-size: 2.8rem; margin-bottom: 1rem; }
+    #form-success h3 { color: var(--navy-d); margin-bottom: .6rem; }
+    #form-success p  { color: var(--muted); font-size: .95rem; line-height: 1.7; }
+    #form-error-t {
+      display: none; margin-top: 1.2rem; padding: .9rem 1rem;
+      background: #fef2f2; color: #b91c1c; border-radius: 8px;
+      border: 1px solid rgba(185,28,28,.2); font-size: .88rem; font-weight: 600; text-align: center;
+    }
+
+
+:root { --off:#f5f7fa; --navy:#1a3a6b; --navy-d:#0f2236; --green:#436f29; --border:#d4dae3; --text:#172b42; }
+.talent-intro { max-width:760px; }
+.profile-form-card { max-width:840px; margin:0; }
+@media(max-width:640px) { .fg-row,.fg-row-3 { grid-template-columns:1fr; } .profile-form-card { padding:1.25rem; } }
+
+.quick-profile-card{margin-bottom:2rem} #quick-success{color:var(--green);margin-top:1rem} #quick-error{color:#b91c1c;margin-top:1rem} #full-profile{scroll-margin-top:24px}
