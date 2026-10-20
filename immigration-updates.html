@@ -72,7 +72,7 @@
 <div class="wrap page-title">
 <div class="eyebrow">Immigration &amp; Labor law updates</div>
 <h1>The rules that govern your placements, in one place.</h1>
-<p>USCIS and DOL agency publications from FederalRegister.gov, provided as a dated snapshot. Open each publication and the agency newsrooms for the latest status.</p>
+<p>Agency publications, government announcements, and employer debarment records, provided as dated snapshots. Open each publication and the agency newsrooms for the latest status.</p>
 </div>
 </section>
 
@@ -82,10 +82,11 @@
 <div class="compliance-banner">
 <div class="compliance-banner-icon">&#9888;&#65039;</div>
 <div>
-<p><strong>Why this matters now:</strong> USCIS site visits to H-1B worksites have increased substantially since 2023. DOL is actively enforcing bench pay requirements for H-1B workers. H-1B cap registration fees increased for FY 2027. Prevailing wage levels are under rulemaking review. Every staffing agency placing H-1B and OPT consultants needs to track these changes in real time. JobSeam tracks visa status and bench time for every consultant; this page tracks the rules themselves.</p>
+<p><strong>Read each action in context:</strong> An investigation, an announced suspension, and a published debarment are different actions. Records show the affected program only when the government source specifies it. Published periods and verification dates are snapshots, not a determination of a company’s current eligibility.</p>
 </div>
 </div>
 
+<details class="government-sources"><summary>Government sources and employer restriction lists</summary><div id="governmentSources" class="grid3"></div></details>
 <div class="market-row">
 <span class="market-flag">&#127482;&#127480;</span>
 <strong>United States</strong>
@@ -118,6 +119,12 @@
 </div>
 </div>
 
+<div class="news-search-controls">
+<div><label for="companySearch">Search company or announcement</label><input id="companySearch" type="search" placeholder="Company name or keywords"></div>
+<div><label for="agencyFilter">Agency</label><select id="agencyFilter"><option value="all">All agencies</option></select></div>
+<div><label for="actionFilter">Action type</label><select id="actionFilter"><option value="all">All actions and publications</option><option>Publication</option><option>Debarment listed</option><option>Suspension announced</option><option>Investigation announced</option><option>Government announcement</option></select></div>
+</div>
+<p class="small">No search results does not establish that an employer is unrestricted. Company names appear only where supported by the linked government record. PERM and H-1B are separate programs.</p>
 <p class="refresh-note" id="refreshNote" role="status">Loading updates from USCIS, DOL, and DHS&hellip;</p>
 
 <div class="news-grid" id="newsGrid" aria-busy="false">

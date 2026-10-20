@@ -57,3 +57,11 @@ The talent application provides Quick Submit (name, email, role) and the full pr
 The immigration page loads `/assets/immigration-news.json`, a bundled FederalRegister.gov agency-publication snapshot. It needs no application API or localhost:8000 service. Refresh it with `python3 scripts/refresh-immigration-news.py` before publishing; this requires network access and preserves the prior snapshot on failure. The UI displays its refresh timestamp rather than claiming a live feed. A `compliance-news-url` meta tag can override this with an array-based backend feed. Cross-origin endpoints require CORS. Deploy the JSON, JavaScript, HTML, and favicon together, or rebuild `_site/` for directory hosting.
 
 Analytics intentionally does not load on localhost, 127.0.0.1, or IPv6 loopback. Production analytics remains configured as before. DoubleClick DNS failures indicate network DNS/filtering of Google advertising domains; they do not come from the news feed or affect its articles.
+
+## Government announcements and employer actions
+
+`assets/government-records.json` is the editable registry of government sources and reviewed action records. The refresh script merges those records into `assets/immigration-news.json` alongside Federal Register publications. Updating the Federal Register snapshot does not reverify employer restrictions or advance their individual review dates. Employer actions currently require source review and registry updates; there is no automatic discovery or continuous monitoring of newsroom pages or videos.
+
+The page offers company/keyword search, agency and action filters, published restriction periods, and record review dates. It distinguishes debarment lists, suspension announcements, investigations and general announcements. A missing record is not employer clearance, and PERM actions are not treated as H-1B debarments. Source URLs and dates are retained per record. The October 8 White House video is linked as an announcement without unverified company-specific classifications.
+
+Run `node --test tests/*.test.cjs` and `python3 build.py` after updating the registry or page. Publish the updated HTML, JavaScript, CSS, and JSON together.

@@ -216,3 +216,5 @@ section[aria-label],section[id]{scroll-margin-top:20px}
 
 /* Keep the first text line at the same distance below every page header. */
 .hero-grid{align-items:start}
+
+.government-sources{margin-bottom:24px}.government-sources .grid3{margin-top:16px}.government-sources .card{font-size:14px}.news-search-controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin:20px 0 12px}.news-search-controls label{display:block;font-size:13px;font-weight:650;margin-bottom:6px}.news-search-controls input,.news-search-controls select{width:100%;min-height:44px;padding:10px;border:1px solid var(--line);border-radius:6px;font:inherit;background:#fff;color:var(--ink)}.news-record-note{font-size:13px}.news-grid .empty-state{grid-column:1/-1}@media(max-width:800px){.news-search-controls{grid-template-columns:1fr}}

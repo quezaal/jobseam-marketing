@@ -26,7 +26,12 @@ def main():
     if not items:
         raise RuntimeError('No publications received; preserving the existing snapshot')
     path = Path(__file__).resolve().parents[1] / 'assets/immigration-news.json'
-    payload = {'updated_at':datetime.now(timezone.utc).isoformat(), 'source':'FederalRegister.gov agency publications', 'items':items}
+    curated = json.loads((path.parent / 'government-records.json').read_text())
+    for record in curated['items']:
+        if not record.get('verified_at') or not record['url'].startswith(('https://www.dol.gov/', 'https://oig.dol.gov/', 'https://www.whitehouse.gov/')):
+            raise ValueError('Government records require verification dates and government evidence')
+    items.extend(curated['items'])
+    payload = {'updated_at':datetime.now(timezone.utc).isoformat(), 'source':'FederalRegister.gov agency publications', 'items':items, 'sources':curated['sources']}
     temporary = path.with_suffix('.tmp')
     temporary.write_text(json.dumps(payload, indent=2)+'\n')
     temporary.replace(path)

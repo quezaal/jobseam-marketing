@@ -452,6 +452,201 @@
       "tags": [
         "Wages"
       ]
+    },
+    {
+      "title": "GowraTech, LLC \u2014 published H-1B debarment",
+      "url": "https://www.dol.gov/agencies/whd/immigration/h1b/debarment",
+      "source": "DOL/WHD",
+      "published_at": null,
+      "tags": [
+        "H-1B",
+        "Enforcement"
+      ],
+      "companies": [
+        "GowraTech, LLC"
+      ],
+      "action_type": "Debarment listed",
+      "restriction_start": "2025-05-12",
+      "restriction_end": "2027-05-11",
+      "source_as_of": "2026-10-01",
+      "verified_at": "2026-10-20",
+      "summary": "DOL lists this employer with the debarment period shown. Open the government list to confirm subsequent changes."
+    },
+    {
+      "title": "Renotek Group LLC \u2014 published H-1B debarment",
+      "url": "https://www.dol.gov/agencies/whd/immigration/h1b/debarment",
+      "source": "DOL/WHD",
+      "published_at": null,
+      "tags": [
+        "H-1B",
+        "Enforcement"
+      ],
+      "companies": [
+        "Renotek Group LLC"
+      ],
+      "action_type": "Debarment listed",
+      "restriction_start": "2025-08-08",
+      "restriction_end": "2027-08-07",
+      "source_as_of": "2026-10-01",
+      "verified_at": "2026-10-20",
+      "summary": "DOL lists this employer with the debarment period shown. Open the government list to confirm subsequent changes."
+    },
+    {
+      "title": "Seeloz, Inc. \u2014 published H-1B debarment",
+      "url": "https://www.dol.gov/agencies/whd/immigration/h1b/debarment",
+      "source": "DOL/WHD",
+      "published_at": null,
+      "tags": [
+        "H-1B",
+        "Enforcement"
+      ],
+      "companies": [
+        "Seeloz, Inc."
+      ],
+      "action_type": "Debarment listed",
+      "restriction_start": "2026-03-04",
+      "restriction_end": "2028-03-03",
+      "source_as_of": "2026-10-01",
+      "verified_at": "2026-10-20",
+      "summary": "DOL lists this employer with the debarment period shown. Open the government list to confirm subsequent changes."
+    },
+    {
+      "title": "Sherwood at Mount Dora, Inc. dba Sherwood Academy \u2014 published H-1B debarment",
+      "url": "https://www.dol.gov/agencies/whd/immigration/h1b/debarment",
+      "source": "DOL/WHD",
+      "published_at": null,
+      "tags": [
+        "H-1B",
+        "Enforcement"
+      ],
+      "companies": [
+        "Sherwood at Mount Dora, Inc. dba Sherwood Academy"
+      ],
+      "action_type": "Debarment listed",
+      "restriction_start": "2026-05-26",
+      "restriction_end": "2028-05-25",
+      "source_as_of": "2026-10-01",
+      "verified_at": "2026-10-20",
+      "summary": "DOL lists this employer with the debarment period shown. Open the government list to confirm subsequent changes."
+    },
+    {
+      "title": "Da Vinci at Hunters Creek, Inc. dba Da Vinci Academy \u2014 published H-1B debarment",
+      "url": "https://www.dol.gov/agencies/whd/immigration/h1b/debarment",
+      "source": "DOL/WHD",
+      "published_at": null,
+      "tags": [
+        "H-1B",
+        "Enforcement"
+      ],
+      "companies": [
+        "Da Vinci at Hunters Creek, Inc. dba Da Vinci Academy"
+      ],
+      "action_type": "Debarment listed",
+      "restriction_start": "2026-08-03",
+      "restriction_end": "2028-08-02",
+      "source_as_of": "2026-10-01",
+      "verified_at": "2026-10-20",
+      "summary": "DOL lists this employer with the debarment period shown. Open the government list to confirm subsequent changes."
+    },
+    {
+      "title": "Sadup Softech LLC \u2014 published H-1B debarment",
+      "url": "https://www.dol.gov/agencies/whd/immigration/h1b/debarment",
+      "source": "DOL/WHD",
+      "published_at": null,
+      "tags": [
+        "H-1B",
+        "Enforcement"
+      ],
+      "companies": [
+        "Sadup Softech LLC"
+      ],
+      "action_type": "Debarment listed",
+      "restriction_start": "2026-09-24",
+      "restriction_end": "2028-09-23",
+      "source_as_of": "2026-10-01",
+      "verified_at": "2026-10-20",
+      "summary": "DOL lists this employer with the debarment period shown. Open the government list to confirm subsequent changes."
+    },
+    {
+      "title": "DOL OIG announces H-1B and PERM fraud investigation",
+      "url": "https://oig.dol.gov/public/Press%20Releases/OIG-Press-Release-070826.htm",
+      "source": "DOL/OIG",
+      "published_at": "2026-07-08",
+      "tags": [
+        "H-1B",
+        "PERM",
+        "Enforcement"
+      ],
+      "companies": [],
+      "action_type": "Investigation announced",
+      "verified_at": "2026-10-20",
+      "summary": "An agency-wide investigation announcement; this record does not establish a company-specific violation."
+    },
+    {
+      "title": "DOL OIG reports suspended applications from Cognizant and Cloudera",
+      "url": "https://oig.dol.gov/public/Press%20Releases/OIG-Press-Release-091826.htm",
+      "source": "DOL/OIG",
+      "published_at": "2026-09-18",
+      "tags": [
+        "Enforcement"
+      ],
+      "companies": [
+        "Cognizant",
+        "Cloudera"
+      ],
+      "action_type": "Suspension announced",
+      "verified_at": "2026-10-20",
+      "summary": "The release reports suspended visa applications pending investigation. It does not specify the program, restriction dates, or a final finding; these are not inferred here."
+    },
+    {
+      "title": "White House press conference on fighting visa fraud",
+      "url": "https://www.whitehouse.gov/videos/vice-president-jd-vance-holds-press-conference-on-fighting-visa-fraud/",
+      "source": "White House",
+      "published_at": "2026-10-08",
+      "tags": [
+        "Enforcement"
+      ],
+      "companies": [],
+      "action_type": "Government announcement",
+      "verified_at": "2026-10-20",
+      "summary": "Government video announcement. The page has no written transcript; company-specific status has not been assigned from this record."
+    }
+  ],
+  "sources": [
+    {
+      "title": "DOL H-1B debarments",
+      "url": "https://www.dol.gov/agencies/whd/immigration/h1b/debarment",
+      "description": "Published employer names and debarment periods."
+    },
+    {
+      "title": "OFLC program debarments",
+      "url": "https://www.dol.gov/agencies/eta/foreign-labor/program-debarments",
+      "description": "PERM and other labor-certification program lists."
+    },
+    {
+      "title": "DOL enforcement announcements",
+      "url": "https://www.dol.gov/newsroom",
+      "description": "Employer actions and enforcement news releases."
+    },
+    {
+      "title": "DOL Inspector General",
+      "url": "https://oig.dol.gov/",
+      "description": "Investigations and enforcement announcements."
+    },
+    {
+      "title": "White House briefings",
+      "url": "https://www.whitehouse.gov/briefings-statements/",
+      "description": "Government briefings and statements."
+    },
+    {
+      "title": "USCIS newsroom",
+      "url": "https://www.uscis.gov/newsroom",
+      "description": "Immigration policy and agency announcements."
+    },
+    {
+      "title": "Federal Register",
+      "url": "https://www.federalregister.gov/",
+      "description": "Agency rules, notices, and proposed rules."
     }
   ]
 }
