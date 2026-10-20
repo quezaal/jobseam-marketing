@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  if (['localhost', '127.0.0.1', '[::1]'].includes(window.location?.hostname)) return;
   const config = window.JOBSEAM_ANALYTICS || {};
   const ga = config.ga4MeasurementId || '';
   const gtm = config.gtmContainerId || '';

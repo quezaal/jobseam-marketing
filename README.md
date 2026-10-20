@@ -51,3 +51,9 @@ SEO references: https://developers.google.com/search/docs/crawling-indexing/bloc
 HTML files remain the single editable source per page. Shared navigation, footer links, canonical metadata, and sitemap entries use extensionless URLs. Apache deployments can use the included `.htaccess`; other hosts need equivalent clean-URL routing. For static directory-only hosting, run `python3 build.py` and publish `_site/`, which contains generated route directories and assets. Generated output is not a second editable source.
 
 The talent application provides Quick Submit (name, email, role) and the full profile form. Candidates choose one; both use the recruiting delivery workflow and structured profile payload. Quezaal retains only its recruiting overview and a single application CTA.
+
+## Immigration news feed
+
+The immigration page loads `/assets/immigration-news.json`, a bundled FederalRegister.gov agency-publication snapshot. It needs no application API or localhost:8000 service. Refresh it with `python3 scripts/refresh-immigration-news.py` before publishing; this requires network access and preserves the prior snapshot on failure. The UI displays its refresh timestamp rather than claiming a live feed. A `compliance-news-url` meta tag can override this with an array-based backend feed. Cross-origin endpoints require CORS. Deploy the JSON, JavaScript, HTML, and favicon together, or rebuild `_site/` for directory hosting.
+
+Analytics intentionally does not load on localhost, 127.0.0.1, or IPv6 loopback. Production analytics remains configured as before. DoubleClick DNS failures indicate network DNS/filtering of Google advertising domains; they do not come from the news feed or affect its articles.

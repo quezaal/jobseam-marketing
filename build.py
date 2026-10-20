@@ -14,6 +14,6 @@ for source in ROOT.iterdir():
         target = OUT / ('index.html' if source.stem == 'index' else source.stem + '/index.html')
         target.parent.mkdir(exist_ok=True)
         shutil.copy2(source, target)
-    elif source.suffix.lower() in ('.png', '.jpg', '.pdf', '.pptx', '.xml', '.txt') or source.name == 'CNAME':
+    elif source.suffix.lower() in ('.ico', '.png', '.jpg', '.pdf', '.pptx', '.xml', '.txt') or source.name == 'CNAME':
         shutil.copy2(source, OUT / source.name)
 print(f'Built clean routes in {OUT}')

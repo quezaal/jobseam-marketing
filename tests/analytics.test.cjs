@@ -2,9 +2,9 @@ const {test} = require('node:test');
 const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const code = require('node:fs').readFileSync(require('node:path').join(__dirname,'../assets/analytics.js'),'utf8');
-function run(config) {
+function run(config, hostname = "jobseam.com") {
  const scripts=[], handlers={};
- const window={JOBSEAM_ANALYTICS:config,addEventListener:(name,fn)=>handlers[name]=fn};
+ const window={location:{hostname},JOBSEAM_ANALYTICS:config,addEventListener:(name,fn)=>handlers[name]=fn};
  const document={createElement:()=>({}),head:{appendChild:s=>scripts.push(s)}};
  vm.runInNewContext(code,{window,document,Date}); return {window,scripts,handlers};
 }
@@ -19,3 +19,5 @@ test('GA4 maps confirmed booking signal, not a generic form event',()=>{
 test('GTM uses data layer without an additional GA4 booking listener',()=>{
  const r=run({gtmContainerId:'GTM-TEST'});assert.equal(r.scripts.length,1);assert.equal(Object.keys(r.handlers).length,0);
 });
+
+test("local previews never load analytics",()=>{for(const host of ["localhost","127.0.0.1","[::1]"])assert.equal(run({ga4MeasurementId:"G-TEST"},host).scripts.length,0)});

@@ -46,6 +46,7 @@
 .compliance-banner p{font-size:13px;line-height:1.7;color:var(--ink,#1a1f12);margin:0}
 .compliance-banner strong{color:var(--olive,#7a9e45)}
 </style>
+<link rel="icon" href="/favicon.ico" sizes="any">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -71,7 +72,7 @@
 <div class="wrap page-title">
 <div class="eyebrow">Immigration &amp; Labor law updates</div>
 <h1>The rules that govern your placements, in one place.</h1>
-<p>Official updates from USCIS, DOL, OFLC, and DHS, filtered for staffing agencies and their consultants. No commentary, no paraphrasing: primary sources only. Updated every few hours.</p>
+<p>USCIS and DOL agency publications from FederalRegister.gov, provided as a dated snapshot. Open each publication and the agency newsrooms for the latest status.</p>
 </div>
 </section>
 
@@ -117,9 +118,9 @@
 </div>
 </div>
 
-<p class="refresh-note" id="refreshNote">Loading updates from USCIS, DOL, and DHS&hellip;</p>
+<p class="refresh-note" id="refreshNote" role="status">Loading updates from USCIS, DOL, and DHS&hellip;</p>
 
-<div class="news-grid" id="newsGrid">
+<div class="news-grid" id="newsGrid" aria-busy="false">
 <div class="empty-state">Fetching official updates&hellip;</div>
 </div>
 
@@ -185,115 +186,6 @@
 </div>
 </footer>
 
-<script>
-// ── Source badge helper ──────────────────────────────────────────
-function sourceBadgeClass(source) {
-  if (!source) return '';
-  const s = source.toUpperCase();
-  if (s.includes('USCIS')) return 'source-uscis';
-  if (s.includes('OFLC') || s.includes('DOLETA')) return 'source-oflc';
-  if (s.includes('DOL')) return 'source-dol';
-  if (s.includes('DHS')) return 'source-dhs';
-  return '';
-}
-
-// ── API endpoint config ───────────────────────────────────────────
-// The JobSeam backend fetches government RSS server-side and caches it.
-// In local dev the API runs on port 8000; in production it's same-origin.
-// Auto-detect: localhost → use port 8000, production → same-origin /api/.
-const _isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-const _apiBase  = _isLocal ? 'http://localhost:8000' : '';
-const NEWS_URL  = `${_apiBase}/api/public/compliance_news?market=us`;
-
-function fmtDate(str) {
-  if (!str) return '';
-  try { return new Date(str).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
-  catch { return ''; }
-}
-
-// ── Render ───────────────────────────────────────────────────────
-let allItems = [];
-let activeTag  = 'all';
-let activeDays = 0;   // 0 = any time
-
-function itemMatchesPeriod(item) {
-  if (!activeDays) return true;
-  if (!item.published_at) return false;
-  try {
-    const cutoff = Date.now() - activeDays * 86400000;
-    return new Date(item.published_at).getTime() >= cutoff;
-  } catch { return false; }
-}
-
-function renderGrid() {
-  const grid = document.getElementById('newsGrid');
-  let shown = allItems;
-  if (activeTag !== 'all') shown = shown.filter(i => (i.tags || []).includes(activeTag));
-  shown = shown.filter(itemMatchesPeriod);
-
-  if (!shown.length) {
-    grid.innerHTML = '<div class="empty-state">No updates found for this filter combination. <a href="https://www.uscis.gov/newsroom" target="_blank" rel="noopener">Check uscis.gov directly &#8599;</a></div>';
-    return;
-  }
-  grid.innerHTML = shown.map(item => `
-    <div class="news-card">
-      <div class="news-meta">
-        <span class="source-badge ${sourceBadgeClass(item.source)}">${item.source || ''}</span>
-        ${item.summary ? `<span style="color:var(--muted,#586474)">via ${item.summary}</span>` : ''}
-        ${item.published_at ? `<span>${fmtDate(item.published_at)}</span>` : ''}
-      </div>
-      <div class="news-title"><a href="/${item.url}" target="_blank" rel="noopener noreferrer">${item.title}</a></div>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;flex-wrap:wrap;gap:6px">
-        ${(item.tags||[]).length ? `<div>${item.tags.map(t => `<span class="tag-pill">${t}</span>`).join('')}</div>` : '<div></div>'}
-        ${item.url ? `<a class="news-readmore" href="/${item.url}" target="_blank" rel="noopener noreferrer">Read article ↗</a>` : ''}
-      </div>
-    </div>
-  `).join('');
-}
-
-// ── Topic filter bar ─────────────────────────────────────────────
-document.getElementById('filterBar').addEventListener('click', e => {
-  const btn = e.target.closest('.filter-btn');
-  if (!btn) return;
-  document.querySelectorAll('#filterBar .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeTag = btn.dataset.tag;
-  renderGrid();
-});
-
-// ── Period filter bar ────────────────────────────────────────────
-document.getElementById('periodBar').addEventListener('click', e => {
-  const btn = e.target.closest('.filter-btn');
-  if (!btn) return;
-  document.querySelectorAll('#periodBar .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeDays = parseInt(btn.dataset.days, 10) || 0;
-  renderGrid();
-});
-
-// ── Load news from backend API ────────────────────────────────────
-(async () => {
-  const note = document.getElementById('refreshNote');
-  note.textContent = 'Fetching updates from USCIS, DOL, and DHS…';
-  try {
-    const r = await fetch(NEWS_URL);
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    allItems = await r.json();
-    // Sort newest first
-    allItems.sort((a, b) => {
-      try { return new Date(b.published_at) - new Date(a.published_at); }
-      catch { return 0; }
-    });
-    if (allItems.length) {
-      note.textContent = `${allItems.length} updates loaded from official sources. Refreshes automatically.`;
-    } else {
-      throw new Error('empty');
-    }
-  } catch (err) {
-    note.innerHTML = 'Live feed temporarily unavailable. Visit <a href="https://www.uscis.gov/newsroom" target="_blank" rel="noopener">uscis.gov</a> or <a href="https://www.dol.gov/newsroom" target="_blank" rel="noopener">dol.gov</a> directly.';
-  }
-  renderGrid();
-})();
-</script>
+<script src="/assets/immigration-news.js"></script>
 </body>
 </html>
