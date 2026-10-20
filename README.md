@@ -65,3 +65,29 @@ Analytics intentionally does not load on localhost, 127.0.0.1, or IPv6 loopback.
 The page offers company/keyword search, agency and action filters, published restriction periods, and record review dates. It distinguishes debarment lists, suspension announcements, investigations and general announcements. A missing record is not employer clearance, and PERM actions are not treated as H-1B debarments. Source URLs and dates are retained per record. The October 8 White House video is linked as an announcement without unverified company-specific classifications.
 
 Run `node --test tests/*.test.cjs` and `python3 build.py` after updating the registry or page. Publish the updated HTML, JavaScript, CSS, and JSON together.
+
+## Government video transcripts
+
+The immigration page expands **Read video transcript**, with timestamps, text search, a source link, and an accuracy notice. Publisher captions, automatic captions, and machine-transcribed audio are labelled separately. Transcript text never changes employer restriction classifications automatically.
+
+The registered White House video currently has publisher-provided captions saved under `assets/transcripts/`. For these captions, the notice reads: “Transcript reproduced from publisher-provided captions. Captions may contain errors or omit context. Watch the original government video to confirm the message.” Machine-generated text uses: “Machine-generated transcript. It may contain errors or omit context. Watch the original government video to confirm the message. This transcript is not an official record.”
+
+### Process future videos
+
+Use Python 3.12 or newer, FFmpeg, and an isolated environment:
+
+```sh
+python3.12 -m venv .venv-video
+.venv-video/bin/python -m pip install -r scripts/transcript-requirements.txt
+.venv-video/bin/python scripts/process-video-transcripts.py --limit 5
+.venv-video/bin/python scripts/refresh-immigration-news.py
+python3 build.py
+```
+
+The worker scans the White House video library for immigration/visa/foreign-labor topics and processes registered video records from approved government domains. Add `"video": true` to register a government source page without `/videos/` in its URL. Other agencies' video libraries are not automatically scanned yet. Captions are preferred; speech-to-text uses the server-side `OPENAI_API_KEY` only when captions are absent. Never put that key in the browser or commit it. No API key was available or needed for the current caption transcript. Audio processing uses whisper-1 with segment timestamps, in ten-minute chunks. It skips videos over 90 minutes; the default run processes at most five videos. API usage incurs costs when enabled.
+
+Successful transcripts are cached by source URL. `--retry` explicitly replaces them. Source failures retain any successful prior transcript; unavailable videos show a source link instead. The worker does not bypass login, DRM, or access restrictions. Original media downloads are temporary and removed after processing. No automatic legal classifications or employer names are extracted from transcript text.
+
+`.github/workflows/government-video-transcripts.yml` prepares updated data and a static-site artifact daily after the workflow is pushed and enabled in GitHub Actions. The optional repository secret `OPENAI_API_KEY` enables paid audio fallback. The workflow caches completed transcripts to avoid repeat processing and uploads artifacts; it does not deploy the site or commit generated data. Download/publish `jobseam-site-with-transcripts` through the hosting process to update the live page. New videos will not appear live merely from the cron job.
+
+Run `python3 -m unittest discover -s tests -p 'test_*.py'` and `node --test tests/*.test.cjs` for processing and rendering checks.

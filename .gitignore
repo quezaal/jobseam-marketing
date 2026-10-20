@@ -225,3 +225,6 @@ index_v1.html
 ads/
 _site/
 __pycache__/
+
+.venv-transcripts/
+.venv-video/

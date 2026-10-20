@@ -609,7 +609,8 @@
       "companies": [],
       "action_type": "Government announcement",
       "verified_at": "2026-10-20",
-      "summary": "Government video announcement. The page has no written transcript; company-specific status has not been assigned from this record."
+      "summary": "Government video announcement. Read the transcript when available, and watch the original video to confirm the message. Employer-specific classifications require separate source review.",
+      "video": true
     }
   ],
   "sources": [

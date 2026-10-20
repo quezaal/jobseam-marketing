@@ -13,7 +13,7 @@ async function setup(payload,ok=true){
  const ids={};for(const id of ['newsGrid','refreshNote','companySearch','agencyFilter','actionFilter','filterBar','periodBar','governmentSources'])ids[id]=new Element();
  ids.agencyFilter.value=ids.actionFilter.value='all';
  const document={getElementById:id=>ids[id],querySelector:()=>null,querySelectorAll:()=>[],createElement:tag=>new Element(tag)};
- vm.runInNewContext(code,{document,URL,Date,AbortController,setTimeout,clearTimeout,fetch:async()=>({ok,json:async()=>payload})});
+ vm.runInNewContext(code,{window:{},document,URL,Date,AbortController,setTimeout,clearTimeout,fetch:async()=>({ok,json:async()=>payload})});
  await new Promise(resolve=>setImmediate(resolve));return ids;
 }
 const sample={items:[{title:'Employer A — debarment',source:'DOL/WHD',url:'https://www.dol.gov/example',tags:['H-1B'],companies:['Employer A'],action_type:'Debarment listed',restriction_start:'2025-01-01',restriction_end:'2027-01-01',verified_at:'2026-10-20'},{title:'Other publication',source:'USCIS',url:'https://www.federalregister.gov/example',tags:['PERM'],published_at:'2026-10-01'}],sources:[{title:'DOL',url:'https://www.dol.gov/',description:'Official source'}]};

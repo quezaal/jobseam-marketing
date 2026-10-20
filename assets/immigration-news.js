@@ -80,7 +80,10 @@
       if (item.restriction_start && item.restriction_end) card.append(node('p', 'Published restriction period: ' + item.restriction_start + ' to ' + item.restriction_end, 'news-record-note'));
       if (item.source_as_of) card.append(node('p', 'Source list effective: ' + item.source_as_of, 'news-record-note'));
       if (item.verified_at) card.append(node('p', 'Record reviewed: ' + item.verified_at + '. Check the source for later changes.', 'news-record-note'));
-      card.append(more); grid.append(card);
+      card.append(more);
+      const transcript = window.renderVideoTranscript?.(item);
+      if (transcript) card.append(transcript);
+      grid.append(card);
     });
   }
   for (const [id, key] of [['filterBar', 'tag'], ['periodBar', 'days']]) {

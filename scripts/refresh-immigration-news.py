@@ -31,6 +31,16 @@ def main():
         if not record.get('verified_at') or not record['url'].startswith(('https://www.dol.gov/', 'https://oig.dol.gov/', 'https://www.whitehouse.gov/')):
             raise ValueError('Government records require verification dates and government evidence')
     items.extend(curated['items'])
+    transcript_index = path.parent / 'transcripts/index.json'
+    if transcript_index.exists():
+        existing = {item['url'] for item in items}
+        for url, video in json.loads(transcript_index.read_text()).get('videos', {}).items():
+            if url in existing or not url.startswith('https://www.whitehouse.gov/videos/'):
+                continue
+            items.append({'title':video['title'], 'url':url, 'source':video['source'],
+                          'published_at':None, 'tags':['Enforcement'], 'companies':[],
+                          'action_type':'Government announcement', 'video':True,
+                          'summary':'Government video discovered automatically. Transcript availability and accuracy are separate from verification of any employer action.'})
     payload = {'updated_at':datetime.now(timezone.utc).isoformat(), 'source':'FederalRegister.gov agency publications', 'items':items, 'sources':curated['sources']}
     temporary = path.with_suffix('.tmp')
     temporary.write_text(json.dumps(payload, indent=2)+'\n')

@@ -1,0 +1,12 @@
+{
+  "videos": {
+    "https://www.whitehouse.gov/videos/vice-president-jd-vance-holds-press-conference-on-fighting-visa-fraud/": {
+      "status": "available",
+      "path": "/assets/transcripts/fc88c51136453ec7a160.json",
+      "title": "White House press conference on fighting visa fraud",
+      "source": "White House",
+      "method": "publisher-captions",
+      "checked_at": "2026-10-20T12:54:58.551278+00:00"
+    }
+  }
+}

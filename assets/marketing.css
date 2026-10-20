@@ -218,3 +218,16 @@ section[aria-label],section[id]{scroll-margin-top:20px}
 .hero-grid{align-items:start}
 
 .government-sources{margin-bottom:24px}.government-sources .grid3{margin-top:16px}.government-sources .card{font-size:14px}.news-search-controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin:20px 0 12px}.news-search-controls label{display:block;font-size:13px;font-weight:650;margin-bottom:6px}.news-search-controls input,.news-search-controls select{width:100%;min-height:44px;padding:10px;border:1px solid var(--line);border-radius:6px;font:inherit;background:#fff;color:var(--ink)}.news-record-note{font-size:13px}.news-grid .empty-state{grid-column:1/-1}@media(max-width:800px){.news-search-controls{grid-template-columns:1fr}}
+
+.video-transcript{border-top:1px solid var(--line);padding-top:12px;min-width:0}.transcript-notice{font-size:13px;background:#fff4d6;color:#594719;padding:12px;border-radius:6px}.video-transcript input{width:100%;padding:10px;margin:12px 0;border:1px solid var(--line);border-radius:6px;font:inherit}.transcript-segments{max-height:360px;overflow:auto;overflow-wrap:anywhere;padding-right:8px}.transcript-segments p{font-size:14px;line-height:1.6}
+
+/* An open transcript gets its own full-width row; neighboring cards flow below. */
+.news-card:has(>.video-transcript[open]){grid-column:1/-1;padding:28px 32px}
+.news-card:has(>.video-transcript[open])>.news-title{font-size:20px;line-height:1.4}
+.news-card:has(>.video-transcript[open])>.news-record-note{max-width:95ch}
+.video-transcript>summary{min-height:44px;display:list-item;padding:8px 0}
+.video-transcript[open]>summary{color:var(--olive);margin-bottom:8px}
+.video-transcript[open] .transcript-segments{max-height:min(65vh,720px);padding:12px 24px 12px 0;scrollbar-gutter:stable}
+.transcript-segments p{font-size:16px;line-height:1.85;max-width:110ch;margin-bottom:22px}
+.transcript-segments p>a,.transcript-segments p>strong{font-size:13px;white-space:nowrap;margin-right:10px;color:var(--olive)}
+@media(max-width:640px){.news-card:has(>.video-transcript[open]){padding:20px}.video-transcript[open] .transcript-segments{max-height:65vh;padding-right:8px}.transcript-segments p{font-size:15px;line-height:1.75}}
