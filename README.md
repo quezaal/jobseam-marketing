@@ -8,7 +8,7 @@ Static website for jobseam.com. No build step. Preview from this directory with 
 - `faq.html`: dedicated workflow questions and answers.
 - `how-it-works.html`: dedicated step-by-step workflow and product walkthrough.
 - `features.html`: capability overview linking to the detailed feature reference.
-- `pricing.html`: Founding $199, Starter $299, Growth $699 and Enterprise inquiry. Core two-way matching in every plan.
+- `pricing.html`: monthly Founding $199, Starter $299, Growth $699; annual prepayment $1,990 / $2,990 / $6,990. Enterprise inquiry. Core matching and compliance workflows in every listed plan.
 - `demo.html`: existing Quezaal 20-minute Calendly booking, with a direct-link fallback. Sales-page demo links open the same Calendly popup as the original site when the widget is available; they navigate to this page if it is unavailable.
 - `jobseam-onepager.html`: concise product overview replacing unvalidated outcome claims.
 - `assets/marketing.css` and `assets/marketing.js`: shared responsive styles and booking integration.
@@ -17,7 +17,7 @@ The existing detailed feature guide remains available for evaluation. `index_v1.
 
 ## Before paid traffic
 
-1. Confirm availability of the first-five-company founding offer and the capacity/feature entitlements in the actual application. These changes affect marketing only, not billing or product authorization. The founding offer is $199/month for 12 months, 5 users, 100 consultants, 1 mailbox and US market, with no setup fee and cancellation anytime. Profitability has not been established: verify infrastructure, AI, data, email and support costs before enrollment. There is no fabricated remaining-spots counter.
+1. Confirm availability of the first-five-company founding offer and the capacity/feature entitlements in the actual application. These changes affect marketing only, not billing or product authorization. The founding offer is $199/month or $1,990 prepaid for the first year, 5 users, 100 consultants, 1 mailbox and US market, with no setup fee. Confirm annual cancellation/refund terms in the order form; annual prepayment is not a month-to-month commitment. Profitability has not been established: verify infrastructure, AI, data, email and support costs before enrollment. There is no fabricated remaining-spots counter.
 2. In the existing Calendly event, configure work email, company, optional phone, and team/consultant count as appropriate. Confirm scheduling availability and invitation delivery. Resume sharing is coordinated after booking; this site does not upload resumes.
 3. Connect the correct JobSeam GTM/GA4 account using your approved analytics/consent setup. Set exactly one owner-approved destination in `assets/analytics-config.js`: `ga4MeasurementId` OR `gtmContainerId`. Both are empty until the owner selects an account. The shared loader supports either mode, and refuses to load when both are set. Direct GA4 maps the confirmed booking signal to `jobseam_demo_booked`; GTM uses the existing data-layer event. Apply your approved consent settings before enabling. Do not install a second loader or count both GA4-imported and direct Ads conversions as Primary.
 4. Map the `jobseam_demo_booked` data-layer event to the demo-booked conversion. Only a `calendly.event_scheduled` message from the embedded or popup calendar's window and exact Calendly origin, with a scheduled-event URI, can emit it. Duplicates in the same page are ignored. The URI and contact details are not sent to the data layer. Calendar views, page views, CTA clicks and form starts do not emit this event.
@@ -38,7 +38,7 @@ Run `node --test tests/*.test.cjs` for booking conversion checks. These tests si
 - In GA4/GTM and Ads, configure the confirmed booking conversion, verify a real test booking and invitation, and remove the generic Form conversion from Primary bidding. No appointment or message was sent by this review.
 - Submit sitemap.xml using the verified Search Console property. Search Console access and campaign configuration are not available in this repository.
 - Older deck PDF/PPTX and go-to-market PDF still contain historical material. They are not linked from the updated sales funnel. Remove them from the published artifact or configure host-level X-Robots-Tag: noindex before considering the legacy-asset cleanup complete. HTML meta tags and robots.txt do not deindex PDFs. GitHub Pages does not gain custom response headers merely by adding a _headers file; configure the actual host/CDN. Keep original files in private version history if retiring them.
-- Product subscription enforcement, load testing, invoices, and the YouTube ad itself were not modified. Public prices remain $199 Founding / $299 Starter / $699 Growth.
+- Product subscription enforcement, load testing, invoices, and the YouTube ad itself were not modified. Monthly prices remain $199 Founding / $299 Starter / $699 Growth. Annual prepayment is $1,990 / $2,990 / $6,990 for twelve months, the cost of ten monthly payments.
 
 SEO references: https://developers.google.com/search/docs/crawling-indexing/block-indexing and https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap.
 
@@ -115,3 +115,50 @@ Footer navigation mirrors Product, Solutions, and Resources with the same destin
 - `support@jobseam.com`: existing-customer help.
 
 The Contact form opens an encoded mailto draft in the visitor’s email application. It does not submit or store a message, and the visitor must send the draft. Direct email links remain available. Existing Calendly booking remains separate. Quezaal recruiting requests still link to Quezaal’s own Talent page and are not routed to JobSeam product support. Email account creation and delivery verification are outside this repository.
+
+
+## Latest compliance positioning and billing options
+
+The main sales pages describe the seven-stage Compliance workspace, multiple LCA
+and worksite records, notice and certification/receipt tracking, five unsigned
+DOCX draft types, administrator-reviewed public PAF PDFs and withdrawal, the
+Compliance Reference library, candidate activity, and movable/resizable windows.
+Drafts are private and unsigned; creating one does not establish posting,
+receipt, a signature, or legal compliance. PAF publication does not expose a
+candidate marketplace or the private vault. Government filing and required
+inspection arrangements remain the employer's responsibility.
+
+The detailed guide's new Compliance section is current; embedded historical
+screenshots and old decks were not regenerated. The public one-pager HTML includes the new section; its PDF is regenerated from
+the current HTML alongside this change.
+
+`assets/pricing.js` controls monthly/annual display. Annual shows the full yearly
+prepayment prominently, a rounded monthly equivalent, and the exact dollar saving.
+The `billing=annual` query preserves the selection on reload. Price CTAs carry
+plan and billing to `/demo`, whose visible plan-interest note preserves that
+context. Existing booking conversion events are unchanged. This is a sales
+inquiry flow, not a payment checkout; billing, invoices and subscription
+entitlements in the product have not been changed.
+
+The recommended local pricing keeps monthly rates unchanged while adding an
+annual option at ten monthly payments (16.7% below twelve monthly payments).
+No gross-margin or support-cost validation is implied. Confirm order-form terms
+and availability of the updated app modules before publishing.
+
+Pricing browser verification: `node tests/pricing.browser.cjs` (Playwright required;
+set `PLAYWRIGHT_MODULE` to reuse an existing installation). It checks monthly and
+annual totals, savings, reload behavior, billing context on the demo page, and
+responsive sales pages. It does not book an appointment or charge a customer.
+
+
+## Public plans and custom quotes
+
+Published monthly/annual rates remain unchanged. The pricing headline is now
+“Core workflows included. Choose your team capacity.” The scope section at
+`/pricing#plan-scope` defines standard assisted onboarding and separates private
+hosting, custom integration development, assisted legacy-data migration/cleanup,
+extra capacity and dedicated services for quotation. Enterprise links lead to
+`/contact#sales` or a requirements discussion. Third-party provider fees and
+order-form terms are distinguished from the software subscription price.
+This updates marketing scope; it does not configure a billing system or publish
+changes to a live host.

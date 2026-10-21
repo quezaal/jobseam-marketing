@@ -58,3 +58,15 @@ test('clean demo URLs retain popup booking and use-case links retain their page 
   setup('', false, [{href: 'https://jobseam.com/demo?use_case=education', addEventListener() { intercepted = true; }}]);
   assert.equal(intercepted, false);
 });
+
+test('annual price selection reaches the demo page without losing billing context', () => {
+  let click, prevented = false, opened = false;
+  const link = {href: 'https://jobseam.com/demo?plan=founding&billing=monthly', addEventListener: (_, fn) => click = fn};
+  const s = setup('?plan=founding&billing=annual', false, [link]);
+  assert.match(s.nodes['plan-interest'].textContent, /annual billing/);
+  link.href = 'https://jobseam.com/demo?plan=growth&billing=annual';
+  s.window.Calendly = {initPopupWidget() { opened = true; }};
+  click({button: 0, preventDefault() { prevented = true; }});
+  assert.equal(prevented, false);
+  assert.equal(opened, false);
+});

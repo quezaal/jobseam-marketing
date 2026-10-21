@@ -272,3 +272,37 @@ section[aria-label],section[id]{scroll-margin-top:20px}
 .contact-form .button{align-self:start;margin-top:8px}
 .contact-owner{margin-top:24px}
 .contact-form #contact-status{margin-top:8px}
+
+/* Billing choice makes the full annual prepayment visible, not only an equivalent. */
+.billing-selector { padding: 0 0 24px; }
+.billing-toggle { display: inline-flex; align-items: stretch; gap: 4px; position: relative; max-width: 100%; min-width: 0; border: 0; border-radius: 18px; padding: 6px; margin: 0 0 14px; background: #efefed; }
+.billing-toggle legend { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.billing-toggle label { position: relative; display: inline-flex; justify-content: center; gap: 10px; align-items: center; min-height: 54px; border: 0; border-radius: 13px; padding: 12px 24px; cursor: pointer; font-size: 20px; font-weight: 700; line-height: 1.3; color: var(--muted, #667085); transition: background-color .15s ease, color .15s ease, box-shadow .15s ease; }
+.billing-toggle label:has(input:checked) { background: #fff; color: var(--ink, #14202d); box-shadow: 0 1px 4px #14202d0a; }
+.billing-toggle label:has(input:focus-visible) { outline: 2px solid var(--olive); outline-offset: 2px; }
+.billing-toggle input { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); }
+.billing-toggle label:has(input:disabled) { cursor: default; }
+.billing-saving { font-size: 11px; font-weight: 700; color: var(--olive); background: #e6ebdf; border-radius: 20px; padding: 4px 8px; white-space: nowrap; }
+@media(max-width:480px) { .billing-toggle label { padding: 12px 16px; font-size: 18px; gap: 6px; } .billing-saving { font-size: 10px; padding: 4px 6px; } }
+.price-billing-note { min-height: 56px; }
+.grid2 { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+#compliance { scroll-margin-top: 24px; }
+@media(max-width:760px) { .grid2 { grid-template-columns: minmax(0,1fr); } .price-billing-note { min-height: 0; } }
+
+.overview-print-pricing { display: none; }
+@media print {
+  .product-overview-page header, .product-overview-page footer,
+  .product-overview-page .actions, .product-overview-page .text-link { display: none !important; }
+  .product-overview-page main > section:not(.hero):not(#use-cases):not(#compliance) { display: none !important; }
+  .product-overview-page .wrap { width: 100%; }
+  .product-overview-page .hero, .product-overview-page .section { padding: 8px 0; }
+  .product-overview-page h1 { font-size: 25px; }
+  .product-overview-page h2 { font-size: 16px; }
+  .product-overview-page h3 { font-size: 11px; }
+  .product-overview-page p, .product-overview-page .hero p { font-size: 10px; line-height: 1.45; margin-bottom: 6px; }
+  .product-overview-page .eyebrow { font-size: 8px; margin-bottom: 5px; }
+  .product-overview-page .grid3 { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+  .product-overview-page .grid2 { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 8px !important; }
+  .product-overview-page .card { padding: 9px; break-inside: avoid; }
+  .product-overview-page .overview-print-pricing { display: block; border-top: 1px solid var(--line); padding-top: 8px; font-size: 10px; }
+}

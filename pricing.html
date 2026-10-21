@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Simple pricing for IT staffing teams | JobSeam</title>
-<meta name="description" content="Founding $199/month, Starter $299/month, Growth $699/month. Per-team pricing with job market intelligence, two-way AI matching, compliance tools, and full workflow included.">
+<meta name="description" content="JobSeam team plans: $199/$299/$699 monthly or $1,990/$2,990/$6,990 annually. AI matching, guided compliance, document drafts and reviewed public PAF pages.">
 <link rel="canonical" href="https://jobseam.com/pricing">
 <meta property="og:title" content="Simple pricing for IT staffing teams | JobSeam">
-<meta property="og:description" content="Founding $199/month for the first 5 staffing companies. Starter $299 and Growth $699. All plans include matching, compliance tools, portals, and invoicing.">
+<meta property="og:description" content="Choose monthly or annual team pricing. Founding $199/mo or $1,990/year, Starter $299/mo or $2,990/year, Growth $699/mo or $6,990/year.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jobseam.com/pricing">
 <meta property="og:image" content="https://jobseam.com/screenshots/screen_match_scored.png">
@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 <script defer src="/assets/analytics-config.js"></script>
 <script defer src="/assets/analytics.js"></script>
+<script defer src="/assets/pricing.js"></script>
 <script defer src="/assets/marketing.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://quezaal.com/#organization", "name": "Quezaal Inc.", "url": "https://quezaal.com/"}, {"@type": "WebSite", "@id": "https://jobseam.com/#website", "name": "JobSeam", "url": "https://jobseam.com/", "publisher": {"@id": "https://quezaal.com/#organization"}}]}</script>
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -55,19 +56,20 @@
 <section class="hero">
 <div class="wrap page-title">
 <div class="eyebrow">Pricing / IT staffing teams</div>
-<h1>One team price. Everything included.</h1>
-<p>Every plan includes market intelligence, two-way AI matching, compliance tools, portals, invoicing, and the full workflow. Choose the capacity that fits your roster and markets.</p>
-<p class="small">All prices in USD per month, billed monthly. For education or individual access, <a href="/demo">discuss your requirements with us</a>.</p>
+<h1>Core workflows included. Choose your team capacity.</h1>
+<p>Founding, Starter, and Growth include the core market intelligence, AI matching, guided compliance, document, portal, and invoicing workflows. Choose your users, consultant roster, mailboxes, and supported markets. Custom deployments and services are quoted separately.</p>
+<p class="small">Choose monthly billing or prepay annually. Annual plans cost ten monthly payments for twelve months of access (save 16.7% versus twelve monthly payments). All prices are in USD per team. For education or individual access, <a href="/demo">discuss your requirements with us</a>.</p>
 </div>
 </section>
 
+<section class="billing-selector"><div class="wrap"><fieldset class="billing-toggle"><legend>Billing frequency</legend><label><input type="radio" name="billing" value="monthly" checked disabled> Monthly</label><label><input type="radio" name="billing" value="annual" disabled> Annual <span class="billing-saving">2 months free</span></label></fieldset><noscript><p class="small">The cards show monthly billing. Annual prepayment: Founding $1,990, Starter $2,990, Growth $6,990 for twelve months.</p></noscript><p id="billing-summary" class="small" role="status" aria-live="polite">Monthly billing. Choose annual to see the prepaid yearly total.</p></div></section>
 <!-- Plan cards -->
 <section>
 <div class="wrap grid3 plans">
 <article class="card plan featured">
 <span class="pill">First 5 staffing companies</span>
 <h2>Founding</h2>
-<div class="price">$199<small> / month</small></div>
+<div class="price" data-plan="founding" data-monthly="199" data-annual="1990">$199<small> / month</small></div><p class="small price-billing-note" data-billing-note="founding">Billed monthly. Or $1,990 prepaid annually.</p>
 <ul class="checklist">
 <li>5 users · 100 consultants</li>
 <li>1 mailbox · US market</li>
@@ -75,17 +77,18 @@
 <li>Two-way AI matching + reverse matching</li>
 <li>Email req ingestion and parsing</li>
 <li>Work authorization tracking and alerts</li>
-<li>I-9/E-Verify tracking, SOC and wage review, PAF workspace</li>
+<li>Guided compliance, LCA/worksite records &amp; I-9/E-Verify tracking</li>
+<li>Five editable drafts &amp; reviewed public PAF pages</li>
 <li>Invoicing, timesheets, portals</li>
-<li>Assisted onboarding</li>
+<li>Standard assisted onboarding</li>
 </ul>
-<p class="small">Price locked for 12 months. No setup fee.</p>
-<a class="button" href="/demo?plan=founding">Discuss founding ↗</a>
+<p class="small">Price locked for 12 months. No setup fee for standard onboarding.</p>
+<a class="button" data-plan-cta="founding" href="/demo?plan=founding&amp;billing=monthly">Discuss founding ↗</a>
 </article>
 <article class="card plan">
 <span class="pill">For a growing bench</span>
 <h2>Starter</h2>
-<div class="price">$299<small> / month</small></div>
+<div class="price" data-plan="starter" data-monthly="299" data-annual="2990">$299<small> / month</small></div><p class="small price-billing-note" data-billing-note="starter">Billed monthly. Or $2,990 prepaid annually.</p>
 <ul class="checklist">
 <li>5 users · 200 consultants</li>
 <li>1 mailbox · US market</li>
@@ -93,17 +96,18 @@
 <li>Two-way AI matching + reverse matching</li>
 <li>Email req ingestion and parsing</li>
 <li>Work authorization tracking and alerts</li>
-<li>I-9/E-Verify tracking, SOC and wage review, PAF workspace</li>
+<li>Guided compliance, LCA/worksite records &amp; I-9/E-Verify tracking</li>
+<li>Five editable drafts &amp; reviewed public PAF pages</li>
 <li>Invoicing, timesheets, portals</li>
-<li>Assisted onboarding</li>
+<li>Standard assisted onboarding</li>
 </ul>
 <p class="small">Core matching workflows with room for a larger consultant roster.</p>
-<a class="button" href="/demo?plan=starter">Discuss starter ↗</a>
+<a class="button" data-plan-cta="starter" href="/demo?plan=starter&amp;billing=monthly">Discuss starter ↗</a>
 </article>
 <article class="card plan">
 <span class="pill">For a larger operation</span>
 <h2>Growth</h2>
-<div class="price">$699<small> / month</small></div>
+<div class="price" data-plan="growth" data-monthly="699" data-annual="6990">$699<small> / month</small></div><p class="small price-billing-note" data-billing-note="growth">Billed monthly. Or $6,990 prepaid annually.</p>
 <ul class="checklist">
 <li>15 users · 1,000 consultants</li>
 <li>5 mailboxes · 5 markets</li>
@@ -111,12 +115,14 @@
 <li>Two-way AI matching + reverse matching</li>
 <li>Email req ingestion and parsing</li>
 <li>Work authorization tracking and alerts</li>
-<li>I-9/E-Verify tracking, SOC and wage review, PAF workspace</li>
+<li>Guided compliance, LCA/worksite records &amp; I-9/E-Verify tracking</li>
+<li>Five editable drafts &amp; reviewed public PAF pages</li>
 <li>Invoicing, timesheets, portals</li>
+<li>Standard assisted onboarding</li>
 <li>Priority support</li>
 </ul>
 <p class="small">More team capacity, more markets, and priority support.</p>
-<a class="button" href="/demo?plan=growth">Discuss growth ↗</a>
+<a class="button" data-plan-cta="growth" href="/demo?plan=growth&amp;billing=monthly">Discuss growth ↗</a>
 </article>
 </div>
 </section>
@@ -148,7 +154,9 @@
 <tr><th scope="row">Resume parsing</th><td>Included</td><td>Included</td><td>Included</td></tr>
 <tr><th scope="row">RTR and audit trail</th><td>Included</td><td>Included</td><td>Included</td></tr>
 <tr><th scope="row">Work authorization tracking and alerts</th><td>Included</td><td>Included</td><td>Included</td></tr>
-<tr><th scope="row">Compliance review workspace<br><small>I-9/E-Verify status tracking, reviewed SOC and wage references, PAF documents, official-page checks and supported activity history</small></th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th scope="row">Compliance review workspace<br><small>Seven-stage workflow, LCA posting/worksites and certification records, I-9/E-Verify tracking, SOC/wage review and candidate activity</small></th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th scope="row">Editable compliance drafts<br><small>Posting acknowledgment, employee LCA receipt, pay rate, actual wage and benefits; unsigned DOCX drafts</small></th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th scope="row">Reviewed public PAF pages<br><small>Administrator-controlled PDF publication and withdrawal; private supporting records stay separate</small></th><td>Included</td><td>Included</td><td>Included</td></tr>
 <tr><th scope="row">Bench velocity alerts</th><td>Included</td><td>Included</td><td>Included</td></tr>
 <tr><th scope="row">Interview scheduling</th><td>Included</td><td>Included</td><td>Included</td></tr>
 <tr><th scope="row">Hiring manager portal</th><td>Included</td><td>Included</td><td>Included</td></tr>
@@ -159,18 +167,25 @@
 <tr><th scope="row">Duplicate submission guard</th><td>Included</td><td>Included</td><td>Included</td></tr>
 <tr><th scope="row">Background check tracking (Checkr live)</th><td>Included</td><td>Included</td><td>Included</td></tr>
 <tr><th scope="row">Per-group feature flags</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th scope="row">Standard assisted onboarding</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th scope="row">Custom migration, integrations or private hosting</th><td colspan="3">Quoted separately</td></tr>
 <tr><th scope="row">Priority support</th><td>Not included</td><td>Not included</td><td>Included</td></tr>
 </tbody>
 </table>
 </div>
 <p class="small" style="margin-top:20px">Markets are selected from supported coverage. We confirm your requirements and plan fit during the demo. Founding availability closes after five companies.</p>
-<div class="offer" style="margin-top:32px">
-<h3>Need a different scale?</h3>
-<p>Enterprise pricing is tailored to your team size, deployment context, and support requirements.</p>
-<a class="text-link" href="/demo?plan=enterprise">Discuss Enterprise →</a>
+<div class="offer" id="enterprise" style="margin-top:32px">
+<div class="eyebrow">Enterprise &amp; custom requirements</div><h3>Need a custom deployment or service?</h3>
+<p>Contact Sales for larger capacity, private hosting, custom integrations, assisted legacy-data migration, or dedicated service and support arrangements. We agree the scope and price before work begins.</p>
+<div class="actions"><a class="button" href="/contact#sales">Contact Sales →</a><a class="text-link" href="/demo?plan=enterprise">Discuss your requirements ↗</a></div>
 </div>
 </div>
 </section>
+
+<section class="section" id="plan-scope"><div class="wrap"><div class="eyebrow">What your subscription covers</div><h2>Clear plan scope. Custom work agreed separately.</h2><div class="grid2" style="margin-top:20px">
+<article class="card"><h3>Included in standard plans</h3><p>The listed software workflows and capacity, plus standard assisted onboarding: initial team configuration, guidance on template-based roster import, and connection guidance for the mailboxes included in your plan. No setup fee applies to this standard onboarding.</p></article>
+<article class="card"><h3>Request a custom quote</h3><p>Private hosting, custom integration development, assisted migration or cleanup of legacy systems, capacity beyond the listed plans, and dedicated service arrangements are scoped and quoted separately. Third-party services are subject to their providers’ fees and terms.</p><a class="text-link" href="/contact#sales">Discuss scope with Sales →</a></article>
+</div><p class="small">Your order form confirms capacity, enabled modules, service scope, billing, applicable taxes, and renewal/cancellation terms. Subscription access does not include legal representation or government filing fees.</p></div></section>
 
 <!-- Competitor comparison snapshot -->
 <section class="section">
@@ -258,7 +273,7 @@
 <h2>A few things to know.</h2>
 <details>
 <summary>What happens after the founding period?</summary>
-<p>Your $199 monthly price is locked for the first 12 months. We confirm renewal pricing before that period ends.</p>
+<p>The founding offer is $199 billed monthly or $1,990 prepaid for the first year. The founding price is locked for 12 months. We confirm renewal pricing before that period ends.</p>
 </details>
 <details>
 <summary>Is reverse matching included in Starter?</summary>
@@ -266,8 +281,10 @@
 </details>
 <details>
 <summary>Are the compliance review tools included in all plans?</summary>
-<p>Yes. The current plans include I-9 and E-Verify status tracking, reviewed SOC classification, wage-reference comparisons, PAF document management, compliance tasks, official-page checks, and supported activity history. Administrators enable modules per team. These tools organize review work and evidence; they do not replace E-Verify, an electronic Form I-9 system, legal advice, or a reviewer’s determination.</p>
+<p>Yes. All listed plans include the guided compliance workflow, LCA/worksite and posting records, five unsigned document drafts, reviewed public PAF pages, I-9/E-Verify tracking, SOC/wage review, and candidate activity. Administrators enable modules per team. These tools organize review work and evidence; they do not replace E-Verify, an electronic Form I-9 system, legal advice, or a reviewer’s determination.</p>
 </details>
+<details><summary>How does annual billing work?</summary><p>Founding is $1,990/year, Starter $2,990/year, and Growth $6,990/year, prepaid for twelve months. Each costs ten monthly payments—a 16.7% saving compared with twelve monthly payments. Capacity and features are the same for both billing options. Annual is not a month-to-month commitment; taxes, cancellation, refund, and renewal terms are confirmed in your order form.</p></details>
+<details><summary>What requires a separate quote?</summary><p>Private hosting, custom integration development, assisted legacy-data migration or cleanup, additional capacity, and dedicated service arrangements are quoted separately. Standard onboarding and the features and limits shown above are included in the published plan price. Third-party services have their own fees and terms. <a href="/contact#sales">Contact Sales</a> to confirm your requirements.</p></details>
 <details>
 <summary>Can I try JobSeam before subscribing?</summary>
 <p>Start with a free demo. Use our sample data or bring an anonymized resume. If it fits your workflow, we will help you set up your team and connected mailbox.</p>

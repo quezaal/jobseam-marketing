@@ -17,7 +17,8 @@
   const selectedPlan = ['founding', 'starter', 'growth', 'enterprise'].includes(params.get('plan')) ? params.get('plan') : '';
   if (selectedPlan && calendar) {
     const interest = document.getElementById('plan-interest');
-    interest.textContent = `Interested in ${selectedPlan}? We’ll cover capacity and pricing during your demo.`;
+    const billing = ['monthly', 'annual'].includes(params.get('billing')) ? params.get('billing') : '';
+    interest.textContent = `Interested in ${selectedPlan}${billing ? ' with ' + billing + ' billing' : ''}? We’ll cover capacity and pricing during your demo.`;
     interest.hidden = false;
   }
   const url = new URL(bookingUrl);
@@ -32,6 +33,9 @@
     if (!/^\/demo(?:\.html)?\/?$/.test(target.pathname)) return;
     if (target.searchParams.has('use_case')) return;
     link.addEventListener('click', event => {
+      // Pricing selections use the demo page so the chosen billing cycle is visible.
+      const current = new URL(link.href, window.location.href);
+      if (current.searchParams.has('billing')) return;
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !window.Calendly) return;
       event.preventDefault();
       const plan = target.searchParams.get('plan');
