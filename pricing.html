@@ -22,6 +22,7 @@
 <script defer src="/assets/marketing.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://quezaal.com/#organization", "name": "Quezaal Inc.", "url": "https://quezaal.com/"}, {"@type": "WebSite", "@id": "https://jobseam.com/#website", "name": "JobSeam", "url": "https://jobseam.com/", "publisher": {"@id": "https://quezaal.com/#organization"}}]}</script>
 <link rel="icon" href="/favicon.ico" sizes="any">
+<script defer src="/assets/navigation.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -30,15 +31,23 @@
 <a class="brand" href="/" aria-label="JobSeam home">Job<span>Seam</span>
 <small>JOB MARKET INTELLIGENCE</small>
 </a>
-<nav aria-label="Main navigation">
+<nav aria-label="Main navigation" class="site-navigation">
 <a href="/">Home</a>
-<a href="/how-it-works">How it works</a>
+<details class="nav-group"><summary>Product <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
+<a href="/how-it-works">How It Works</a>
 <a href="/features">Features</a>
+</div></details>
+<details class="nav-group"><summary>Solutions <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
+<a href="/talent">Talent</a>
+<a href="/staffing">Employers &amp; Recruiters</a>
+</div></details>
 <a href="/pricing" aria-current="page">Pricing</a>
+<details class="nav-group"><summary>Resources <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
 <a href="/faq">FAQ</a>
-<a href="/talent">Talent Network</a>
-<a href="/immigration-updates">Immigration</a>
-<a class="button" href="/demo">Book a demo ↗</a>
+<a href="/contact">Contact</a>
+<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
+</div></details>
+<a href="/demo" class="button">Book a Demo ↗</a>
 </nav>
 </div>
 </header>
@@ -113,6 +122,7 @@
 </section>
 
 <!-- Capacity comparison -->
+<section class="section"><div class="wrap"><p class="small">These subscriptions are for staffing teams. For candidate access, <a href="/talent">visit Talent</a>. Quezaal recruiting support is a separate, optional service.</p></div></section>
 <section class="section">
 <div class="wrap">
 <div class="table-wrap">
@@ -285,22 +295,28 @@
 </a>
 <p class="parent-brand">A product of <a class="parent-logo" href="https://quezaal.com/jobseam"><img src="/assets/quezaal-logo.png" alt="Quezaal Inc." width="320" height="132" loading="lazy"></a></p>
 </div>
-<div class="foot-links">
-<a href="/talent">Talent Network</a>
-<a href="/how-it-works">How it works</a>
+<nav class="foot-links footer-navigation" aria-label="Footer navigation">
+<section><h2>Product</h2>
+<a href="/how-it-works">How It Works</a>
 <a href="/features">Features</a>
-<a href="/pricing">Pricing</a>
-<a href="/compare">Compare platforms</a>
+<a href="/jobseam-onepager">Product Overview</a>
+<a href="/jobseam-feature-guide-detailed">Feature Guide</a>
+<a href="/jobseam-video">Product Walkthrough</a>
+</section>
+<section><h2>Solutions</h2>
+<a href="/talent">Talent</a>
+<a href="/staffing">Employers &amp; Recruiters</a>
+</section>
+<section><h2>Resources</h2>
 <a href="/faq">FAQ</a>
-<a href="/demo">Book a demo</a>
-<a href="/immigration-updates">Immigration updates</a>
-<a href="/jobseam-onepager">Product overview</a>
-<a href="/jobseam-feature-guide-detailed">Feature guide</a>
-<a href="/jobseam-video">Product walkthrough</a>
-<a href="https://quezaal.com/privacy">Privacy</a>
-<a href="https://quezaal.com/terms">Terms</a>
-<a href="mailto:demo@quezaal.com">Contact</a>
+<a href="/contact">Contact</a>
+<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
+</section>
+</nav>
 </div>
+<div class="wrap footer-utility">
+<div class="footer-primary-links"><a href="/">Home</a><a href="/pricing" aria-current="page">Pricing</a><a href="/demo">Book a Demo ↗</a></div>
+<div class="footer-legal-links"><a href="https://quezaal.com/privacy">Privacy</a><a href="https://quezaal.com/terms">Terms</a><a href="mailto:hello@jobseam.com">hello@jobseam.com</a></div>
 </div>
 </footer>
 </body>

@@ -25,6 +25,7 @@
 </script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://quezaal.com/#organization", "name": "Quezaal Inc.", "url": "https://quezaal.com/"}, {"@type": "WebSite", "@id": "https://jobseam.com/#website", "name": "JobSeam", "url": "https://jobseam.com/", "publisher": {"@id": "https://quezaal.com/#organization"}}]}</script>
 <link rel="icon" href="/favicon.ico" sizes="any">
+<script defer src="/assets/navigation.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -33,15 +34,23 @@
 <a class="brand" href="/" aria-label="JobSeam home">Job<span>Seam</span>
 <small>JOB MARKET INTELLIGENCE</small>
 </a>
-<nav aria-label="Main navigation">
+<nav aria-label="Main navigation" class="site-navigation">
 <a href="/" aria-current="page">Home</a>
-<a href="/how-it-works">How it works</a>
+<details class="nav-group"><summary>Product <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
+<a href="/how-it-works">How It Works</a>
 <a href="/features">Features</a>
+</div></details>
+<details class="nav-group"><summary>Solutions <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
+<a href="/talent">Talent</a>
+<a href="/staffing">Employers &amp; Recruiters</a>
+</div></details>
 <a href="/pricing">Pricing</a>
+<details class="nav-group"><summary>Resources <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
 <a href="/faq">FAQ</a>
-<a href="/talent">Talent Network</a>
-<a href="/immigration-updates">Immigration</a>
-<a class="button" href="/demo">Book a demo ↗</a>
+<a href="/contact">Contact</a>
+<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
+</div></details>
+<a href="/demo" class="button">Book a Demo ↗</a>
 </nav>
 </div>
 </header>
@@ -55,10 +64,10 @@
 </h1>
 <p>JobSeam brings job market insights, AI skill matching, and opportunity tracking into one platform. Explore demand by role, skill, and location, then connect those insights to staffing, student placement, or your own job search.</p>
 <div class="actions">
-<a class="button" href="#explore-sample">Explore a sample →</a>
-<a class="text-link" href="#demo-video">Watch the product walkthrough →</a>
+<a class="button" href="/talent">Talent →</a>
+<a class="button outline" href="/staffing">Employers &amp; Recruiters →</a>
 </div>
-<p class="small">Personalized to your goals. Use sample data or bring an anonymized resume.</p>
+<p class="small">Explore the sample below, or choose the journey that fits your goals.</p>
 </div>
 <figure class="product">
 <div class="product-top">
@@ -74,7 +83,7 @@
 <div class="wrap">
 <div class="section-heading"><div class="eyebrow">Explore your workflow</div><h2>What are you trying to achieve?</h2><p>Choose a goal and explore a sample match before booking your own working session.</p></div>
 <div class="journey-choices" role="group" aria-label="Choose your goal">
-<button type="button" data-use-case="staffing" aria-pressed="true">Staffing &amp; recruiting</button>
+<button type="button" data-use-case="staffing" aria-pressed="true">Employers &amp; Recruiters</button>
 <button type="button" data-use-case="education" aria-pressed="false">Education &amp; placement</button>
 <button type="button" data-use-case="individual" aria-pressed="false">My job search</button>
 </div>
@@ -122,7 +131,7 @@
 <div class="wrap">
 <div class="section-heading"><div class="eyebrow">One platform / multiple workflows</div><h2>Choose the workflow that fits your goals.</h2></div>
 <div class="grid3">
-<article class="card"><h3>Staffing &amp; recruiting teams</h3><p>Find relevant opportunities for consultants, review matches, and manage requirements and RTR activity. Bench sales is one supported workflow.</p></article>
+<article class="card"><h3>Employers &amp; Recruiters</h3><p>Find relevant opportunities for consultants, review matches, and manage requirements and RTR activity. Bench sales is one supported workflow.</p></article>
 <article class="card"><h3>Education &amp; placement teams</h3><p>Match students to opportunities, identify skill gaps, and track placement progress with configurable student, cohort, and advisor labels.</p></article>
 <article class="card"><h3>Individual job seekers</h3><p>Compare your profile with target roles, understand skill gaps, and track your applications in a personal pipeline.</p></article>
 </div>
@@ -231,21 +240,28 @@
 </a>
 <p class="parent-brand">A product of <a class="parent-logo" href="https://quezaal.com/jobseam"><img src="/assets/quezaal-logo.png" alt="Quezaal Inc." width="320" height="132" loading="lazy"></a></p>
 </div>
-<div class="foot-links">
-<a href="/talent">Talent Network</a>
-<a href="/how-it-works">How it works</a>
+<nav class="foot-links footer-navigation" aria-label="Footer navigation">
+<section><h2>Product</h2>
+<a href="/how-it-works">How It Works</a>
 <a href="/features">Features</a>
-<a href="/pricing">Pricing</a>
+<a href="/jobseam-onepager">Product Overview</a>
+<a href="/jobseam-feature-guide-detailed">Feature Guide</a>
+<a href="/jobseam-video">Product Walkthrough</a>
+</section>
+<section><h2>Solutions</h2>
+<a href="/talent">Talent</a>
+<a href="/staffing">Employers &amp; Recruiters</a>
+</section>
+<section><h2>Resources</h2>
 <a href="/faq">FAQ</a>
-<a href="/demo">Book a demo</a>
-<a href="/immigration-updates">Immigration updates</a>
-<a href="/jobseam-onepager">Product overview</a>
-<a href="/jobseam-feature-guide-detailed">Feature guide</a>
-<a href="/jobseam-video">Product walkthrough</a>
-<a href="https://quezaal.com/privacy">Privacy</a>
-<a href="https://quezaal.com/terms">Terms</a>
-<a href="mailto:demo@quezaal.com">Contact</a>
+<a href="/contact">Contact</a>
+<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
+</section>
+</nav>
 </div>
+<div class="wrap footer-utility">
+<div class="footer-primary-links"><a href="/" aria-current="page">Home</a><a href="/pricing">Pricing</a><a href="/demo">Book a Demo ↗</a></div>
+<div class="footer-legal-links"><a href="https://quezaal.com/privacy">Privacy</a><a href="https://quezaal.com/terms">Terms</a><a href="mailto:hello@jobseam.com">hello@jobseam.com</a></div>
 </div>
 </footer>
 </body>

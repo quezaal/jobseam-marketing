@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JobSeam: Complete Feature Reference</title>
-<meta name="description" content="Explore JobSeam dashboards, job filters, matching workflows, team settings, and deployment options for IT staffing teams.">
+<meta name="description" content="Explore JobSeam dashboards, job filters, matching workflows, team settings, and deployment options for employers and recruiters.">
 <link rel="canonical" href="https://jobseam.com/jobseam-feature-guide-detailed">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1520'/%3E%3Ctext x='3' y='23' font-family='Georgia,serif' font-weight='700' font-size='19' fill='%23e2e8f0'%3EJ%3C/text%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-weight='700' font-size='19' fill='%237a9e45'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="/assets/marketing.css">
@@ -14,6 +14,7 @@
 <script defer src="/assets/analytics.js"></script>
 <script defer src="/assets/marketing.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://quezaal.com/#organization", "name": "Quezaal Inc.", "url": "https://quezaal.com/"}, {"@type": "WebSite", "@id": "https://jobseam.com/#website", "name": "JobSeam", "url": "https://jobseam.com/", "publisher": {"@id": "https://quezaal.com/#organization"}}]}</script>
+<script defer src="/assets/navigation.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -22,15 +23,23 @@
 <a class="brand" href="/" aria-label="JobSeam home">Job<span>Seam</span>
 <small>JOB MARKET INTELLIGENCE</small>
 </a>
-<nav aria-label="Main navigation">
+<nav aria-label="Main navigation" class="site-navigation">
 <a href="/">Home</a>
-<a href="/how-it-works">How it works</a>
+<details class="nav-group nav-group-current"><summary>Product <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
+<a href="/how-it-works">How It Works</a>
 <a href="/features">Features</a>
+</div></details>
+<details class="nav-group"><summary>Solutions <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
+<a href="/talent">Talent</a>
+<a href="/staffing">Employers &amp; Recruiters</a>
+</div></details>
 <a href="/pricing">Pricing</a>
+<details class="nav-group"><summary>Resources <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
 <a href="/faq">FAQ</a>
-<a href="/talent">Talent Network</a>
-<a href="/immigration-updates">Immigration</a>
-<a class="button" href="/demo">Book a demo ↗</a>
+<a href="/contact">Contact</a>
+<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
+</div></details>
+<a href="/demo" class="button">Book a Demo ↗</a>
 </nav>
 </div>
 </header>
@@ -510,8 +519,8 @@
         <div style="font-size:11px;color:var(--sub);line-height:1.6;">
           <strong style="color:var(--text);">Talent:</strong> IT consultants on bench<br>
           <strong style="color:var(--text);">Advisor:</strong> Bench sales rep<br>
-          <strong style="color:var(--text);">Job source:</strong> Vendor email blasts → Req Inbox → AI parsed → approved → Jobs<br>
-          <strong style="color:var(--text);">Key flow:</strong> Email → Req Inbox → approve → Match page → score bench → RTR
+          <strong style="color:var(--text);">Job source:</strong> Vendor email blasts → Requirements Inbox → AI parsed → approved → Jobs<br>
+          <strong style="color:var(--text);">Key flow:</strong> Email → Requirements Inbox → approve → Match page → score bench → RTR
         </div>
       </div>
       <div class="panel-card" style="border-color:rgba(16,185,129,.3);">
@@ -529,7 +538,7 @@
       <div class="panel-card" style="border-color:rgba(245,158,11,.3);">
         <div class="pc-icon">🔍</div>
         <div class="pc-name">Individual / Self-Service Job Seeker</div>
-        <div class="pc-desc" style="margin-bottom:12px;">No firm or institution required. An individual signs up, uploads their resume, and uses the platform to organize and optimize their own job search. The Req Inbox becomes their personal job shortlist; the AI Match shows where they stand.</div>
+        <div class="pc-desc" style="margin-bottom:12px;">No firm or institution required. An individual signs up, uploads their resume, and uses the platform to organize and optimize their own job search. The Requirements Inbox becomes their personal job shortlist; the AI Match shows where they stand.</div>
         <div style="font-size:11px;color:var(--sub);line-height:1.6;">
           <strong style="color:var(--text);">Talent:</strong> The user themselves<br>
           <strong style="color:var(--text);">Advisor:</strong> Optional. can invite a recruiter or career coach to view their profile<br>
@@ -671,9 +680,9 @@
         <tr><td><code>advisor_label</code></td><td>Bench Sales Rep</td><td>Advisor / Placement Coordinator</td><td>Career Coach (optional)</td></tr>
         <tr><td><code>pod_label</code></td><td>Pod / Team</td><td>Cohort / Batch</td><td>N/A</td></tr>
         <tr><td>Talent Overview page title</td><td>Talent Overview</td><td>Talent Overview</td><td>Talent Overview</td></tr>
-        <tr><td>Job source</td><td>Vendor email blasts (Req Inbox)</td><td>Live market jobs (Jobs page)</td><td>Manually added + live market</td></tr>
+        <tr><td>Job source</td><td>Vendor email blasts (Requirements Inbox)</td><td>Live market jobs (Jobs page)</td><td>Manually added + live market</td></tr>
         <tr><td>Primary matching flow</td><td>Job → Score bench → RTR</td><td>Job → Score cohort → Coach → Submit</td><td>Add jobs → See own score → Fix gaps</td></tr>
-        <tr><td>Req Inbox use</td><td>Core: processes vendor email blasts</td><td>Optional: employer job postings</td><td>Personal shortlist of target jobs</td></tr>
+        <tr><td>Requirements Inbox use</td><td>Core: processes vendor email blasts</td><td>Optional: employer job postings</td><td>Personal shortlist of target jobs</td></tr>
       </tbody>
     </table>
     </div>
@@ -690,15 +699,28 @@
 </a>
 <p class="parent-brand">A product of <a class="parent-logo" href="https://quezaal.com/jobseam"><img src="/assets/quezaal-logo.png" alt="Quezaal Inc." width="320" height="132" loading="lazy"></a></p>
 </div>
-<div class="foot-links">
-<a href="/talent">Talent Network</a>
+<nav class="foot-links footer-navigation" aria-label="Footer navigation">
+<section><h2>Product</h2>
+<a href="/how-it-works">How It Works</a>
+<a href="/features">Features</a>
+<a href="/jobseam-onepager">Product Overview</a>
+<a href="/jobseam-feature-guide-detailed" aria-current="page">Feature Guide</a>
+<a href="/jobseam-video">Product Walkthrough</a>
+</section>
+<section><h2>Solutions</h2>
+<a href="/talent">Talent</a>
+<a href="/staffing">Employers &amp; Recruiters</a>
+</section>
+<section><h2>Resources</h2>
 <a href="/faq">FAQ</a>
-<a href="/pricing">Pricing</a>
-<a href="/jobseam-onepager">Product overview</a>
-<a href="/jobseam-feature-guide-detailed">Feature guide</a>
-<a href="https://quezaal.com/privacy">Privacy</a>
-<a href="https://quezaal.com/terms">Terms</a>
+<a href="/contact">Contact</a>
+<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
+</section>
+</nav>
 </div>
+<div class="wrap footer-utility">
+<div class="footer-primary-links"><a href="/">Home</a><a href="/pricing">Pricing</a><a href="/demo">Book a Demo ↗</a></div>
+<div class="footer-legal-links"><a href="https://quezaal.com/privacy">Privacy</a><a href="https://quezaal.com/terms">Terms</a><a href="mailto:hello@jobseam.com">hello@jobseam.com</a></div>
 </div>
 </footer>
 <script>

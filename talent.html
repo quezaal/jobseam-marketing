@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Join Quezaal’s Talent Network | JobSeam</title>
+<title>For Job Seekers | JobSeam</title>
 
 <link rel="canonical" href="https://jobseam.com/talent">
 
@@ -24,10 +24,11 @@
 <script defer src="/assets/marketing.js">
 </script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://quezaal.com/#organization", "name": "Quezaal Inc.", "url": "https://quezaal.com/"}, {"@type": "WebSite", "@id": "https://jobseam.com/#website", "name": "JobSeam", "url": "https://jobseam.com/", "publisher": {"@id": "https://quezaal.com/#organization"}}]}</script>
-<meta name="description" content="Join Quezaal’s talent network through JobSeam. Share your skills, availability, and experience with Quezaal’s recruiting team. No consultant fees.">
-<link rel="stylesheet" href="/assets/talent.css">
-<script defer src="/assets/talent.js"></script>
+<meta name="description" content="Explore JobSeam for job seekers: job market insights, skill matching, and candidate workflows. Discuss access or separately request Quezaal recruiting support.">
+
+
 <link rel="icon" href="/favicon.ico" sizes="any">
+<script defer src="/assets/navigation.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -36,206 +37,47 @@
 <a class="brand" href="/" aria-label="JobSeam home">Job<span>Seam</span>
 <small>JOB MARKET INTELLIGENCE</small>
 </a>
-<nav aria-label="Main navigation">
+<nav aria-label="Main navigation" class="site-navigation">
 <a href="/">Home</a>
-<a href="/how-it-works">How it works</a>
+<details class="nav-group"><summary>Product <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
+<a href="/how-it-works">How It Works</a>
 <a href="/features">Features</a>
+</div></details>
+<details class="nav-group nav-group-current"><summary>Solutions <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
+<a href="/talent" aria-current="page">Talent</a>
+<a href="/staffing">Employers &amp; Recruiters</a>
+</div></details>
 <a href="/pricing">Pricing</a>
+<details class="nav-group"><summary>Resources <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
 <a href="/faq">FAQ</a>
-<a href="/talent" aria-current="page">Talent Network</a>
-<a href="/immigration-updates">Immigration</a>
-<a class="button" href="/demo">Book a demo ↗</a>
+<a href="/contact">Contact</a>
+<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
+</div></details>
+<a href="/demo" class="button">Book a Demo ↗</a>
 </nav>
 </div>
 </header>
 <main id="main">
-<section class="hero"><div class="wrap talent-intro">
-<div class="eyebrow">Quezaal Talent Network · Powered by JobSeam</div>
-<h1>Your Next Opportunity Starts Here.</h1>
-<p>You’re joining Quezaal’s talent network through JobSeam, a product of Quezaal Inc. Share your experience, skills, and availability so our recruiting team can consider you for relevant opportunities.</p>
-<p>No consultant fees. C2C, W2, and 1099 engagements. Your profile is shared with vendors or clients only with your consent.</p>
-<p>This form sends your profile to Quezaal’s recruiting team. It does not create a JobSeam account. Questions? <a href="mailto:hiring@quezaal.com">Email our recruiting team</a>.</p>
+<section class="hero"><div class="wrap page-title">
+<div class="eyebrow">JobSeam for Job Seekers</div>
+<h1>Understand your fit. <em>Move your job search forward.</em></h1>
+<p>Explore job market demand, compare your experience with target roles, and organize your next steps with JobSeam’s candidate workflow.</p>
+<div class="actions"><a class="button" href="/?use_case=individual#explore-sample">Explore the job-seeker sample →</a><a class="text-link" href="/demo?use_case=individual">Discuss candidate access ↗</a></div>
+<p class="small">The sample uses fictional data. Contact us about candidate access and plan availability; this page does not create an account or upload a profile.</p>
 </div></section>
-<section class="section form-section" id="submit"><div class="wrap">
-        <div class="profile-form-card quick-profile-card">
-          <h2>Quick Submit</h2>
-          <p>Start with your name, email, and target role. Prefer to share more now? <a href="#full-profile">Complete your full profile below</a>. Choose one submission option.</p>
-          <form id="quick-talent-form" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="aae807ba-6c0d-45cb-8334-acadcd56c044">
-            <input type="hidden" name="to" value="hiring@quezaal.com">
-            <input type="hidden" name="subject" value="Quick Apply: Quezaal Talent Network">
-            <input type="hidden" name="from_name" value="JobSeam — Quezaal Talent Network">
-            <input type="hidden" name="message" id="quick-profile-message">
-            <input type="checkbox" name="botcheck" hidden tabindex="-1">
-            <div class="fg"><label for="quick-name">Full Name *</label><input id="quick-name" name="name" autocomplete="name" required></div>
-            <div class="fg"><label for="quick-email">Email Address *</label><input id="quick-email" name="email" type="email" autocomplete="email" required></div>
-            <div class="fg"><label for="quick-role">Target Role or Tech Stack *</label><input id="quick-role" name="role" placeholder="e.g. Java Developer, Data Engineer" required></div>
-            <button type="submit" class="submit-btn-t" id="quick-submit-btn">Send to Recruiting Team</button>
-            <p class="privacy-note">No consultant fees. Your information is shared with vendors or clients only with your consent.</p>
-          </form>
-          <p id="quick-success" role="status" tabindex="-1" hidden>Profile received. Our recruiting team will review your details and contact you about suitable opportunities.</p>
-          <p id="quick-error" role="alert" hidden>Could not send your profile. Please try again or email <a href="mailto:hiring@quezaal.com">hiring@quezaal.com</a>.</p>
-        </div>
-
-        <div class="profile-form-card" id="full-profile">
-          <h2>Full Profile</h2>
-          <p class="form-note">Fields marked * are required. Quezaal’s recruiting team will review your profile and contact you when there is a suitable match.</p>
-
-          <form id="talent-form" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="aae807ba-6c0d-45cb-8334-acadcd56c044"/>
-            <input type="hidden" name="subject" id="profile-subject" value="New Talent Profile: Quezaal"/>
-            <input type="hidden" name="redirect" value="false"/>
-            <input type="hidden" name="from_name" value="JobSeam — Quezaal Talent Network"/>
-            <input type="hidden" name="to" value="hiring@quezaal.com"/>
-            <input type="hidden" name="message" id="profile-message" value=""/>
-
-            <div class="fg-section-label">Personal Information</div>
-
-            <div class="fg-row">
-              <div class="fg">
-                <label for="first_name">First Name *</label>
-<input id="first_name" type="text" name="first_name" placeholder="Jane" required/>
-              </div>
-              <div class="fg">
-                <label for="last_name">Last Name *</label>
-<input id="last_name" type="text" name="last_name" placeholder="Smith" required/>
-              </div>
-            </div>
-
-            <div class="fg-row">
-              <div class="fg">
-                <label for="email">Email Address *</label>
-<input id="email" type="email" name="email" placeholder="jane@email.com" required/>
-              </div>
-              <div class="fg">
-                <label for="phone">Phone Number *</label>
-<input id="phone" type="tel" name="phone" placeholder="(555) 000-0000" required/>
-              </div>
-            </div>
-
-            <div class="fg-row">
-              <div class="fg">
-                <label for="location">Location (City, State) *</label>
-<input id="location" type="text" name="location" placeholder="Chicago, IL" required/>
-              </div>
-              <div class="fg">
-                <label for="zip_code">Zip Code *</label>
-<input id="zip_code" type="text" name="zip_code" placeholder="60601" required inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?"/>
-              </div>
-            </div>
-
-            <div class="fg">
-              <label for="linkedin">LinkedIn Profile URL</label>
-<input id="linkedin" type="url" name="linkedin" placeholder="https://linkedin.com/in/yourprofile"/>
-            </div>
-
-            <hr class="form-divider"/>
-            <div class="fg-section-label">Work Authorization &amp; Engagement</div>
-
-            <div class="fg-row">
-              <div class="fg">
-                <label for="work_auth">Work Authorization *</label>
-<select id="work_auth" name="work_auth" required>
-                  <option value="" disabled selected>Select...</option>
-                  <option>US Citizen</option>
-                  <option>Green Card (GC)</option>
-                  <option>H1B</option>
-                  <option>EAD (H4, L2, etc.)</option>
-                  <option>TN Visa</option>
-                  <option>OPT / STEM OPT</option>
-                  <option>CPT</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="fg">
-                <label for="engagement_type">Engagement Type *</label>
-<select id="engagement_type" name="engagement_type" required>
-                  <option value="" disabled selected>Select...</option>
-                  <option>C2C (Corp-to-Corp)</option>
-                  <option>W2</option>
-                  <option>1099</option>
-                  <option>C2C and W2</option>
-                  <option>Any</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="fg-row">
-              <div class="fg">
-                <label for="expected_rate">Expected Rate ($/hr) *</label>
-<input id="expected_rate" type="text" name="expected_rate" placeholder="e.g. $75–90/hr C2C" required/>
-              </div>
-              <div class="fg">
-                <label for="availability">Availability *</label>
-<select id="availability" name="availability" required>
-                  <option value="" disabled selected>Select...</option>
-                  <option>Immediately available</option>
-                  <option>Available in 1 week</option>
-                  <option>Available in 2 weeks</option>
-                  <option>Available in 1 month</option>
-                  <option>Currently on a project (open to offers)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="fg">
-              <span>Work Location Preference</span>
-              <div class="checkbox-row">
-                <label class="check-opt"><input type="checkbox" name="location_pref" value="Remote"/> Remote</label>
-                <label class="check-opt"><input type="checkbox" name="location_pref" value="Hybrid"/> Hybrid</label>
-                <label class="check-opt"><input type="checkbox" name="location_pref" value="On-site"/> On-site</label>
-                <label class="check-opt"><input type="checkbox" name="location_pref" value="Willing to relocate"/> Willing to relocate</label>
-              </div>
-            </div>
-
-            <hr class="form-divider"/>
-            <div class="fg-section-label">Skills &amp; Experience</div>
-
-            <div class="fg-row">
-              <div class="fg">
-                <label for="job_titles">Job Titles You Target *</label>
-<input id="job_titles" type="text" name="job_titles" placeholder="e.g. Java Developer, Data Engineer" required/>
-              </div>
-              <div class="fg">
-                <label for="experience_years">Years of Experience *</label>
-<select id="experience_years" name="experience_years" required>
-                  <option value="" disabled selected>Select...</option>
-                  <option>1–2 years</option>
-                  <option>3–5 years</option>
-                  <option>6–9 years</option>
-                  <option>10–14 years</option>
-                  <option>15+ years</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="fg">
-              <label for="skills">Primary Skills &amp; Technologies *</label>
-<textarea id="skills" name="skills" rows="4" placeholder="e.g. Java, Spring Boot, Microservices, AWS, SQL, REST APIs, Agile/Scrum..." required></textarea>
-            </div>
-
-            <div class="fg">
-              <label for="resume_link">Resume Link <span style="font-weight:400;text-transform:none;letter-spacing:0;">(Google Drive, Dropbox, or LinkedIn; ensure link is shareable)</span></label>
-<input id="resume_link" type="url" name="resume_link" placeholder="https://drive.google.com/..."/>
-            </div>
-
-            <div class="fg">
-              <label for="notes">Anything Else We Should Know?</label>
-<textarea id="notes" name="notes" rows="2" placeholder="Preferred industries, past employers, certifications, clearances, etc."></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn-t" id="submit-btn">Submit My Profile</button>
-            <p class="privacy-note">Your information is kept confidential and never shared without your consent. No fees, ever.</p>
-          </form>
-
-          <div id="form-success" role="status" tabindex="-1">
-            <div class="tick">✅</div>
-            <h3>Profile Received!</h3>
-            <p>Thank you. Our team will review your profile and reach out when there is a suitable match.<br><br>If you have a question before then, email us at <a href="mailto:hiring@quezaal.com" style="color:var(--green);">hiring@quezaal.com</a>.</p>
-          </div>
-          <div id="form-error-t" role="alert">Something went wrong. Please try again or email us at <a href="mailto:hiring@quezaal.com" style="color:#b91c1c;">hiring@quezaal.com</a>.</div>
-        </div>
-</div></section></main>
+<section class="section"><div class="wrap grid3">
+<article class="card"><h2>Explore opportunities</h2><p>Understand demand by skills, role, and location so you can focus your search.</p></article>
+<article class="card"><h2>Review your fit</h2><p>Compare your skills with role requirements and identify experience to demonstrate or develop.</p></article>
+<article class="card"><h2>Track next steps</h2><p>Explore how candidate workflows can organize target roles, applications, and follow-ups. Discuss availability in your working session.</p></article>
+</div></section>
+<section class="section" id="submit"><div class="wrap">
+<h2>Choose platform access or hands-on support.</h2>
+<p>JobSeam is a software platform for job seekers, employers, and recruiters. Using its candidate tools is separate from engaging a recruiting service to represent you. JobSeam does not make your profile available to all staffing subscribers or offer a public candidate pool.</p>
+<div class="grid3"><article class="card"><h3>Use JobSeam for your own search</h3><p>Explore the candidate workflow and discuss access. Candidate plans are separate from the published staffing-team subscriptions.</p><a href="/demo?use_case=individual">Discuss candidate access →</a></article>
+<article class="card"><h3>Want help from a recruiting team?</h3><p>Optionally request profile marketing and recruiting support from Quezaal, JobSeam’s parent company. Your request goes to Quezaal’s own recruiting workspace, not to other JobSeam customers. It does not register a JobSeam account.</p><a href="https://quezaal.com/talent#submit">Request Quezaal recruiting support ↗</a></article>
+<article class="card"><h3>Recruiting for a team?</h3><p>Explore requirement matching, consultant pipelines, and bench-sales workflows for your organization.</p><a href="/staffing">Employers &amp; Recruiters</a></article></div>
+</div></section>
+</main>
 <footer>
 <div class="wrap foot">
 <div>
@@ -243,21 +85,28 @@
 </a>
 <p class="parent-brand">A product of <a class="parent-logo" href="https://quezaal.com/jobseam"><img src="/assets/quezaal-logo.png" alt="Quezaal Inc." width="320" height="132" loading="lazy"></a></p>
 </div>
-<div class="foot-links">
-<a href="/talent">Talent Network</a>
-<a href="/how-it-works">How it works</a>
+<nav class="foot-links footer-navigation" aria-label="Footer navigation">
+<section><h2>Product</h2>
+<a href="/how-it-works">How It Works</a>
 <a href="/features">Features</a>
-<a href="/pricing">Pricing</a>
+<a href="/jobseam-onepager">Product Overview</a>
+<a href="/jobseam-feature-guide-detailed">Feature Guide</a>
+<a href="/jobseam-video">Product Walkthrough</a>
+</section>
+<section><h2>Solutions</h2>
+<a href="/talent" aria-current="page">Talent</a>
+<a href="/staffing">Employers &amp; Recruiters</a>
+</section>
+<section><h2>Resources</h2>
 <a href="/faq">FAQ</a>
-<a href="/demo">Book a demo</a>
-<a href="/immigration-updates">Immigration updates</a>
-<a href="/jobseam-onepager">Product overview</a>
-<a href="/jobseam-feature-guide-detailed">Feature guide</a>
-<a href="/jobseam-video">Product walkthrough</a>
-<a href="https://quezaal.com/privacy">Privacy</a>
-<a href="https://quezaal.com/terms">Terms</a>
-<a href="mailto:demo@quezaal.com">Contact</a>
+<a href="/contact">Contact</a>
+<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
+</section>
+</nav>
 </div>
+<div class="wrap footer-utility">
+<div class="footer-primary-links"><a href="/">Home</a><a href="/pricing">Pricing</a><a href="/demo">Book a Demo ↗</a></div>
+<div class="footer-legal-links"><a href="https://quezaal.com/privacy">Privacy</a><a href="https://quezaal.com/terms">Terms</a><a href="mailto:hello@jobseam.com">hello@jobseam.com</a></div>
 </div>
 </footer>
 </body>

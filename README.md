@@ -42,15 +42,17 @@ Run `node --test tests/*.test.cjs` for booking conversion checks. These tests si
 
 SEO references: https://developers.google.com/search/docs/crawling-indexing/block-indexing and https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap.
 
-## Quezaal talent applications
+## Audience journeys and recruiting support
 
-`talent.html` (public URL `/talent`) hosts the consultant profile form moved from Quezaal. Quezaal’s `/talent` page links directly to this application. The existing Web3Forms delivery and structured PROFILE_JSON payload are preserved; this is a recruiting submission, not account registration or a profile dashboard. Verify the production Web3Forms allowed domains include jobseam.com and confirm delivery/ingestion with a consented test before launch. Deploy the JobSeam page before the Quezaal handoff.
+`/talent` is JobSeam’s For Job Seekers page; `/staffing` addresses staffing and bench-sales teams. The homepage, menus, and footers expose both. Candidate access currently leads to the sample or an access discussion; no account creation, shared marketplace, or self-service profile upload is implied. Published subscription prices apply to staffing teams.
+
+Quezaal’s `/talent` hosts Quick Submit and full recruiting profile forms. JobSeam links to that optional service explicitly. The forms use hiring@quezaal.com and require consent to Quezaal recruiting contact; they do not create platform accounts or expose profiles to staffing customers. Deploy Quezaal’s updated application page before removing the old JobSeam form. Verify Web3Forms delivery from quezaal.com with a consented test.
 
 ## Clean URLs and hosting
 
 HTML files remain the single editable source per page. Shared navigation, footer links, canonical metadata, and sitemap entries use extensionless URLs. Apache deployments can use the included `.htaccess`; other hosts need equivalent clean-URL routing. For static directory-only hosting, run `python3 build.py` and publish `_site/`, which contains generated route directories and assets. Generated output is not a second editable source.
 
-The talent application provides Quick Submit (name, email, role) and the full profile form. Candidates choose one; both use the recruiting delivery workflow and structured profile payload. Quezaal retains only its recruiting overview and a single application CTA.
+Quick Submit and full recruiting applications now live on Quezaal. JobSeam’s `/talent#submit` retains an informational anchor for older links and presents the separate service choice.
 
 ## Immigration news feed
 
@@ -91,3 +93,25 @@ Successful transcripts are cached by source URL. `--retry` explicitly replaces t
 `.github/workflows/government-video-transcripts.yml` prepares updated data and a static-site artifact daily after the workflow is pushed and enabled in GitHub Actions. The optional repository secret `OPENAI_API_KEY` enables paid audio fallback. The workflow caches completed transcripts to avoid repeat processing and uploads artifacts; it does not deploy the site or commit generated data. Download/publish `jobseam-site-with-transcripts` through the hosting process to update the live page. New videos will not appear live merely from the cron job.
 
 Run `python3 -m unittest discover -s tests -p 'test_*.py'` and `node --test tests/*.test.cjs` for processing and rendering checks.
+
+## Customer data boundaries in public messaging
+
+There is no public candidate pool or general cross-customer candidate discovery offering. Candidate records belong to the controlling company’s private workspace. Sharing is limited to authorized users in that company or explicitly authorized parties under an agreement, with agreed scope and permissions. Quezaal recruiting is a separate customer workspace and has no recruiting access to other customer workspaces; its own records are not exposed to them. Provider administration/support access remains distinct and subject to service terms and permissions. Opportunity-specific candidate submissions are not general database access. These edits clarify product messaging; they do not audit or modify backend isolation or access enforcement.
+
+## Marketing navigation
+
+Current pages share Home, Product (How It Works, Features), Solutions (Talent, Employers & Recruiters), Pricing, Resources (FAQ, Immigration & Labor Updates), and Book a Demo. Native disclosure menus work without JavaScript; `assets/navigation.js` adds single-open behavior, Escape focus restoration, outside-click dismissal, and dismissal when following a link. Desktop uses dropdowns; mobile uses inline accordions. Page URLs remain extensionless and footer links remain directly accessible.
+
+Audience terminology: use **Talent** and **Employers & Recruiters** in navigation and audience headings; use “job seekers, employers, and recruiters” in general explanatory prose. Retain “staffing teams,” “bench sales,” and “C2C” when identifying the specific workflow or eligibility of the existing published plans. Audience naming does not expand plan entitlements.
+
+Footer navigation mirrors Product, Solutions, and Resources with the same destination labels as the header. Product reference links remain in Product; Home, Pricing, and Book a Demo appear in the lower row, alongside separate legal/contact links. Current-page indicators and responsive footer columns apply consistently across the current marketing pages.
+
+## JobSeam contact addresses
+
+`/contact` is linked under Resources in the header and footer. Create and monitor these mailboxes or aliases before publishing:
+
+- `hello@jobseam.com`: general questions, candidate access, education access, and partnerships.
+- `sales@jobseam.com`: plans, demos, employer/recruiter inquiries, and product walkthrough inquiries.
+- `support@jobseam.com`: existing-customer help.
+
+The Contact form opens an encoded mailto draft in the visitor’s email application. It does not submit or store a message, and the visitor must send the draft. Direct email links remain available. Existing Calendly booking remains separate. Quezaal recruiting requests still link to Quezaal’s own Talent page and are not routed to JobSeam product support. Email account creation and delivery verification are outside this repository.
