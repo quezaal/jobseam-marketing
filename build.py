@@ -6,6 +6,10 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT / '_site'
 OUT.mkdir(exist_ok=True)
 for folder in ('assets', 'screenshots', 'ads'):
+    # Advertising exports are optional and may be absent in a clean checkout.
+    if folder == 'ads' and not (ROOT / folder).exists():
+        print('Skipping optional ads directory (not present)')
+        continue
     shutil.copytree(ROOT / folder, OUT / folder, dirs_exist_ok=True)
 for source in ROOT.iterdir():
     if not source.is_file() or source.name.startswith('.'):
