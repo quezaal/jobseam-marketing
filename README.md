@@ -8,7 +8,7 @@ Static website for jobseam.com. No build step. Preview from this directory with 
 - `faq.html`: dedicated workflow questions and answers.
 - `how-it-works.html`: dedicated step-by-step workflow and product walkthrough.
 - `features.html`: capability overview linking to the detailed feature reference.
-- `pricing.html`: monthly Founding $199, Starter $299, Growth $699; annual prepayment $1,990 / $2,990 / $6,990. Enterprise inquiry. Core matching and compliance workflows in every listed plan.
+- `pricing.html`: monthly Founding $199, Starter $299, Growth $699; annual prepayment $1,990 / $2,990 / $6,990. Enterprise inquiry. Core matching, employer LCA, 12 PDF/Word PAF templates and OPT/STEM OPT record tracking in every listed team plan, subject to module/US-market enablement.
 - `demo.html`: existing Quezaal 20-minute Calendly booking, with a direct-link fallback. Sales-page demo links open the same Calendly popup as the original site when the widget is available; they navigate to this page if it is unavailable.
 - `jobseam-onepager.html`: concise product overview replacing unvalidated outcome claims.
 - `assets/marketing.css` and `assets/marketing.js`: shared responsive styles and booking integration.
@@ -162,3 +162,12 @@ extra capacity and dedicated services for quotation. Enterprise links lead to
 order-form terms are distinguished from the software subscription price.
 This updates marketing scope; it does not configure a billing system or publish
 changes to a live host.
+
+
+## Current feature and audience review — October 30, 2026
+
+The active homepage, features, pricing, employer/recruiter page, workflow page, FAQ, one-pager and detailed feature guide describe the current employer-first LCA workflow, PDF/Word PAF template set and OPT/STEM OPT tracker. System starters → reviewed group defaults → per-LCA overrides apply to employer document policies. Suggested O*NET duties require review; benefits and wage methodology are not inferred from SOC or wage level.
+
+OPT/I-983 support is record/status/date/attachment tracking, not I-983 PDF generation, signature execution, SEVIS filing or automatic email reminders. Wage references are entered evidence or indicative historical data, not independently verified live FLAG rates. Government submission and provider activation must not be inferred from a tracking screen.
+
+Published prices are unchanged; annual/monthly selection and capacity remain the pricing contract presented for review, not application billing enforcement. Supported audiences include employers, recruiters/staffing and consulting teams, career/cohort programs, international-student advisors coordinating with DSOs, and enabled worker/candidate portal users. Institutional and individual access must be scoped separately from published team subscriptions. See `docs/current-features.md` for the shared scope reference. Historical launch/deck archives remain historical, not current sales collateral.
