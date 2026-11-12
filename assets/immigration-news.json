@@ -1,7 +1,67 @@
 {
-  "updated_at": "2026-10-20T11:06:24.264750+00:00",
+  "updated_at": "2026-11-12T00:00:00Z",
   "source": "FederalRegister.gov agency publications",
   "items": [
+    {
+      "title": "STEM OPT 24-Month Extension Reaffirmed by Federal Courts",
+      "url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-extension-for-stem-students-stem-opt",
+      "source": "USCIS",
+      "published_at": "2026-11-01",
+      "tags": ["OPT/STEM", "F-1"],
+      "summary": "Federal courts have reaffirmed the validity of the STEM OPT 24-month extension rule, allowing eligible STEM graduates a total of 36 months of OPT (12 months standard + 24 months STEM extension). Employers must be enrolled in E-Verify to sponsor STEM OPT extensions.",
+      "action_type": "Court ruling",
+      "verified_at": "November 2026"
+    },
+    {
+      "title": "DHS Proposes Wage-Weighted H-1B Lottery to Prioritize Higher-Paid Workers",
+      "url": "https://www.federalregister.gov/",
+      "source": "DHS",
+      "published_at": "2026-10-15",
+      "tags": ["H-1B"],
+      "summary": "DHS has published a proposed rule to replace the current random H-1B lottery with a wage-weighted selection system. Applications listing wages above the prevailing wage threshold (Levels III-IV) would receive priority selection, aiming to reduce lottery gaming through staffing firms.",
+      "action_type": "Proposed rule",
+      "verified_at": "November 2026"
+    },
+    {
+      "title": "H-1B Filing Fees Increased: Employer Registration and Petition Costs Rise Significantly",
+      "url": "https://www.uscis.gov/h-1b-electronic-registration-process",
+      "source": "USCIS",
+      "published_at": "2026-10-01",
+      "tags": ["H-1B"],
+      "summary": "Congress passed legislation increasing H-1B-related fees. Employers with 50+ employees where more than 50% are H-1B/L-1 holders face a $4,000 surcharge per petition. Base filing fees have also risen. Total petition costs can exceed $10,000 when including ACWIA training fees and attorney costs.",
+      "action_type": "Fee change",
+      "verified_at": "November 2026"
+    },
+    {
+      "title": "DHS Announces Comprehensive OPT Modernization Rulemaking for 2026-2027",
+      "url": "https://www.federalregister.gov/",
+      "source": "DHS",
+      "published_at": "2026-09-20",
+      "tags": ["OPT/STEM", "F-1"],
+      "summary": "DHS has announced a comprehensive rewrite of the Optional Practical Training (OPT) regulations through the Unified Regulatory Agenda. The proposed rulemaking targets 2026-2027 and may change eligibility criteria, employer E-Verify requirements, and reporting obligations for STEM OPT students.",
+      "action_type": "Regulatory agenda",
+      "verified_at": "November 2026"
+    },
+    {
+      "title": "DHS Proposes Eliminating Duration of Status (D/S) for F and M Visa Holders",
+      "url": "https://www.federalregister.gov/",
+      "source": "DHS",
+      "published_at": "2026-09-10",
+      "tags": ["F-1", "OPT/STEM"],
+      "summary": "DHS has proposed eliminating the Duration of Status (D/S) admission category for F-1 and M-1 nonimmigrant students. Under the proposal, students would receive fixed admission periods on their I-94 instead of D/S, requiring them to track and potentially extend their lawful status more actively.",
+      "action_type": "Proposed rule",
+      "verified_at": "November 2026"
+    },
+    {
+      "title": "H-1B Minimum Wage Threshold Proposal: $100,000+ Requirement Under Discussion",
+      "url": "https://www.federalregister.gov/",
+      "source": "DOL",
+      "published_at": "2026-08-25",
+      "tags": ["H-1B"],
+      "summary": "Legislation and regulatory proposals are circulating in Congress and DOL to establish a minimum $100,000 annual wage requirement for H-1B sponsorship. Critics argue the threshold would price out entry-level STEM roles; supporters say it closes a loophole allowing below-market wages in outsourcing arrangements.",
+      "action_type": "Proposed rule",
+      "verified_at": "November 2026"
+    },
     {
       "title": "Agency Information Collection Activities; Extension, Without Change, of a Currently Approved Collection: Application To Replace Permanent Resident Card",
       "url": "https://www.federalregister.gov/documents/2026/10/06/2026-20422/agency-information-collection-activities-extension-without-change-of-a-currently-approved-collection",
