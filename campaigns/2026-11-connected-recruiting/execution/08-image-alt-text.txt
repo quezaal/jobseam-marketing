@@ -1,0 +1,1 @@
+The actual JobSeam document access and history dialog in light mode, with a synthetic document owner, administrator and download event. This is sample data, not a security audit.

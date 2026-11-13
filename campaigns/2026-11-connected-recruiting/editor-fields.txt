@@ -1,0 +1,7 @@
+Title: The right person. The right opportunity. The work in between.
+Summary: How JobSeam helps consulting teams connect candidates and opportunities, with shared records, visible next steps and controlled access.
+Category: Insights
+URL name: jobseam-candidates-opportunities-placements
+Body: Paste blog-ready.md after publishing the marketing assets.
+Cover: Select an available cover, or deploy placement-connection.png in the blog image assets and add it to the cover picker.
+Do not paste these fields into the Markdown body.

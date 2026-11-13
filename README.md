@@ -1,5 +1,13 @@
 # JobSeam marketing
 
+## Blog and post campaigns
+
+The [connected recruiting campaign](campaigns/2026-11-connected-recruiting/README.md) contains a blog, a candidate/opportunity illustration, light theme product screenshots, a screenshot flyer and draft posts. Its release manifest and distribution log track prepared versus approved/published revisions. The static build excludes internal tracking and capture tools. Nothing is posted automatically.
+
+## Product overview kit
+
+The current short overview, two-page flyer, original system visual and blog-ready copy live together in [collateral/product-overview](collateral/product-overview/README.md). Open its [download library](collateral/product-overview/index.html) locally. The static build publishes the public kit at `/collateral/product-overview/`; internal evidence notes and generators are excluded.
+
 Static website for jobseam.com. No build step. Preview from this directory with `python3 serve.py 8080`, then open http://localhost:8080. This resolves clean URLs such as `/how-it-works` and `/talent`, and redirects old `.html` links while keeping query strings. Stop any old server on port 8080 first. The standard `python3 -m http.server` does not resolve these clean routes.
 
 ## Current sales pages

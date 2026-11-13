@@ -1,0 +1,10 @@
+Finding a promising match is only the beginning.
+
+What happens next needs just as much care.
+
+Has the consultant agreed to a submission? Is the interview arranged? Who can access the documents? What changed since the last conversation?
+
+That is the work we are building JobSeam to support.
+
+Here is a look at the workflow and the product:
+https://quezaal.com/blog/jobseam-candidates-opportunities-placements?utm_source=linkedin&utm_medium=organic_social&utm_campaign=jobseam_connected_recruiting&utm_content=founder_followup

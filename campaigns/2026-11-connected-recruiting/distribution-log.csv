@@ -1,0 +1,5 @@
+asset,channel,status,approved_by,approved_at,revision_sha256,scheduled_at,published_or_sent_at,public_url,notes
+blog-ready.md,Quezaal Blog,prepared_for_review,,,,,,,Not published by this workflow
+social-posts.md,LinkedIn company,prepared_for_review,,,,,,,Replace blog URL placeholder after publication
+social-posts.md,LinkedIn personal,prepared_for_review,,,,,,,Owner chooses whether and where to post
+screenshot-flyer.pdf,Flyer distribution,prepared_for_review,,,,,,,No recipients contacted

@@ -1,0 +1,87 @@
+{
+  "status": "prepared_only_not_scheduled_or_published",
+  "source_config": "../launch-config.json",
+  "source_config_sha256": "f4c9d1cf6876141e17ba1cdf8f27d17c732b7b748685f2fca4446bcd0b66010b",
+  "files": [
+    {
+      "file": "00-EXECUTION-GUIDE.html",
+      "sha256": "127b660d5ca4154a36e36980ed4bae05f070c776695787893d9777ce9cdf74ad"
+    },
+    {
+      "file": "00-EXECUTION-GUIDE.md",
+      "sha256": "123cc80cedfa743de26c7817fe262bc71c722990b04461783559a25504aab916"
+    },
+    {
+      "file": "00-EXECUTION-GUIDE.pdf",
+      "sha256": "a925d3b074f504d33c81087d22ee4da4c4e9221b0359768cf9ec7d03d1489db8"
+    },
+    {
+      "file": "01-one-page-overview.pdf",
+      "sha256": "1d77d18969b8f9a61a4d37e76e0510e42ad1c25b171651f6975f06dab5fcd811"
+    },
+    {
+      "file": "02-two-page-product-flyer.pdf",
+      "sha256": "f08d40b41354929fab3e747ad1a73aa4c357e9f640e3e70f2a9adee7ccaad6a1"
+    },
+    {
+      "file": "03-two-page-screenshot-flyer.pdf",
+      "sha256": "48ba8e7a1ef47d32e4681a28c868c07e4e62a810df1c3f0bdf1484613724768d"
+    },
+    {
+      "file": "04-blog-body.md",
+      "sha256": "78879bac926bee759a02c22255897acb83d303fd883a2d7741a60c7bb3acfb64"
+    },
+    {
+      "file": "04-blog-fields.txt",
+      "sha256": "33720cfa3267dd4710158c94ae118e02c769579e72e8b53142e22a427f40a452"
+    },
+    {
+      "file": "05-company-post-image.png",
+      "sha256": "d816642865475a15026ab47488ce169b6041f8699ccfd29416f7915596a1e8a3"
+    },
+    {
+      "file": "05-image-alt-text.txt",
+      "sha256": "d8b32f826c4cf33f63f7cfc3821ce60be0a1d085979e1ff16d8aa701e13b6207"
+    },
+    {
+      "file": "05-linkedin-company-post.txt",
+      "sha256": "7302ac8184949f6a75c23d3f6bfa5c1ff150354a2baad8749c63f42a300098df"
+    },
+    {
+      "file": "06-founder-post-image.png",
+      "sha256": "6310633787aa8a5b4077c172f5ebd4f19f5f70e4bb6ccddc4d6fbec7b07dbf02"
+    },
+    {
+      "file": "06-image-alt-text.txt",
+      "sha256": "ea1303d15bb43e62719cf2bddc851e90b16aab58c443eff4aaea6fff9bbdb9a3"
+    },
+    {
+      "file": "06-linkedin-founder-post.txt",
+      "sha256": "c531bd1b864bdae0eb96c7542301bb84347a25a8a1527be6480ed55a8048bee1"
+    },
+    {
+      "file": "07-linkedin-carousel-post.txt",
+      "sha256": "2fa3aca92361312c0535685279910b160659ebf3e186922a6c728b8e8bb9d9b2"
+    },
+    {
+      "file": "07-linkedin-carousel.html",
+      "sha256": "0bb9d4150f20e3e1ca08442f7088df720ae2d863944ebc7061b24f17dccd4efb"
+    },
+    {
+      "file": "07-linkedin-carousel.pdf",
+      "sha256": "46b2844520bd35f8e343fc9f295ebd9a54891576b958bf24eb005f0377a9a38a"
+    },
+    {
+      "file": "08-access-followup-image.png",
+      "sha256": "ccd742e0391210c1dd36314efd54fa87831bbe986e90ec41a263a9ed0e6950aa"
+    },
+    {
+      "file": "08-image-alt-text.txt",
+      "sha256": "79cdefe7d5c3e3c52d398ab6a057564bc018061b76376aa71c7967d0f975f4b6"
+    },
+    {
+      "file": "08-linkedin-access-followup.txt",
+      "sha256": "c0051795be613121694b956a5b17f1fd01d744e706e60226dfc101e6a7cab8a9"
+    }
+  ]
+}

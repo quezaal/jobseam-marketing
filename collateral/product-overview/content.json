@@ -1,0 +1,26 @@
+{
+  "title": "JobSeam",
+  "headline": "Find the fit. Keep the context. Move the work forward.",
+  "intro": "Jobs, people and placements belong together. JobSeam connects them in one workspace, from the first resume to the next assignment.",
+  "audience": "For staffing and consulting firms, recruiting teams, employers, HR and university career services.",
+  "workflow": ["Collect", "Review", "Match", "Submit", "Place", "Manage"],
+  "capabilities": [
+    {"title": "Find the next opportunity.", "text": "Bring in jobs from supported boards, company sites and mailboxes. Review requirements. Filter the results. Explore the market.", "detail": "Search by role, skills, location, pay and work setting. Use dashboards and market drilldowns to explore the jobs your team has collected."},
+    {"title": "Let talent come to you.", "text": "Resume, ZIP, roster or direct entry. Configured email and WhatsApp sources add more ways in. Review each item before accepting changes.", "detail": "Keep the source, sender, recipient and timestamps. Choose AI extraction, opportunity scanning and consultant invitations when uploading resumes."},
+    {"title": "One person. One connected workspace.", "text": "Keep profiles, preferences, applications, employment and notes together. Invite consultants to review details, suggest corrections and upload documents.", "detail": "Capture contact, education and employee details as needed. Use university lists by country. Keep staff work moving while the consultant reviews their profile."},
+    {"title": "Match both ways.", "text": "Find people for a requirement. Find opportunities for a person. Compare scores, resume evidence and skill gaps. Ask for deeper AI analysis when needed.", "detail": "Return to saved match sessions. Review the evidence behind a result. Recruiters make the decision; a score is a starting point."},
+    {"title": "Keep the placement moving.", "text": "Track Right-to-Represent requests, submissions, interviews, offers and placements. See who applied on someone’s behalf. Continue into employment, timesheets and invoices.", "detail": "Use outreach templates, campaigns and participant portals. Screening and vendor management system workflows depend on the integrations your team enables."},
+    {"title": "Keep authorization work organized.", "text": "Track authorization history and OPT/STEM OPT records. Prepare LCA records and PAF document drafts. Keep dates, evidence and review work connected.", "detail": "Record I-983 status, checkpoints and unemployment periods. Import LCA PDFs, review worksites and wages, and generate PDF/Word drafts from 12 PAF templates. Authorized admins control eligible public-file publication."},
+    {"title": "Know who can see what.", "text": "Manage documents with access permissions, versions and recorded access history. Preview invitation emails, including recipients and CC/BCC. Track send attempts.", "detail": "Keep resumes, passports, EAD cards and other documents with the consultant. Consultants can review document access information in their portal."},
+    {"title": "Make it work for your team.", "text": "Organize groups and Pods. Set roles, terminology and branding. Choose enabled markets, modules and sources. Review activity and collection runs.", "detail": "Self-hosted deployment and local AI model options support teams that want control of their environment. Availability follows your configuration and access."}
+  ],
+  "benefits": [
+    {"title": "Start with what you have.", "text": "A resume, a roster or a requirement. There is a way to bring it in."},
+    {"title": "Carry the context forward.", "text": "Keep the profile, the opportunity and the next step connected."},
+    {"title": "Keep people in the loop.", "text": "Staff do the work. Consultants review their details. Decisions stay with people."}
+  ],
+  "cta": "Bring your workflow. Let’s walk through it.",
+  "site": "https://jobseam.com",
+  "email": "connect@quezaal.com",
+  "scope": "Based on implemented code reviewed November 12, 2026. Availability depends on roles, configuration and provider access. AI results and document drafts need human review. External services require activation and validation. JobSeam does not establish legal eligibility or compliance. Government e-filing, complete electronic I-9 execution and live IRS TIN matching are not established capabilities."
+}

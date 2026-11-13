@@ -1,0 +1,68 @@
+{
+  "campaign": "2026-11-connected-recruiting",
+  "working_revision_sha256": "6196e578724fa575fe520b261c894819020349ab81e7db83797fa51b77ba05bb",
+  "generated_at_utc": "2026-11-13T03:41:53.962891+00:00",
+  "preparation_status": "ready_for_owner_review",
+  "approval": null,
+  "publication_records": [],
+  "distribution_log": "distribution-log.csv",
+  "screenshot_provenance": "Actual JobSeam frontend, synthetic browser-test fixtures, light theme. No live customer data.",
+  "assets": [
+    {
+      "file": "blog-body.md",
+      "sha256": "0c4fec48c54594f501df783481bfbab49820a0887084615e1b9c923f6ae5fefd"
+    },
+    {
+      "file": "blog-ready.md",
+      "sha256": "78879bac926bee759a02c22255897acb83d303fd883a2d7741a60c7bb3acfb64"
+    },
+    {
+      "file": "blog-preview.html",
+      "sha256": "e830233b3583d3534858a516ca69a66f071c7e83cd2aefb365fc820cc2b356f0"
+    },
+    {
+      "file": "screenshot-flyer.html",
+      "sha256": "5f7830a1abf0629fa8e47b48e085f78446f060912806b84afbc66005fd59957e"
+    },
+    {
+      "file": "screenshot-flyer.pdf",
+      "sha256": "48ba8e7a1ef47d32e4681a28c868c07e4e62a810df1c3f0bdf1484613724768d"
+    },
+    {
+      "file": "social-posts.md",
+      "sha256": "e5171e61d52caebce0ab0b661ae2026e5dc29879a930371fc3af5a856beee343"
+    },
+    {
+      "file": "assets/campaign.css",
+      "sha256": "029688f13c82b17c4ca342d693b13cef8599bcc5c233cc4cfa87f5a7f7ca1893"
+    },
+    {
+      "file": "assets/consultant-workspace-light.png",
+      "sha256": "9bb7551d0ae1f536ad94951712c7fb367ef0fda20f5da600a3248e5bd6a48fc1"
+    },
+    {
+      "file": "assets/document-access-light.png",
+      "sha256": "ccd742e0391210c1dd36314efd54fa87831bbe986e90ec41a263a9ed0e6950aa"
+    },
+    {
+      "file": "assets/match-review-light.png",
+      "sha256": "21965f2452caaebfbb60edfe889c1a99179d4f85532670bf78f24d1fb86e3747"
+    },
+    {
+      "file": "assets/opportunities-light.png",
+      "sha256": "00038ad1e1115e5ed3b99629fe8cd59d986c75d171ca37f83431ad430c66f8c4"
+    },
+    {
+      "file": "assets/placement-connection.png",
+      "sha256": "d816642865475a15026ab47488ce169b6041f8699ccfd29416f7915596a1e8a3"
+    },
+    {
+      "file": "assets/placement-connection.svg",
+      "sha256": "73d10ffac22ebb28bea77656d7cf7fe21f5ec6968d02e814644b30a693e5e7cb"
+    },
+    {
+      "file": "assets/placement-pipeline-light.png",
+      "sha256": "6310633787aa8a5b4077c172f5ebd4f19f5f70e4bb6ccddc4d6fbec7b07dbf02"
+    }
+  ]
+}
