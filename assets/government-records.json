@@ -188,6 +188,17 @@
       "summary": "The release reports suspended visa applications pending investigation. It does not specify the program, restriction dates, or a final finding; these are not inferred here."
     },
     {
+      "title": "E-Verify ICA v32 Upgrade Required by March 31, 2027 for Web Services Integrations",
+      "url": "https://www.uscis.gov/e-verify/e-verify-native-documents/whats-new-in-e-verify",
+      "source": "USCIS / E-Verify",
+      "published_at": "2026-09-22",
+      "tags": ["I-9"],
+      "companies": [],
+      "action_type": "Government announcement",
+      "verified_at": "2026-11-13",
+      "summary": "On September 22, 2026, E-Verify published Interface Control Agreement (ICA) Version 32. Developers using E-Verify web services integration must complete software integration and acceptance testing for ICA v32 by March 31, 2027 or they will lose API access. The requirement applies only to organizations with direct E-Verify web services (API) integration — not to employers who use E-Verify manually or through third-party HR/I-9 systems. ICA v32 and change log are available in the Resources section of E-Verify staging and production accounts. Technical questions: e-verify-webservices@uscis.dhs.gov."
+    },
+    {
       "title": "USCIS Premium Processing Timeframe Proposal Under White House Review",
       "url": "https://www.reginfo.gov/public/do/eAgendaViewRule?RIN=1615-AD25",
       "source": "OIRA / reginfo.gov",
