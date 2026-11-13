@@ -1,66 +1,73 @@
 {
-  "updated_at": "2026-11-12T00:00:00Z",
-  "source": "FederalRegister.gov agency publications",
+  "updated_at": "2026-11-13T17:42:38.607649+00:00",
+  "source": "FederalRegister.gov, OIRA (reginfo.gov), USCIS.gov agency publications",
   "items": [
     {
-      "title": "STEM OPT 24-Month Extension Reaffirmed by Federal Courts",
-      "url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-extension-for-stem-students-stem-opt",
+      "title": "Unemployment Insurance Program National Minimum Weekly Work Search Requirements",
+      "url": "https://www.federalregister.gov/documents/2026/11/10/2026-22903/unemployment-insurance-program-national-minimum-weekly-work-search-requirements",
+      "source": "DOL/ETA",
+      "published_at": "2026-11-10",
+      "tags": [
+        "Wages"
+      ]
+    },
+    {
+      "title": "Agency Information Collection Activities; Extension, Without Change, of a Currently Approved Collection: Application for Free Training for Civics and Citizenship Teachers of Adults; Civics and Citizenship Toolkit",
+      "url": "https://www.federalregister.gov/documents/2026/11/02/2026-22320/agency-information-collection-activities-extension-without-change-of-a-currently-approved-collection",
       "source": "USCIS",
-      "published_at": "2026-11-01",
-      "tags": ["OPT/STEM", "F-1"],
-      "summary": "Federal courts have reaffirmed the validity of the STEM OPT 24-month extension rule, allowing eligible STEM graduates a total of 36 months of OPT (12 months standard + 24 months STEM extension). Employers must be enrolled in E-Verify to sponsor STEM OPT extensions.",
-      "action_type": "Court ruling",
-      "verified_at": "November 2026"
+      "published_at": "2026-11-02",
+      "tags": []
     },
     {
-      "title": "DHS Proposes Wage-Weighted H-1B Lottery to Prioritize Higher-Paid Workers",
-      "url": "https://www.federalregister.gov/",
-      "source": "DHS",
-      "published_at": "2026-10-15",
-      "tags": ["H-1B"],
-      "summary": "DHS has published a proposed rule to replace the current random H-1B lottery with a wage-weighted selection system. Applications listing wages above the prevailing wage threshold (Levels III-IV) would receive priority selection, aiming to reduce lottery gaming through staffing firms.",
-      "action_type": "Proposed rule",
-      "verified_at": "November 2026"
-    },
-    {
-      "title": "H-1B Filing Fees Increased: Employer Registration and Petition Costs Rise Significantly",
-      "url": "https://www.uscis.gov/h-1b-electronic-registration-process",
+      "title": "Agency Information Collection Activities; New Collection",
+      "url": "https://www.federalregister.gov/documents/2026/10/30/2026-22139/agency-information-collection-activities-new-collection",
       "source": "USCIS",
-      "published_at": "2026-10-01",
-      "tags": ["H-1B"],
-      "summary": "Congress passed legislation increasing H-1B-related fees. Employers with 50+ employees where more than 50% are H-1B/L-1 holders face a $4,000 surcharge per petition. Base filing fees have also risen. Total petition costs can exceed $10,000 when including ACWIA training fees and attorney costs.",
-      "action_type": "Fee change",
-      "verified_at": "November 2026"
+      "published_at": "2026-10-30",
+      "tags": []
     },
     {
-      "title": "DHS Announces Comprehensive OPT Modernization Rulemaking for 2026-2027",
-      "url": "https://www.federalregister.gov/",
-      "source": "DHS",
-      "published_at": "2026-09-20",
-      "tags": ["OPT/STEM", "F-1"],
-      "summary": "DHS has announced a comprehensive rewrite of the Optional Practical Training (OPT) regulations through the Unified Regulatory Agenda. The proposed rulemaking targets 2026-2027 and may change eligibility criteria, employer E-Verify requirements, and reporting obligations for STEM OPT students.",
-      "action_type": "Regulatory agenda",
-      "verified_at": "November 2026"
+      "title": "Agency Information Collection Activities: ICE FOIA Request Form, I-902",
+      "url": "https://www.federalregister.gov/documents/2026/10/26/2026-21765/agency-information-collection-activities-ice-foia-request-form-i-902",
+      "source": "DOL/ETA",
+      "published_at": "2026-10-26",
+      "tags": []
     },
     {
-      "title": "DHS Proposes Eliminating Duration of Status (D/S) for F and M Visa Holders",
-      "url": "https://www.federalregister.gov/",
-      "source": "DHS",
-      "published_at": "2026-09-10",
-      "tags": ["F-1", "OPT/STEM"],
-      "summary": "DHS has proposed eliminating the Duration of Status (D/S) admission category for F-1 and M-1 nonimmigrant students. Under the proposal, students would receive fixed admission periods on their I-94 instead of D/S, requiring them to track and potentially extend their lawful status more actively.",
-      "action_type": "Proposed rule",
-      "verified_at": "November 2026"
+      "title": "Agency Information Collection Activities; Extension, Without Change, of a Currently Approved Collection: Application To Register Permanent Residence or Adjust Status",
+      "url": "https://www.federalregister.gov/documents/2026/10/23/2026-21698/agency-information-collection-activities-extension-without-change-of-a-currently-approved-collection",
+      "source": "USCIS",
+      "published_at": "2026-10-23",
+      "tags": []
     },
     {
-      "title": "H-1B Minimum Wage Threshold Proposal: $100,000+ Requirement Under Discussion",
-      "url": "https://www.federalregister.gov/",
-      "source": "DOL",
-      "published_at": "2026-08-25",
-      "tags": ["H-1B"],
-      "summary": "Legislation and regulatory proposals are circulating in Congress and DOL to establish a minimum $100,000 annual wage requirement for H-1B sponsorship. Critics argue the threshold would price out entry-level STEM roles; supporters say it closes a loophole allowing below-market wages in outsourcing arrangements.",
-      "action_type": "Proposed rule",
-      "verified_at": "November 2026"
+      "title": "Agency Information Collection Activities; Revision of a Currently Approved Collection: Application for Travel Documents, Parole Documents, and Arrival/Departure Records",
+      "url": "https://www.federalregister.gov/documents/2026/10/23/2026-21684/agency-information-collection-activities-revision-of-a-currently-approved-collection-application-for",
+      "source": "USCIS",
+      "published_at": "2026-10-23",
+      "tags": []
+    },
+    {
+      "title": "Agency Information Collection Activities: Extension of a Currently Approved Collection: Electronic Bonds Online (eBonds) Access",
+      "url": "https://www.federalregister.gov/documents/2026/10/23/2026-21683/agency-information-collection-activities-extension-of-a-currently-approved-collection-electronic",
+      "source": "DOL/ETA",
+      "published_at": "2026-10-23",
+      "tags": [
+        "Enforcement"
+      ]
+    },
+    {
+      "title": "Agency Information Collection Activities: SEVP Generic Clearance for the Collection of Qualitative Feedback on Agency Service Delivery, Form 73-043 \u201cField Representative Feedback Form\u201d",
+      "url": "https://www.federalregister.gov/documents/2026/10/23/2026-21682/agency-information-collection-activities-sevp-generic-clearance-for-the-collection-of-qualitative",
+      "source": "DOL/ETA",
+      "published_at": "2026-10-23",
+      "tags": []
+    },
+    {
+      "title": "Agency Information Collection Activities: Allegation of Counterfeiting and Intellectual Policy, ICE Form 73-048, OMB 1653-0053",
+      "url": "https://www.federalregister.gov/documents/2026/10/23/2026-21681/agency-information-collection-activities-allegation-of-counterfeiting-and-intellectual-policy-ice",
+      "source": "DOL/ETA",
+      "published_at": "2026-10-23",
+      "tags": []
     },
     {
       "title": "Agency Information Collection Activities; Extension, Without Change, of a Currently Approved Collection: Application To Replace Permanent Resident Card",
@@ -68,6 +75,33 @@
       "source": "USCIS",
       "published_at": "2026-10-06",
       "tags": []
+    },
+    {
+      "title": "Agency Information Collection Activities: Revision of a Currently Approved Collection Suspicious/Criminal Activity Tip Reporting",
+      "url": "https://www.federalregister.gov/documents/2026/10/05/2026-20367/agency-information-collection-activities-revision-of-a-currently-approved-collection",
+      "source": "DOL/ETA",
+      "published_at": "2026-10-05",
+      "tags": [
+        "Enforcement"
+      ]
+    },
+    {
+      "title": "Certain DHS Immigration-Related Fees Required by HR-1: Fiscal Year 2027 Adjustments for Inflation",
+      "url": "https://www.federalregister.gov/documents/2026/10/01/2026-20186/certain-dhs-immigration-related-fees-required-by-hr-1-fiscal-year-2027-adjustments-for-inflation",
+      "source": "DOL/ETA",
+      "published_at": "2026-10-01",
+      "tags": [
+        "Enforcement"
+      ]
+    },
+    {
+      "title": "Agency Information Collection Activities: Extension of a Currently Approved Collection; Designation of Attorney in Fact/Revocation of Attorney in Fact",
+      "url": "https://www.federalregister.gov/documents/2026/09/29/2026-19853/agency-information-collection-activities-extension-of-a-currently-approved-collection-designation-of",
+      "source": "DOL/ETA",
+      "published_at": "2026-09-29",
+      "tags": [
+        "Enforcement"
+      ]
     },
     {
       "title": "Extension, Without Change, of a Currently Approved Collection: Biographic Information (Registration)",
@@ -411,109 +445,6 @@
       ]
     },
     {
-      "title": "Agency Information Collection Activities; Extension, Without Change, of a Currently Approved Collection: Request for Fee Waiver",
-      "url": "https://www.federalregister.gov/documents/2026/07/24/2026-14965/agency-information-collection-activities-extension-without-change-of-a-currently-approved-collection",
-      "source": "USCIS",
-      "published_at": "2026-07-24",
-      "tags": []
-    },
-    {
-      "title": "Agency Information Collection Activities; Revision of a Currently Approved Collection: Petition for Alien Relative",
-      "url": "https://www.federalregister.gov/documents/2026/07/16/2026-14384/agency-information-collection-activities-revision-of-a-currently-approved-collection-petition-for",
-      "source": "USCIS",
-      "published_at": "2026-07-16",
-      "tags": []
-    },
-    {
-      "title": "Agency Information Collection Activities; Extension, Without Change, of a Currently Approved Collection: Request for the Return of Original Documents",
-      "url": "https://www.federalregister.gov/documents/2026/07/14/2026-14139/agency-information-collection-activities-extension-without-change-of-a-currently-approved-collection",
-      "source": "USCIS",
-      "published_at": "2026-07-14",
-      "tags": []
-    },
-    {
-      "title": "Agency Information Collection Activities; Extension, Without Change, of a Currently Approved Collection: Application for Civil Surgeon Designation",
-      "url": "https://www.federalregister.gov/documents/2026/07/07/2026-13640/agency-information-collection-activities-extension-without-change-of-a-currently-approved-collection",
-      "source": "USCIS",
-      "published_at": "2026-07-07",
-      "tags": []
-    },
-    {
-      "title": "Labor Certification Process for the Temporary Employment of H-2A and H-2B Foreign Workers in the United States: Annual Update to Allowable Monetary Charges for Agricultural Workers' Meals and for Travel Subsistence Reimbursement, Including Lodging",
-      "url": "https://www.federalregister.gov/documents/2026/04/07/2026-06694/labor-certification-process-for-the-temporary-employment-of-h-2a-and-h-2b-foreign-workers-in-the",
-      "source": "DOL/ETA",
-      "published_at": "2026-04-07",
-      "tags": [
-        "PERM"
-      ]
-    },
-    {
-      "title": "Improving Wage Protections for the Temporary and Permanent Employment of Certain Foreign Nationals in the United States",
-      "url": "https://www.federalregister.gov/documents/2026/03/27/2026-06017/improving-wage-protections-for-the-temporary-and-permanent-employment-of-certain-foreign-nationals",
-      "source": "DOL/ETA",
-      "published_at": "2026-03-27",
-      "tags": [
-        "H-1B",
-        "PERM",
-        "Wages"
-      ]
-    },
-    {
-      "title": "Agency Information Collection Activities for Application for Prevailing Wage Determination; Comment Request",
-      "url": "https://www.federalregister.gov/documents/2026/03/24/2026-05683/agency-information-collection-activities-for-application-for-prevailing-wage-determination-comment",
-      "source": "DOL/ETA",
-      "published_at": "2026-03-24",
-      "tags": [
-        "Wages"
-      ]
-    },
-    {
-      "title": "Agency Information Collection Activities for H-2B Foreign Labor Certification Program; Comment Request",
-      "url": "https://www.federalregister.gov/documents/2026/03/17/2026-05204/agency-information-collection-activities-for-h-2b-foreign-labor-certification-program-comment",
-      "source": "DOL/ETA",
-      "published_at": "2026-03-17",
-      "tags": [
-        "PERM"
-      ]
-    },
-    {
-      "title": "Agency Information Collection Activities; Comment Request; CW-1 Application for Temporary Employment Certification",
-      "url": "https://www.federalregister.gov/documents/2026/02/03/2026-02152/agency-information-collection-activities-comment-request-cw-1-application-for-temporary-employment",
-      "source": "DOL/ETA",
-      "published_at": "2026-02-03",
-      "tags": [
-        "Wages"
-      ]
-    },
-    {
-      "title": "Labor Certification Process for the Temporary Employment of Foreign Workers in Agriculture in the United States: Adverse Effect Wage Rate for Range Occupations",
-      "url": "https://www.federalregister.gov/documents/2026/01/20/2026-00906/labor-certification-process-for-the-temporary-employment-of-foreign-workers-in-agriculture-in-the",
-      "source": "DOL/ETA",
-      "published_at": "2026-01-20",
-      "tags": [
-        "PERM",
-        "Wages"
-      ]
-    },
-    {
-      "title": "Agency Information Collection Activities; Comment request; Revision of H-2A Temporary Agricultural Labor Certification Program",
-      "url": "https://www.federalregister.gov/documents/2025/12/17/2025-23127/agency-information-collection-activities-comment-request-revision-of-h-2a-temporary-agricultural",
-      "source": "DOL/ETA",
-      "published_at": "2025-12-17",
-      "tags": [
-        "PERM"
-      ]
-    },
-    {
-      "title": "Adverse Effect Wage Rate Methodology for the Temporary Employment of H-2A Nonimmigrants in Non-Range Occupations in the United States",
-      "url": "https://www.federalregister.gov/documents/2025/10/02/2025-19365/adverse-effect-wage-rate-methodology-for-the-temporary-employment-of-h-2a-nonimmigrants-in-non-range",
-      "source": "DOL/ETA",
-      "published_at": "2025-10-02",
-      "tags": [
-        "Wages"
-      ]
-    },
-    {
       "title": "GowraTech, LLC \u2014 published H-1B debarment",
       "url": "https://www.dol.gov/agencies/whd/immigration/h1b/debarment",
       "source": "DOL/WHD",
@@ -659,6 +590,37 @@
       "summary": "The release reports suspended visa applications pending investigation. It does not specify the program, restriction dates, or a final finding; these are not inferred here."
     },
     {
+      "title": "USCIS Premium Processing Timeframe Proposal Under White House Review",
+      "url": "https://www.reginfo.gov/public/do/eAgendaViewRule?RIN=1615-AD25",
+      "source": "OIRA / reginfo.gov",
+      "published_at": "2026-10-13",
+      "tags": [
+        "H-1B",
+        "O-1",
+        "EB-1",
+        "NIW",
+        "Premium Processing"
+      ],
+      "companies": [],
+      "action_type": "Proposed rule",
+      "verified_at": "2026-11-13",
+      "summary": "DHS-USCIS sent a proposed rule titled 'Amending the Premium Processing Timeframe' (RIN 1615-AD25) to OIRA on October 13, 2026. As of November 6, 2026, the proposal is pending White House review and has not been published in the Federal Register. No public text, comment deadline, or effective date exists. Current periods remain: 15 business days for O-1 and H-1B; 15 business days for EB-1A/EB-1B I-140; 45 business days for EB-1C and NIW I-140."
+    },
+    {
+      "title": "DHS/ICE Practical Training Rulemaking on Regulatory Agenda \u2014 NPRM Target February 2027",
+      "url": "https://www.reginfo.gov/public/do/eAgendaViewRule?RIN=1653-AA97",
+      "source": "OIRA / reginfo.gov",
+      "published_at": "2026-10-01",
+      "tags": [
+        "OPT/STEM",
+        "F-1"
+      ],
+      "companies": [],
+      "action_type": "Regulatory agenda",
+      "verified_at": "2026-11-13",
+      "summary": "RIN 1653-AA97 appears on the DHS/ICE regulatory agenda at the proposed-rule stage with a February 2027 NPRM target date. An agenda target is a planning estimate, not a binding deadline or adopted text. No proposed rule has been published in the Federal Register. It does not establish that OPT will end, be shortened, or change in any specific way."
+    },
+    {
       "title": "White House press conference on fighting visa fraud",
       "url": "https://www.whitehouse.gov/videos/vice-president-jd-vance-holds-press-conference-on-fighting-visa-fraud/",
       "source": "White House",
@@ -708,6 +670,11 @@
       "title": "Federal Register",
       "url": "https://www.federalregister.gov/",
       "description": "Agency rules, notices, and proposed rules."
+    },
+    {
+      "title": "OIRA regulatory agenda",
+      "url": "https://www.reginfo.gov/public/do/eAgendaMain",
+      "description": "Pre-publication proposed rules under White House review. Items here are proposals only \u2014 no text, deadline, or effective date until published in the Federal Register."
     }
   ]
 }

@@ -34,6 +34,11 @@
       "title": "Federal Register",
       "url": "https://www.federalregister.gov/",
       "description": "Agency rules, notices, and proposed rules."
+    },
+    {
+      "title": "OIRA regulatory agenda",
+      "url": "https://www.reginfo.gov/public/do/eAgendaMain",
+      "description": "Pre-publication proposed rules under White House review. Items here are proposals only — no text, deadline, or effective date until published in the Federal Register."
     }
   ],
   "items": [
@@ -181,6 +186,28 @@
       "action_type": "Suspension announced",
       "verified_at": "2026-10-20",
       "summary": "The release reports suspended visa applications pending investigation. It does not specify the program, restriction dates, or a final finding; these are not inferred here."
+    },
+    {
+      "title": "USCIS Premium Processing Timeframe Proposal Under White House Review",
+      "url": "https://www.reginfo.gov/public/do/eAgendaViewRule?RIN=1615-AD25",
+      "source": "OIRA / reginfo.gov",
+      "published_at": "2026-10-13",
+      "tags": ["H-1B", "O-1", "EB-1", "NIW", "Premium Processing"],
+      "companies": [],
+      "action_type": "Proposed rule",
+      "verified_at": "2026-11-13",
+      "summary": "DHS-USCIS sent a proposed rule titled 'Amending the Premium Processing Timeframe' (RIN 1615-AD25) to OIRA on October 13, 2026. As of November 6, 2026, the proposal is pending White House review and has not been published in the Federal Register. No public text, comment deadline, or effective date exists. Current periods remain: 15 business days for O-1 and H-1B; 15 business days for EB-1A/EB-1B I-140; 45 business days for EB-1C and NIW I-140."
+    },
+    {
+      "title": "DHS/ICE Practical Training Rulemaking on Regulatory Agenda — NPRM Target February 2027",
+      "url": "https://www.reginfo.gov/public/do/eAgendaViewRule?RIN=1653-AA97",
+      "source": "OIRA / reginfo.gov",
+      "published_at": "2026-10-01",
+      "tags": ["OPT/STEM", "F-1"],
+      "companies": [],
+      "action_type": "Regulatory agenda",
+      "verified_at": "2026-11-13",
+      "summary": "RIN 1653-AA97 appears on the DHS/ICE regulatory agenda at the proposed-rule stage with a February 2027 NPRM target date. An agenda target is a planning estimate, not a binding deadline or adopted text. No proposed rule has been published in the Federal Register. It does not establish that OPT will end, be shortened, or change in any specific way."
     },
     {
       "title": "White House press conference on fighting visa fraud",

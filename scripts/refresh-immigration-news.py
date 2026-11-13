@@ -6,8 +6,31 @@ from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
-AGENCIES = ['u-s-citizenship-and-immigration-services', 'employment-and-training-administration']
-RULES = {'H-1B':['h-1b','h1b','specialty occupation'], 'PERM':['perm','labor certification','labor condition','foreign labor'], 'Wages':['wage','salary'], 'I-9':['i-9','e-verify','employment eligibility'], 'Enforcement':['enforcement','audit','investigation'], 'OPT/STEM':['optional practical','stem','f-1','cap-gap']}
+AGENCIES = ['u-s-citizenship-and-immigration-services', 'employment-and-training-administration', 'u-s-immigration-and-customs-enforcement']
+RULES = {
+    'H-1B':          ['h-1b', 'h1b', 'specialty occupation'],
+    'PERM':          ['perm', 'labor certification', 'labor condition', 'foreign labor'],
+    'Wages':         ['wage', 'salary', 'prevailing wage'],
+    'I-9':           ['i-9', 'e-verify', 'employment eligibility'],
+    'Enforcement':   ['enforcement', 'audit', 'investigation', 'debarment'],
+    'OPT/STEM':      ['optional practical', 'stem opt', 'stem extension', 'cap-gap', 'practical training'],
+    'F-1':           ['f-1', 'f1 student', 'sevis', 'student visa', 'designated school official'],
+    'O-1':           ['o-1a', 'o-1b', ' o-1 ', 'extraordinary ability', 'extraordinary achievement'],
+    'EB-1':          ['eb-1', 'eb1', 'outstanding researcher', 'outstanding professor', 'multinational manager', 'multinational executive'],
+    'NIW':           ['niw', 'national interest waiver'],
+    'Premium Processing': ['premium processing', 'premium process', 'i-907'],
+}
+
+VALID_GOV_DOMAINS = (
+    'https://www.dol.gov/',
+    'https://oig.dol.gov/',
+    'https://www.whitehouse.gov/',
+    'https://www.reginfo.gov/',
+    'https://www.uscis.gov/',
+    'https://www.federalregister.gov/',
+    'https://www.govinfo.gov/',
+    'https://www.ecfr.gov/',
+)
 
 def main():
     items = []
@@ -28,8 +51,8 @@ def main():
     path = Path(__file__).resolve().parents[1] / 'assets/immigration-news.json'
     curated = json.loads((path.parent / 'government-records.json').read_text())
     for record in curated['items']:
-        if not record.get('verified_at') or not record['url'].startswith(('https://www.dol.gov/', 'https://oig.dol.gov/', 'https://www.whitehouse.gov/')):
-            raise ValueError('Government records require verification dates and government evidence')
+        if not record.get('verified_at') or not record['url'].startswith(VALID_GOV_DOMAINS):
+            raise ValueError('Government records require verification dates and a URL from an approved government domain')
     items.extend(curated['items'])
     transcript_index = path.parent / 'transcripts/index.json'
     if transcript_index.exists():
@@ -41,7 +64,7 @@ def main():
                           'published_at':None, 'tags':['Enforcement'], 'companies':[],
                           'action_type':'Government announcement', 'video':True,
                           'summary':'Government video discovered automatically. Transcript availability and accuracy are separate from verification of any employer action.'})
-    payload = {'updated_at':datetime.now(timezone.utc).isoformat(), 'source':'FederalRegister.gov agency publications', 'items':items, 'sources':curated['sources']}
+    payload = {'updated_at':datetime.now(timezone.utc).isoformat(), 'source':'FederalRegister.gov, OIRA (reginfo.gov), USCIS.gov agency publications', 'items':items, 'sources':curated['sources']}
     temporary = path.with_suffix('.tmp')
     temporary.write_text(json.dumps(payload, indent=2)+'\n')
     temporary.replace(path)
