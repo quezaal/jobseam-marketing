@@ -1,0 +1,14 @@
+.kb-layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(14rem, 1fr); gap: 1.5rem; align-items: start; }
+.kb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; }
+.kb-grid h2, .kb-layout aside h2, .kb-article article h2 { font-size: 1.25rem; }
+.kb-layout aside li + li { margin-top: .5rem; }
+.kb-article { max-width: 55rem; }
+.kb-article article { margin-block: 1rem; scroll-margin-top: 6rem; }
+.kb-search { max-width: 34rem; margin-top: 1.5rem; }
+.kb-search label { display: block; font-weight: 650; margin-bottom: .4rem; }
+.kb-search input { width: 100%; box-sizing: border-box; padding: .8rem; font: inherit; border: 1px solid currentColor; border-radius: .5rem; }
+.kb-results { list-style: none; padding: 0; margin: 0; }
+.kb-results li { padding: 1rem 0; border-bottom: 1px solid #80808055; }
+.kb-results li a { font-weight: 650; }
+[hidden] { display: none !important; }
+@media (max-width: 740px) { .kb-layout { grid-template-columns: 1fr; } }

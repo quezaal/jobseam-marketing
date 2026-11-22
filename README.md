@@ -1,5 +1,20 @@
 # JobSeam marketing
 
+The [paid-customer readiness guide](docs/paid-customer-readiness.md) covers plan limits, sales claims, trial handoff and pilot acceptance.
+
+The internal [competitor landscape](docs/competitor-landscape.md) tracks alternatives, vendor sources and pricing implications for the public [comparison page](compare.html).
+
+## Knowledge base and pricing research
+
+- [India staffing ROI model](docs/india-bench-sales-roi.md) for pilot measurement and buyer-specific INR break-even.
+
+- Internal [commercial packaging implementation checklist](docs/commercial-packaging-todo.md) for staff seats, agent capacity, optional modules, and data portability.
+- Use light-theme screenshots with sample or synthetic data for product images. Review screenshots at their published size before updating a public page.
+
+- Public [knowledge base](help.html) with nine topic pages and searchable guides.
+- Public [SeamBud overview](seambud.html) for staffing teams.
+- Internal [competitor pricing register](docs/competitor-pricing-and-entitlements.md), [numbered capability index](docs/competitor-feature-index.md), and [JobSeam packaging options](docs/jobseam-pricing-and-seambud-positioning.md).
+
 ## Blog and post campaigns
 
 The [connected recruiting campaign](campaigns/2026-11-connected-recruiting/README.md) contains a blog, a candidate/opportunity illustration, light theme product screenshots, a screenshot flyer and draft posts. Its release manifest and distribution log track prepared versus approved/published revisions. The static build excludes internal tracking and capture tools. Nothing is posted automatically.
@@ -16,7 +31,7 @@ Static website for jobseam.com. No build step. Preview from this directory with 
 - `faq.html`: dedicated workflow questions and answers.
 - `how-it-works.html`: dedicated step-by-step workflow and product walkthrough.
 - `features.html`: capability overview linking to the detailed feature reference.
-- `pricing.html`: monthly Founding $199, Starter $299, Growth $699; annual prepayment $1,990 / $2,990 / $6,990. Enterprise inquiry. Core matching, employer LCA, 12 PDF/Word PAF templates and OPT/STEM OPT record tracking in every listed team plan, subject to module/US-market enablement.
+- `pricing.html`: monthly Solo $99, Early Adopter $199, Starter $299, Growth $699. Annual prepayment is $990 / $1,990 / $2,990 / $6,990. Trial requests use the demo page. Enterprise inquiry. Core matching, employer LCA, 12 PDF/Word PAF templates and OPT/STEM OPT record tracking in every listed team plan, subject to module/US-market enablement.
 - `demo.html`: existing Quezaal 20-minute Calendly booking, with a direct-link fallback. Sales-page demo links open the same Calendly popup as the original site when the widget is available; they navigate to this page if it is unavailable.
 - `jobseam-onepager.html`: concise product overview replacing unvalidated outcome claims.
 - `assets/marketing.css` and `assets/marketing.js`: shared responsive styles and booking integration.

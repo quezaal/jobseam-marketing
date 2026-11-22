@@ -85,4 +85,15 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url><loc>https://jobseam.com/help</loc></url>
+  <url><loc>https://jobseam.com/seambud</loc></url>
+  <url><loc>https://jobseam.com/help-getting-started</loc></url>
+  <url><loc>https://jobseam.com/help-email-intake</loc></url>
+  <url><loc>https://jobseam.com/help-consultants</loc></url>
+  <url><loc>https://jobseam.com/help-matching</loc></url>
+  <url><loc>https://jobseam.com/help-seambud</loc></url>
+  <url><loc>https://jobseam.com/help-work-authorization</loc></url>
+  <url><loc>https://jobseam.com/help-operations</loc></url>
+  <url><loc>https://jobseam.com/help-access</loc></url>
+  <url><loc>https://jobseam.com/help-data-portability</loc></url>
 </urlset>

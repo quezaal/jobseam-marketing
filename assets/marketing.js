@@ -14,11 +14,14 @@
   try { sessionStorage.setItem('jobseam_campaign', JSON.stringify(campaign)); } catch (_) {}
   const calendar = document.getElementById('booking-calendar');
 
-  const selectedPlan = ['founding', 'starter', 'growth', 'enterprise'].includes(params.get('plan')) ? params.get('plan') : '';
-  if (selectedPlan && calendar) {
+  const planLabels = {solo:'Solo', founding:'Early Adopter', early_adopter:'Early Adopter', starter:'Starter', growth:'Growth', enterprise:'Enterprise'};
+  const selectedPlan = Object.hasOwn(planLabels, params.get('plan')) ? params.get('plan') : '';
+  const trialRequested = params.get('trial') === '1';
+  if ((selectedPlan || trialRequested) && calendar) {
     const interest = document.getElementById('plan-interest');
     const billing = ['monthly', 'annual'].includes(params.get('billing')) ? params.get('billing') : '';
-    interest.textContent = `Interested in ${selectedPlan}${billing ? ' with ' + billing + ' billing' : ''}? We’ll cover capacity and pricing during your demo.`;
+    const chosen = selectedPlan ? planLabels[selectedPlan] : 'a JobSeam plan';
+    interest.textContent = `Interested in ${chosen}${billing ? ' with ' + billing + ' billing' : ''}? ${trialRequested ? 'Request a 14-day free trial when you book. No card or bank details required. We’ll confirm access and setup during the demo.' : 'We’ll cover capacity and pricing during your demo.'}`;
     interest.hidden = false;
   }
   const url = new URL(bookingUrl);
@@ -35,11 +38,11 @@
     link.addEventListener('click', event => {
       // Pricing selections use the demo page so the chosen billing cycle is visible.
       const current = new URL(link.href, window.location.href);
-      if (current.searchParams.has('billing')) return;
+      if (current.searchParams.has('billing') || current.searchParams.has('trial')) return;
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !window.Calendly) return;
       event.preventDefault();
       const plan = target.searchParams.get('plan');
-      bookingPlan = ['founding', 'starter', 'growth', 'enterprise'].includes(plan) ? plan : '';
+      bookingPlan = Object.hasOwn(planLabels,plan) ? plan : '';
       window.Calendly.initPopupWidget({url: url.href});
     });
   });
