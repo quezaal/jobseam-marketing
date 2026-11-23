@@ -68,15 +68,25 @@ def render_page(root, source):
         if not re.fullmatch(r'[A-Za-z0-9._+%\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}', recipient):
             raise ValueError('demo_recipient must be an email address')
         booking = settings['zoho_booking_url'].strip()
+        embed = settings.get('zoho_booking_embed_url', '').strip()
+        for field, url in (('zoho_booking_url', booking), ('zoho_booking_embed_url', embed)):
+            if url:
+                target = urlsplit(url)
+                if target.scheme != 'https' or not target.hostname or target.username or target.password or any(c.isspace() for c in url):
+                    raise ValueError(f'{field} must be a public HTTPS booking link without credentials')
         widget = ''
-        if booking:
-            target = urlsplit(booking)
-            if target.scheme != 'https' or not target.hostname or target.username or target.password or any(c.isspace() for c in booking):
-                raise ValueError('zoho_booking_url must be a public HTTPS booking link without credentials')
+        if booking or embed:
+            frame = (
+                f'<iframe class="demo-booking-frame" src="{html.escape(embed, quote=True)}" '
+                'title="Schedule a 20-minute JobSeam demo" loading="lazy"></iframe>'
+            ) if embed else ''
+            direct_url = html.escape(booking or embed, quote=True)
             widget = (
-                '<p>Choose an available slot on our Zoho Bookings page for a live demo.</p>'
-                f'<p><a class="button" href="{html.escape(booking, quote=True)}" '
-                'target="_blank" rel="noopener">Choose a demo time ↗</a></p>'
+                '<section class="section" aria-labelledby="demo-booking-title"><div class="wrap">'
+                '<h2 id="demo-booking-title">Choose a time for your demo</h2>'
+                '<p>Pick an available 20-minute slot in your time zone.</p>'
+                f'{frame}<p><a href="{direct_url}" target="_blank" rel="noopener">'
+                'Open Zoho Bookings in a new tab ↗</a></p></div></section>'
             )
         page = page.replace('<!-- include:demo-booking -->', widget)
         page = page.replace('{{DEMO_RECIPIENT}}', html.escape(recipient, quote=True))

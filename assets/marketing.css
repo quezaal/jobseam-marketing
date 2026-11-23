@@ -315,3 +315,16 @@ section[aria-label],section[id]{scroll-margin-top:20px}
 .command-preview img { display: block; width: 100%; height: auto; border-radius: .45rem; }
 .command-preview figcaption { padding: .4rem .15rem 0; }
 @media (max-width: 640px) { .command-hero .command-preview { padding: .35rem; } }
+
+.demo-booking-frame {
+  display: block;
+  width: 100%;
+  min-height: 44rem;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .demo-booking-frame {
+    min-height: 52rem;
+  }
+}
