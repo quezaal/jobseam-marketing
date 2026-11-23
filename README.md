@@ -32,7 +32,7 @@ Static website for jobseam.com. Preview from this directory with `python3 serve.
 - `how-it-works.html`: dedicated step-by-step workflow and product walkthrough.
 - `features.html`: capability overview linking to the detailed feature reference.
 - `pricing.html`: monthly Solo $99, Early Adopter $199, Starter $299, Growth $699. Annual prepayment is $990 / $1,990 / $2,990 / $6,990. Trial requests use the demo page. Enterprise inquiry. Core matching, employer LCA, 12 PDF/Word PAF templates and OPT/STEM OPT record tracking in every listed team plan, subject to module/US-market enablement.
-- `demo.html`: 20-minute demo and trial requests by email. Gmail and mail-app drafts preserve the selected plan, billing preference and use case.
+- `demo.html`: 20-minute demo and trial requests by email. Email drafts preserve the selected plan, billing preference and use case.
 - `jobseam-onepager.html`: concise product overview replacing unvalidated outcome claims.
 - `assets/marketing.css` and `assets/marketing.js`: shared responsive styles and booking integration.
 

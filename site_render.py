@@ -3,7 +3,7 @@
 import html
 import json
 import re
-from urllib.parse import quote, urlsplit
+from urllib.parse import urlsplit
 
 
 def nav_link(item, route, header=False):
@@ -74,11 +74,10 @@ def render_page(root, source):
             if target.scheme != 'https' or not target.hostname or target.username or target.password or any(c.isspace() for c in booking):
                 raise ValueError('zoho_booking_url must be a public HTTPS booking link without credentials')
             widget = (
-                '<p>Choose an available slot in our Zoho calendar for a live demo.</p>'
+                '<p>Choose an available slot on our Zoho Bookings page for a live demo.</p>'
                 f'<p><a class="button" href="{html.escape(booking, quote=True)}" '
                 'target="_blank" rel="noopener">Choose a demo time ↗</a></p>'
             )
         page = page.replace('<!-- include:demo-booking -->', widget)
         page = page.replace('{{DEMO_RECIPIENT}}', html.escape(recipient, quote=True))
-        page = page.replace('{{DEMO_RECIPIENT_ENCODED}}', quote(recipient, safe=''))
     return page

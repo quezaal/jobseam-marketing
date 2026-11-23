@@ -73,4 +73,4 @@ Verify the generated output before publishing:
 | A menu edit works locally but the live site is unchanged | Confirm the deployed commit and that the host published a fresh `_site/` build. |
 | A removed page still loads after a build | Check whether the artifact came from a reused output directory or the hosting upload retained old objects. |
 | Zoho booking button is missing | Check `zoho_booking_url` in `site-config.json`. It must be a public HTTPS service link. |
-| A Gmail button works but a demo is not scheduled | The visitor must send the email, and Sales must reply to confirm. Use the configured Zoho link for booking available time slots. |
+| An email draft opens but no demo is scheduled | The visitor must send the email, and Sales must reply to confirm. Use the configured Zoho link for booking available time slots. |

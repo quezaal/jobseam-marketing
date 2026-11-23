@@ -1,8 +1,7 @@
 (() => {
   'use strict';
-  const gmail = document.getElementById('demo-gmail');
   const mail = document.getElementById('demo-email');
-  if (!gmail || !mail) return;
+  if (!mail) return;
 
   const params = new URLSearchParams(window.location.search);
   const plans = { solo: 'Solo', founding: 'Founding Offer', early_adopter: 'Founding Offer', starter: 'Starter', growth: 'Growth', enterprise: 'Enterprise' };
@@ -29,10 +28,9 @@
   ].join('\n');
 
   const address = mail.dataset.recipient;
-  const compose = new URL('https://mail.google.com/mail/');
-  compose.search = new URLSearchParams({ view: 'cm', fs: '1', to: address, su: subject, body });
-  gmail.href = compose.href;
   mail.href = `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  if (trial) mail.textContent = 'Open free trial email draft';
 
   const interest = document.getElementById('plan-interest');
   if (interest && (plan || billing || trial)) {
