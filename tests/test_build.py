@@ -13,6 +13,7 @@ class StaticBuildTests(unittest.TestCase):
             with self.subTest(include_ads=include_ads), tempfile.TemporaryDirectory() as tmp:
                 root = Path(tmp)
                 shutil.copy2(Path(__file__).resolve().parents[1] / 'build.py', root)
+                shutil.copy2(Path(__file__).resolve().parents[1] / 'site_render.py', root)
                 folders = ['assets', 'screenshots'] + (['ads'] if include_ads else [])
                 for folder in folders:
                     (root / folder).mkdir()
@@ -36,6 +37,7 @@ class StaticBuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             shutil.copy2(Path(__file__).resolve().parents[1] / 'build.py', root)
+            shutil.copy2(Path(__file__).resolve().parents[1] / 'site_render.py', root)
             for name in ['assets', 'screenshots']:
                 (root / name).mkdir()
             kit = root / 'collateral/product-overview'
@@ -61,6 +63,7 @@ class StaticBuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             shutil.copy2(Path(__file__).resolve().parents[1] / 'build.py', root)
+            shutil.copy2(Path(__file__).resolve().parents[1] / 'site_render.py', root)
             for folder in ['assets', 'screenshots']:
                 (root / folder).mkdir()
             campaign = root / 'campaigns/2026-11-connected-recruiting'

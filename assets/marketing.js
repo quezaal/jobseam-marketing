@@ -1,76 +1,45 @@
 (() => {
   'use strict';
-  const bookingUrl = 'https://calendly.com/connect-quezaal/20min';
-  const params = new URLSearchParams(window.location.search);
-  const campaignKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
-  // Keep only campaign attribution; never collect resume or contact data here.
-  let campaign = {};
-  try { campaign = JSON.parse(sessionStorage.getItem('jobseam_campaign') || '{}') || {}; } catch (_) {}
-  const incoming = campaignKeys.some(key => params.has(key));
-  if (incoming) campaign = {};
-  for (const key of campaignKeys) {
-    if (params.has(key)) campaign[key] = params.get(key).slice(0, 200);
-  }
-  try { sessionStorage.setItem('jobseam_campaign', JSON.stringify(campaign)); } catch (_) {}
-  const calendar = document.getElementById('booking-calendar');
+  const gmail = document.getElementById('demo-gmail');
+  const mail = document.getElementById('demo-email');
+  if (!gmail || !mail) return;
 
-  const planLabels = {solo:'Solo', founding:'Early Adopter', early_adopter:'Early Adopter', starter:'Starter', growth:'Growth', enterprise:'Enterprise'};
-  const selectedPlan = Object.hasOwn(planLabels, params.get('plan')) ? params.get('plan') : '';
-  const trialRequested = params.get('trial') === '1';
-  if ((selectedPlan || trialRequested) && calendar) {
-    const interest = document.getElementById('plan-interest');
-    const billing = ['monthly', 'annual'].includes(params.get('billing')) ? params.get('billing') : '';
-    const chosen = selectedPlan ? planLabels[selectedPlan] : 'a JobSeam plan';
-    interest.textContent = `Interested in ${chosen}${billing ? ' with ' + billing + ' billing' : ''}? ${trialRequested ? 'Request a 14-day free trial when you book. No card or bank details required. We’ll confirm access and setup during the demo.' : 'We’ll cover capacity and pricing during your demo.'}`;
+  const params = new URLSearchParams(window.location.search);
+  const plans = { solo: 'Solo', founding: 'Founding Offer', early_adopter: 'Founding Offer', starter: 'Starter', growth: 'Growth', enterprise: 'Enterprise' };
+  const useCases = { staffing: 'Recruiting and staffing', education: 'Education and placement', individual: 'Individual job search' };
+  const lookup = (values, key) => Object.hasOwn(values, key) ? values[key] : '';
+  const plan = lookup(plans, params.get('plan'));
+  const useCase = lookup(useCases, params.get('use_case'));
+  const billing = ['monthly', 'annual'].includes(params.get('billing')) ? params.get('billing') : '';
+  const trial = params.get('trial') === '1';
+  const subject = trial ? 'JobSeam free trial request' : 'JobSeam demo request';
+  const body = [
+    'Hi JobSeam team,',
+    '',
+    trial ? 'I’d like to request a 14-day free trial.' : 'I’d like to request a 20-minute demo.',
+    ...(plan ? [`Plan: ${plan}`] : []),
+    ...(billing ? [`Billing preference: ${billing}`] : []),
+    ...(useCase ? [`Use case: ${useCase}`] : []),
+    '',
+    'Company or team:',
+    'What I’d like to see:',
+    'Two preferred times and time zone:',
+    '',
+    'Thanks!',
+  ].join('\n');
+
+  const address = mail.dataset.recipient;
+  const compose = new URL('https://mail.google.com/mail/');
+  compose.search = new URLSearchParams({ view: 'cm', fs: '1', to: address, su: subject, body });
+  gmail.href = compose.href;
+  mail.href = `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  const interest = document.getElementById('plan-interest');
+  if (interest && (plan || billing || trial)) {
+    interest.textContent = [
+      trial ? '14-day free trial. No card or bank details required.' : '20-minute demo.',
+      plan ? `Plan: ${plan}${billing ? ' with ' + billing + ' billing' : ''}.` : '',
+    ].filter(Boolean).join(' ');
     interest.hidden = false;
   }
-  const url = new URL(bookingUrl);
-  for (const key of campaignKeys) {
-    if (typeof campaign[key] === 'string') url.searchParams.set(key, campaign[key]);
-  }
-  const fallback = document.getElementById('booking-fallback');
-  if (fallback) fallback.href = url.href;
-  let bookingPlan = selectedPlan;
-  document.querySelectorAll('a[href]').forEach(link => {
-    const target = new URL(link.href, window.location.href);
-    if (!/^\/demo(?:\.html)?\/?$/.test(target.pathname)) return;
-    if (target.searchParams.has('use_case')) return;
-    link.addEventListener('click', event => {
-      // Pricing selections use the demo page so the chosen billing cycle is visible.
-      const current = new URL(link.href, window.location.href);
-      if (current.searchParams.has('billing') || current.searchParams.has('trial')) return;
-      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !window.Calendly) return;
-      event.preventDefault();
-      const plan = target.searchParams.get('plan');
-      bookingPlan = Object.hasOwn(planLabels,plan) ? plan : '';
-      window.Calendly.initPopupWidget({url: url.href});
-    });
-  });
-  const seen = new Set();
-  window.addEventListener('message', event => {
-    if (event.origin !== 'https://calendly.com' || !event.data || event.data.event !== 'calendly.event_scheduled') return;
-    const frame = document.querySelector('.calendly-popup-content iframe') || calendar?.querySelector('iframe');
-    if (!frame || event.source !== frame.contentWindow) return;
-    const booking = event.data.payload?.event?.uri;
-    if (typeof booking !== 'string' || !booking.startsWith('https://api.calendly.com/scheduled_events/')) return;
-    if (seen.has(booking)) return;
-    seen.add(booking);
-    const success = document.getElementById('booking-success');
-    if (success) success.hidden = false;
-    // GTM integration point. No analytics library or account is configured by this file.
-    // Do not map clicks, calendar views, or form starts to this conversion.
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({event: 'jobseam_demo_booked', product: 'JobSeam', plan_interest: bookingPlan || 'unspecified'});
-    window.dispatchEvent(new CustomEvent('jobseam:demo-booked', {detail: {plan_interest: bookingPlan || 'unspecified'}}));
-  });
-  const widget = document.createElement('script');
-  widget.src = 'https://assets.calendly.com/assets/external/widget.js';
-  widget.async = true;
-  widget.onload = () => {
-    if (!window.Calendly || !calendar) return;
-    calendar.replaceChildren();
-    window.Calendly.initInlineWidget({url: url.href, parentElement: calendar});
-  };
-  // Keep the existing text and direct booking link if the third-party script fails.
-  document.head.appendChild(widget);
 })();

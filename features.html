@@ -16,7 +16,8 @@
 <meta name="twitter:description" content="Two-way AI matching, resume parsing, requirement inbox, RTR workflow, job dashboards, and more. For staffing, placement, and individual job search.">
 <meta name="twitter:image" content="https://jobseam.com/screenshots/screen_match_scored.png">
 <link rel="stylesheet" href="/assets/marketing.css">
-<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<link rel="stylesheet" href="/assets/feature-tabs.css">
+<script defer src="/assets/feature-tabs.js"></script>
 <script defer src="/assets/analytics-config.js"></script>
 <script defer src="/assets/analytics.js"></script>
 <script defer src="/assets/marketing.js">
@@ -27,45 +28,41 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header>
-<div class="wrap nav">
-<a class="brand" href="/" aria-label="JobSeam home">Job<span>Seam</span>
-<small>JOB MARKET INTELLIGENCE</small>
-</a>
-<nav aria-label="Main navigation" class="site-navigation">
-<a href="/">Home</a>
-<details class="nav-group nav-group-current"><summary>Product <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
-<a href="/how-it-works">How It Works</a>
-<a href="/features" aria-current="page">Features</a>
-<a href="/compare">Compare Platforms</a>
-</div></details>
-<details class="nav-group"><summary>Solutions <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
-<a href="/talent">Talent</a>
-<a href="/staffing">Employers &amp; Recruiters</a>
-</div></details>
-<a href="/pricing">Pricing</a>
-<details class="nav-group"><summary>Resources <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
-<a href="/help">Knowledge Base</a>
-<a href="/faq">FAQ</a>
-<a href="/contact">Contact</a>
-<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
-</div></details>
-<a href="/demo" class="button">Book a Demo ↗</a>
-</nav>
-</div>
-</header>
+<!-- include:header -->
 <main id="main">
 <section class="hero">
 <div class="wrap page-title">
 <div class="eyebrow">Features / Job market intelligence</div>
-<h1>Explore what JobSeam can help you do.</h1>
-<p>Explore job demand, match talent to opportunities, and track progress in one workspace. Staffing, placement, and individual job-search workflows build on the same intelligence platform.</p>
+<h1>What can you do with JobSeam?</h1>
+<p>Start in Command Center to see what needs attention. Choose a feature below to see how your team can act on it.</p>
+<p class="feature-agent-callout"><a href="/seambud"><strong>Meet SeamBud</strong></a> · One AI agent and its Workspace are included. Follow each consultant’s tasks, see who acted, and review proposals that need your approval.</p>
 <div class="actions">
 <a class="button" href="/demo">Book a demo ↗</a>
 <a class="text-link" href="/pricing">Compare plans →</a>
 </div>
 </div>
 </section>
+<nav class="feature-tabs" aria-label="Feature categories"><div class="wrap feature-tab-list" data-feature-tabs>
+<a href="#command-center" id="tab-command-center">Command Center</a>
+<a href="#recruiting" id="tab-recruiting">Recruiting &amp; matching</a>
+<a href="#agent" id="tab-agent">SeamBud &amp; audit</a>
+<a href="#market" id="tab-market">Market intelligence</a>
+<a href="#operations" id="tab-operations">Team operations</a>
+<a href="#work-authorization" id="tab-work-authorization">Compliance</a>
+</div></nav>
+<div class="feature-panel" id="command-center" data-feature-panel>
+<section class="section"><div class="wrap">
+<h2>See what needs attention</h2>
+<p>Command Center brings your jobs, consultant reviews, immigration alerts and agent activity together. Open a record to continue the work in its workspace. What you see depends on your role.</p>
+<div class="grid2">
+<article class="card"><h3>Review new jobs</h3><p>See recent jobs and open one to review the details.</p></article>
+<article class="card"><h3>Review consultants</h3><p>Find profiles waiting for review and open the consultant’s workspace.</p></article>
+<article class="card"><h3>Check work authorization dates</h3><p>See recorded alerts and upcoming expirations for the workers you can access.</p></article>
+<article class="card"><h3>Check agent activity</h3><p>See run status in Command Center. Open <a href="/seambud">SeamBud Workspace</a> for consultant tasks and approvals.</p></article>
+</div>
+<p><a class="text-link" href="/screenshots/command-center-light.png">Open the sample Command Center screenshot →</a></p>
+</div></section></div>
+<div class="feature-panel" id="recruiting" data-feature-panel>
 <section class="section" aria-labelledby="existing-bench">
 <div class="wrap">
 <h2 id="existing-bench">Find opportunities for consultants you already represent</h2>
@@ -74,28 +71,7 @@
 </div>
 </section>
 
-<section class="section" aria-labelledby="seambud-features"><div class="wrap">
-<h2 id="seambud-features">SeamBud works your recruiting queue 24/7</h2>
-<p>Every recruiting plan includes one SeamBud agent and its own workspace. SeamBud prepares work between shifts when configured sources and workers are available. Open SeamBud Workspace to see what is running, what needs a decision, and what happened.</p>
-<div class="grid3">
-<article class="card"><h3>Monitor the SeamBud Workspace</h3><p>Filter the task queue by consultant or status. Open a run to review its outcome, proposed changes and recorded agent steps, or go straight to the consultant’s Tasks tab.</p></article>
-<article class="card"><h3>Review work for one consultant</h3><p>Open Tasks to inspect proposals, match evidence and review history. Authorized reviewers can edit proposed target roles, approve supported changes, and review suggested matches individually or in bulk.</p></article>
-<article class="card"><h3>See who did what</h3><p>Use consultant Activity to distinguish recorded SeamBud steps, automated system events, staff actions and consultant responses. Use the Audit Log to investigate recorded workspace events within your role’s access.</p></article>
-<article class="card"><h3>Prepare vendor requirements</h3><p>Organize eligible Jobs email and extract details like title, location, skills and rate for a recruiter to verify.</p></article>
-<article class="card"><h3>Review incoming resumes</h3><p>Triage eligible Talent intake and use retained emails and readable resumes to suggest profile updates.</p></article>
-<article class="card"><h3>Review potential opportunities</h3><p>Start from an available consultant and review opportunities, matched skills and gaps before deciding what to pursue.</p></article>
-<article class="card"><h3>Draft consultant outreach</h3><p>Prepare an email for recruiter approval. Record the consultant’s separate decision before progressing the submission.</p></article>
-<article class="card"><h3>Carry forward recruiter feedback</h3><p>Save corrections with the task. Supported later runs can use recent relevant feedback for the same consultant.</p></article>
-<article class="card"><h3>Answer roster questions</h3><p>Authorized staff can request scoped consultant CSVs. Review task outcomes and source-dependent fields before using the export.</p></article>
-</div><p><a class="text-link" href="/seambud">Explore SeamBud →</a></p>
-</div></section>
-<section class="section"><div class="wrap"><h2>Bring your data into JobSeam</h2><p>Import supported consultant roster fields and download scoped reports when you need them. Confirm bulk migration and export scope with our team.</p><a class="text-link" href="/help-data-portability">See import and export options →</a></div></section>
-<section>
-<div class="wrap grid3">
-<article class="card">
-<h3>Job market dashboards</h3>
-<p>Explore job activity by source, role, location, skills, and other dimensions using interactive dashboard panels.</p>
-</article>
+<section class="section"><div class="wrap grid3">
 <article class="card">
 <h3>Two-way matching</h3>
 <p>Find consultants for a requirement or requirements for a consultant. Core matching is included across the Founding, Starter, and Growth plans.</p>
@@ -117,21 +93,103 @@
 <p>Move from reviewing a match to a Right-to-Represent request, with an activity trail for follow-up.</p>
 </article>
 <article class="card">
+<h3>Requirement review and intake history</h3>
+<p>Review extracted requirements before they enter your pipeline. Use rules for trusted vendor domains, rate thresholds, or title keywords, with duplicate detection to reduce repeated entries.</p>
+</article>
+<article class="card">
+<h3>Consultant feedback & tracking</h3>
+<p>Review skill gaps with your consultants, update resumes, and compare refreshed match results. Keep notes and track progress through application stages.</p>
+</article>
+<article class="card">
+<h3 id="duplicate-guard">Duplicate submission guard</h3>
+<p>When a consultant is about to confirm an RTR while already active with other staffing companies on JobSeam, they see how many other submissions they have before confirming. The agency never sees cross-company details. The candidate is the only one with that visibility.</p>
+</article>
+<article class="card">
+<h3>Consultant workspace and résumé versions</h3>
+<p>Review profiles, opportunity sessions, résumés, applications, documents, notes, retained emails and task history within your access. Keep alternate résumés and choose the primary version. Use portal invitations for supported consultant review.</p>
+</article>
+<article class="card">
+<h3>Transferable skill matching</h3>
+<p>When matching a consultant to a job requirement, the platform distinguishes direct skill matches, transferable matches in the same technology category (for example, AWS experience for an Azure requirement), and missing skills. Use this evidence to decide which opportunities to pursue and what to include in an outreach draft.</p>
+</article>
+<article class="card">
+<h3>Email talent intake</h3>
+<p>Connect a Talent mailbox to capture résumé attachments and review their intake status. Eligible items can be promoted to consultant profiles when automatic intake is enabled. Timing depends on polling, attachment processing, and model availability.</p>
+</article>
+<article class="card">
+<h3>Consultant opportunity review</h3>
+<p>Share opportunities with consultants after staff approval. Consultants can respond through a private link or sign in to see shared opportunities together. Review decisions and requests for changes in the workspace.</p>
+</article>
+<article class="card">
+<h3>AI deep analysis</h3>
+<p>Run a detailed AI review of a candidate's profile against an open requirement: strengths, gaps, likely interview focus areas, and a recruiter-facing narrative summary. Enabled per group by the system administrator. Results are shown in the candidate detail panel and do not replace a recruiter's evaluation.</p>
+</article>
+</div></section>
+<section class="section">
+<div class="wrap split">
+<figure class="product">
+<div class="product-top">
+<span>JOBSEAM / MATCH WORKSPACE</span>
+<span>REVIEW → RTR</span>
+</div>
+<img src="/screenshots/screen_match_scored.png" width="1440" height="900" alt="JobSeam consultant matching workspace with skill review and RTR actions" loading="lazy">
+<figcaption>Product screen with sample data. Results depend on the profiles and requirements supplied.</figcaption>
+</figure>
+<div>
+<div class="eyebrow">Go deeper</div>
+<h2>Explore the full feature reference.</h2>
+<p>See dashboard panels, job-page controls, configuration options, and deployment contexts in the detailed guide.</p>
+<a class="text-link" href="/jobseam-feature-guide-detailed">Open the detailed feature guide →</a>
+<p class="small" style="margin-top:20px">For plan capacities and included features, see the <a href="/pricing">pricing comparison</a>.</p>
+</div>
+</div>
+</section>
+</div>
+<div class="feature-panel" id="agent" data-feature-panel>
+<section class="section" aria-labelledby="seambud-features"><div class="wrap">
+<h2 id="seambud-features">See what SeamBud has ready for review</h2>
+<p>Every recruiting plan includes one SeamBud agent and its own workspace. SeamBud prepares work between shifts when configured sources and workers are available. Open SeamBud Workspace to see what is running and what needs a decision. Supported approval-gated tasks wait for an authorized reviewer. Later runs can use recorded corrections for that consultant.</p>
+<div class="grid3">
+<article class="card"><h3>Monitor the SeamBud Workspace</h3><p>Filter the task queue by consultant or status. Open a run to review its outcome, proposed changes and recorded agent steps, or go straight to the consultant’s Tasks tab.</p></article>
+<article class="card"><h3>Review work for one consultant</h3><p>Open Tasks to inspect proposals, match evidence and review history. Authorized reviewers can edit proposed target roles, approve supported changes, and review suggested matches individually or in bulk.</p></article>
+<article class="card"><h3>See who did what</h3><p>Use consultant Activity to distinguish recorded SeamBud steps, automated system events, staff actions and consultant responses. Use the Audit Log to investigate recorded workspace events within your role’s access.</p></article>
+<article class="card"><h3>Prepare vendor requirements</h3><p>Organize eligible Jobs email and extract details like title, location, skills and rate for a recruiter to verify.</p></article>
+<article class="card"><h3>Review incoming resumes</h3><p>Triage eligible Talent intake and use retained emails and readable resumes to suggest profile updates.</p></article>
+<article class="card"><h3>Review potential opportunities</h3><p>Start from an available consultant and review opportunities, matched skills and gaps before deciding what to pursue.</p></article>
+<article class="card"><h3>Draft consultant outreach</h3><p>Prepare an email for recruiter approval. Record the consultant’s separate decision before progressing the submission.</p></article>
+<article class="card"><h3>Carry forward recruiter feedback</h3><p>Save corrections with the task. Supported later runs can use recent relevant feedback for the same consultant.</p></article>
+<article class="card"><h3>Build a consultant report</h3><p>Ask for a CSV of the consultants you can access. Check any blank or uncertain fields against the original records.</p></article>
+</div><p><a class="text-link" href="/seambud">Explore SeamBud →</a></p>
+</div></section>
+<section class="section"><div class="wrap grid3">
+<article class="card">
+<h3>Organization Audit Log</h3>
+<p>Authorized users can inspect recorded application events by scope and filter. Use timestamps and record identifiers to trace changes alongside consultant Activity and individual SeamBud task details.</p>
+</article>
+<article class="card">
+<h3>Profile proposals from email and résumés</h3>
+<p>With agent intake enabled, SeamBud can draft profile updates from retained email and readable résumé evidence. Review the proposed changes and source context before approving.</p>
+</article>
+<article class="card">
+<h3>Consultant reports</h3>
+<p>Authorized staff can choose profile fields or describe a report in plain language, review the proposed columns, and download CSV. Where enabled, retained email and résumé evidence can fill some gaps. Review source references, conflicts and blank values before using the export.</p>
+</article>
+</div></section>
+</div>
+<div class="feature-panel" id="market" data-feature-panel>
+<section class="section"><div class="wrap"><h2>Understand demand in your markets</h2><p>Explore jobs, skills, locations and rate benchmarks from supported sources.</p></div></section>
+<section class="section"><div class="wrap grid3">
+<article class="card">
+<h3>Job market dashboards</h3>
+<p>Explore job activity by source, role, location, skills, and other dimensions using interactive dashboard panels.</p>
+</article>
+<article class="card">
 <h3>Filters & configurable views</h3>
 <p>Narrow opportunities with filters and configure job columns and sorting to support your team’s daily review.</p>
 </article>
 <article class="card">
-<h3>Team organization</h3>
-<p>Organize consultants and sales workflows across teams as your staffing operation grows.</p>
-</article>
-<article class="card">
 <h3>Supported markets & sources</h3>
 <p>Work with jobs from supported sources and your connected requirements. Choose market capacity that fits your plan.</p>
-</article>
-
-<article class="card">
-<h3>Requirement review and intake history</h3>
-<p>Review extracted requirements before they enter your pipeline. Use rules for trusted vendor domains, rate thresholds, or title keywords, with duplicate detection to reduce repeated entries.</p>
 </article>
 <article class="card">
 <h3>AI job enrichment</h3>
@@ -150,31 +208,25 @@
 <p>Explore 13 dashboard panels, including job trends, top skills, companies, and locations. Drill-down views connect market exploration to filtered job results.</p>
 </article>
 <article class="card">
+<h3>Live market rate benchmarking</h3>
+<p>See where a consultant's salary expectation falls against active market data: P25, median, and P75 from real job postings in the same role and market. Updated instantly when a consultant is selected, using JobSeam's own harvested job data.</p>
+</article>
+</div></section>
+</div>
+<div class="feature-panel" id="operations" data-feature-panel>
+<section class="section"><div class="wrap"><h2>Run your staffing desk</h2><p>Manage access, follow placements, and coordinate with clients and partners.</p></div></section>
+<section class="section"><div class="wrap grid3">
+<article class="card">
+<h3>Team organization</h3>
+<p>Organize consultants and sales workflows across teams as your staffing operation grows.</p>
+</article>
+<article class="card">
 <h3>Roles, groups &amp; feature control</h3>
 <p>Organize access by group, pod, and role. Each group can have its own feature set: system administrators enable or disable platform capabilities per group from the admin panel. Self-hosted installs can restrict the available feature set at the deployment level using a single environment variable. Users can enable time-based two-factor authentication in their security settings.</p>
 </article>
 <article class="card">
-<h3>Consultant feedback & tracking</h3>
-<p>Review skill gaps with your consultants, update resumes, and compare refreshed match results. Keep notes and track progress through application stages.</p>
-</article>
-
-<article class="card">
-<h3>Work authorization tracking</h3>
-<p>Record visa type, expiry date, and H-1B cap status for every consultant. Advisors receive a daily email digest listing expirations within 90 days, color-coded by urgency. Amid increasing USCIS worksite visits and DOL bench pay enforcement, knowing every consultant's status before a problem arises is no longer optional. Consultants update their own visa details through the intake form.</p>
-<a class="text-link" href="/immigration-updates" style="font-size:12px;margin-top:6px;display:block">See latest USCIS &amp; DOL updates →</a>
-</article>
-<article class="card">
-<h3>Live market rate benchmarking</h3>
-<p>See where a consultant's salary expectation falls against active market data: P25, median, and P75 from real job postings in the same role and market. Updated instantly when a consultant is selected, using JobSeam's own harvested job data.</p>
-</article>
-
-<article class="card">
 <h3>Bench velocity alerts</h3>
 <p>Identify consultants who have been available for 30, 60, or 90+ days with no active submission. Red and amber banners on the Onboarding page surface names and days on bench so advisors can prioritize outreach before a consultant goes stale.</p>
-</article>
-<article class="card">
-<h3 id="duplicate-guard">Duplicate submission guard</h3>
-<p>When a consultant is about to confirm an RTR while already active with other staffing companies on JobSeam, they see how many other submissions they have before confirming. The agency never sees cross-company details. The candidate is the only one with that visibility.</p>
 </article>
 <article class="card">
 <h3>Client engagement scoring</h3>
@@ -201,70 +253,82 @@
 <p>Log weekly consultant hours with regular and overtime rates, bill rate, pay rate, and client company. Approve or reject submissions from the invoices page. Generate itemised invoices with tax support and per-line-item billing. Track invoice status through draft, sent, paid, and void stages. Outstanding balances are surfaced at a glance in the summary bar.</p>
 </article>
 <article class="card">
-<h3>OPT &amp; STEM OPT tracker</h3>
-<p>Track OPT and STEM OPT authorization dates, recorded unemployment periods and totals, I-983 status, reporting checkpoints, and worker documents. Review overdue checkpoints and records expiring within 60 days. This is record tracking; it does not generate or sign Form I-983, submit to SEVIS, or determine work authorization.</p>
-</article>
-<article class="card">
-<h3>Labor Condition Applications (LCAs)</h3>
-<p>Manage employer LCA records end to end: import from a certified DOL PDF, capture worksite addresses and notice methods, record posting dates and evidence, track certification and employee delivery. Employer-scoped records keep employer LCA data separate from candidate-side records. Supports multiple worksites per LCA, PAF approval signatures, and group-level worksite defaults pre-populating new records.</p>
-</article>
-<article class="card">
-<h3>Consultant workspace and résumé versions</h3>
-<p>Review profiles, opportunity sessions, résumés, applications, documents, notes, retained emails and task history within your access. Keep alternate résumés and choose the primary version. Use portal invitations for supported consultant review.</p>
-</article>
-<article class="card">
-<h3>Organization Audit Log</h3>
-<p>Authorized users can inspect recorded application events by scope and filter. Use timestamps and record identifiers to trace changes alongside consultant Activity and individual SeamBud task details.</p>
-</article>
-<article class="card">
-<h3>Profile proposals from email and résumés</h3>
-<p>With agent intake enabled, SeamBud can draft profile updates from retained email and readable résumé evidence. Review the proposed changes and source context before approving.</p>
-</article>
-<article class="card">
-<h3>Transferable skill matching</h3>
-<p>When matching a consultant to a job requirement, the platform distinguishes direct skill matches, transferable matches in the same technology category (for example, AWS experience for an Azure requirement), and missing skills. Use this evidence to decide which opportunities to pursue and what to include in an outreach draft.</p>
-</article>
-<article class="card">
-<h3>Email talent intake</h3>
-<p>Connect a Talent mailbox to capture résumé attachments and review their intake status. Eligible items can be promoted to consultant profiles when automatic intake is enabled. Timing depends on polling, attachment processing, and model availability.</p>
-</article>
-<article class="card">
-<h3>Consultant reports</h3>
-<p>Authorized staff can choose profile fields or describe a report in plain language, review the proposed columns, and download CSV. Where enabled, retained email and résumé evidence can fill some gaps. Review source references, conflicts and blank values before using the export.</p>
-</article>
-<article class="card">
-<h3>Consultant opportunity review</h3>
-<p>Share opportunities with consultants after staff approval. Consultants can respond through a private link or sign in to see shared opportunities together. Review decisions and requests for changes in the workspace.</p>
-</article>
-<article class="card">
-<h3>AI deep analysis</h3>
-<p>Run a detailed AI review of a candidate's profile against an open requirement: strengths, gaps, likely interview focus areas, and a recruiter-facing narrative summary. Enabled per group by the system administrator. Results are shown in the candidate detail panel and do not replace a recruiter's evaluation.</p>
-</article>
-<article class="card">
 <h3>Background check tracking</h3>
 <p>Track background check status for every consultant through the full lifecycle: initiated, in-progress, passed, flagged, and cleared. Integrated with Checkr for live status updates. Recruiters see the current check status directly from the placement pipeline and candidate profile without switching tools.</p>
 </article>
+</div></section>
+<section class="section"><div class="wrap"><h2>Bring your data into JobSeam</h2><p>Import supported consultant roster fields and download scoped reports when you need them. Confirm bulk migration and export scope with our team.</p><a class="text-link" href="/help-data-portability">See import and export options →</a></div></section>
 </div>
-</section>
-<section class="section">
-<div class="wrap split">
-<figure class="product">
-<div class="product-top">
-<span>JOBSEAM / MATCH WORKSPACE</span>
-<span>REVIEW → RTR</span>
+<div class="feature-panel" id="work-authorization" data-feature-panel>
+<section class="section" id="compliance"><div class="wrap">
+<h2>Compliance records and review</h2>
+<p>Track worker authorization, prepare employer records, and review supporting documents. Modules are enabled per group for eligible U.S. workspaces.</p>
+<nav class="compliance-topics" aria-label="Compliance topics" data-compliance-tabs>
+<a id="tab-compliance-immigration" href="#compliance-immigration">Immigration</a>
+<a id="tab-compliance-lca" href="#compliance-lca">LCA</a>
+<a id="tab-compliance-paf" href="#compliance-paf">PAF</a>
+<a id="tab-compliance-opt" href="#compliance-opt">OPT &amp; STEM OPT</a>
+<a id="tab-compliance-i9" href="#compliance-i9">I-9 &amp; E-Verify</a>
+</nav>
+</div></section>
+<section class="section compliance-panel" id="compliance-immigration"><div class="wrap"><h3 class="compliance-fallback-heading">Immigration</h3>
+<div class="grid2">
+<article class="card">
+<h4>Work authorization tracking</h4>
+<p>Record visa type, expiry dates and H-1B cap status. Review upcoming expirations and configured alerts within your role.</p>
+<a class="text-link" href="/immigration-updates" style="font-size:12px;margin-top:6px;display:block">See latest USCIS &amp; DOL updates →</a>
+</article>
+<article class="card"><h4>Compliance Reference library</h4><p>Open PAF checklists, access and retention guidance, workflow instructions, and official DOL and eCFR links from the System menu. Flag discrepancies through Ideas or contact support with the source details.</p></article>
 </div>
-<img src="/screenshots/screen_match_scored.png" width="1440" height="900" alt="JobSeam consultant matching workspace with skill review and RTR actions" loading="lazy">
-<figcaption>Product screen with sample data. Results depend on the profiles and requirements supplied.</figcaption>
-</figure>
-<div>
-<div class="eyebrow">Go deeper</div>
-<h2>Explore the full feature reference.</h2>
-<p>See dashboard panels, job-page controls, configuration options, and deployment contexts in the detailed guide.</p>
-<a class="text-link" href="/jobseam-feature-guide-detailed">Open the detailed feature guide →</a>
-<p class="small" style="margin-top:20px">For plan capacities and included features, see the <a href="/pricing">pricing comparison</a>.</p>
+</div></section>
+<section class="section compliance-panel" id="compliance-lca"><div class="wrap"><h3 class="compliance-fallback-heading">LCA</h3>
+<div class="grid2">
+<article class="card"><h4>Labor Condition Applications</h4><p>Create employer-owned LCA records independently of candidates; optionally link an opportunity and add workers later. Import draft or certified ETA-9035/9035E PDFs, review extracted sections B, C, D and F, or prepare sections A–K manually. Structured extraction comes first, with optional configured OCR/model assistance when needed. Export a filled preparation PDF; official filing remains in DOL FLAG.</p></article>
+<article class="card"><h4>Worksites, notice and review</h4><p>Keep worksite addresses, notice methods, dates, audience, display locations, and evidence together. Physical posting supports two distinct location rows and additional locations. Save supporting details in the workspace and use linked review messages to locate missing fields.</p></article>
+<article class="card"><h4>Prevailing wage reference</h4><p>Preserve the LCA wage source, series, area, wage level, retrieval date, and employer-recorded reference values. Compare entered pay and wage references using comparable periods and retain supporting evidence. Built-in historical estimates are indicative only; they are not a live verified FLAG rate or a DOL determination.</p></article>
+<article class="card"><h4>SOC classification records</h4><p>Use the position SOC code to retrieve suggested O*NET duties with source and retrieval details. Review the suggestions and retain employer-specific responsibilities. SOC and wage level do not establish an employer’s benefits policy, actual-wage methodology, or petition eligibility.</p></article>
 </div>
+<div class="grid2 compliance-examples"><figure class="product" style="margin:0">
+    <div class="product-top">
+      <span>JOBSEAM / LCA COMPLIANCE</span>
+      <span>EMPLOYER RECORDS</span>
+    </div>
+    <img src="/screenshots/lca-register-light.png" width="1280" height="720" alt="JobSeam LCA register showing employer, record status and employment dates" loading="lazy" style="width:100%;height:auto">
+    <figcaption>LCA register with employer, filing status, worksite count and employment dates. Sample data.</figcaption>
+  </figure></div>
+</div></section>
+<section class="section compliance-panel" id="compliance-paf"><div class="wrap"><h3 class="compliance-fallback-heading">PAF</h3>
+<div class="grid2">
+<article class="card"><h4>12 PAF document templates</h4><p>Generate 12 review templates individually or together as a ZIP, with PDF as the default and editable Word output available. Includes cover/checklist, rate of pay, prevailing-wage source, notice, posting acknowledgment, benefits, actual-wage methodology, optional duties, and conditional employer documents. Attach the certified LCA and original evidence separately. Employee LCA receipts remain separate private worker records.</p></article>
+<article class="card"><h4>Reusable employer defaults</h4><p>Start with system templates, apply reviewed group defaults, and override them per LCA. Save representatives, document time zone, display locations, benefits, actual-wage methodology, and conditional employer information. Highlighted defaults require employer confirmation; policy facts are not inferred from wage level.</p></article>
+<article class="card"><h4>Reviewed public PAF pages</h4><p>Company administrators can explicitly publish reviewed PDFs to an employer-specific Public Access File page that visitors can open without an account. Withdraw access when needed. Candidate profiles, private notes, payroll records, and petitions stay outside the public page.</p></article>
 </div>
-</section>
+<div class="grid2 compliance-examples"><figure class="card"><img src="/screenshots/paf-policy-review-light.png" width="1280" height="720" alt="Employer LCA policy review before preparing PAF drafts" loading="lazy" style="width:100%;height:auto"><figcaption>Review the employer policy and supporting information before preparing PAF drafts.</figcaption></figure><figure class="card"><img src="/screenshots/paf-defaults-light.png" width="1280" height="720" alt="LCA settings for representatives, document time zone and group policy defaults" loading="lazy" style="width:100%;height:auto"><figcaption>Review and reuse group representatives and employer policy defaults.</figcaption></figure></div>
+</div></section>
+<section class="section compliance-panel" id="compliance-opt"><div class="wrap"><h3 class="compliance-fallback-heading">OPT &amp; STEM OPT</h3>
+<div class="grid2">
+<article class="card"><h4>OPT &amp; STEM OPT dashboard</h4><p>Track OPT and STEM OPT authorization dates, recorded unemployment periods and totals, I-983 status, reporting checkpoints, and worker documents. Review overdue checkpoints and records expiring within 60 days. This is record tracking; it does not generate or sign Form I-983, submit to SEVIS, or determine work authorization.</p></article>
+<article class="card"><h4>I-983 Training Plan tracking</h4><p>For STEM OPT records, record preparation, signature and DSO handoff status, submission and endorsement dates, supervisor contacts, and updated I-20 dates. Attach the actual I-983 and supporting records. Status entries track work performed outside JobSeam; they do not execute signatures or submit a training plan.</p></article>
+<article class="card"><h4>Evaluation schedule management</h4><p>Record reporting and evaluation due dates and completion statuses. Distinguish six-month validation checkpoints from the 12-month and final self-evaluations. The dashboard highlights recorded overdue dates; users confirm the applicable schedule with their DSO. Automated email reminders are not included in this tracker.</p></article>
+<article class="card"><h4>Unemployment days tracker</h4><p>Log unemployment start and end dates, recorded day counts, and notes. Review totals and threshold indicators for standard OPT or STEM OPT. Totals depend on entered periods; they are review aids, not an independently verified eligibility or live unemployment determination.</p></article>
+<article class="card"><h4>Document attachments per record</h4><p>Attach I-983 PDFs, I-20 copies, EAD card copies, evaluation forms, and offer letters directly to each OPT record. Documents are stored per worker and accessible to authorized users. Download or delete attachments from the Documents tab without leaving the record.</p></article>
+</div>
+<div class="grid2 compliance-examples"><figure class="product" style="margin:0">
+    <div class="product-top">
+      <span>JOBSEAM / OPT &amp; STEM OPT TRACKER</span>
+      <span>AUTHORIZATION DASHBOARD</span>
+    </div>
+    <img src="/screenshots/screen_opt_tracker_stats.png" width="1440" height="900" alt="JobSeam OPT and STEM OPT tracker dashboard with stat tiles, worker grid, and authorization dates" loading="lazy" style="width:100%;height:auto">
+    <figcaption>OPT tracker showing the worker register, authorization filters and evaluation summary.</figcaption>
+  </figure></div>
+</div></section>
+<section class="section compliance-panel" id="compliance-i9"><div class="wrap"><h3 class="compliance-fallback-heading">I-9 &amp; E-Verify</h3>
+<div class="grid2">
+<article class="card"><h4>I-9 and E-Verify tracking</h4><p>Track I-9 completion status and E-Verify case numbers for every consultant. Record section completion dates, re-verification dates, and E-Verify status without replacing a dedicated I-9 or E-Verify system. Review recorded re-verification dates and statuses with your team.</p></article>
+</div>
+</div></section>
+<div class="wrap compliance-footer"><a class="text-link" href="/faq#compliance">Read the compliance FAQ →</a></div>
+</div>
 <section class="section">
 <div class="wrap offer">
 <div class="eyebrow">Additional deployment contexts</div>
@@ -311,88 +375,8 @@
 <a class="button light" href="/demo">Book a 20-minute demo ↗</a>
 </div>
 </section>
-<section class="section" id="compliance"><div class="wrap"><div class="section-heading"><div class="eyebrow">Immigration Hub</div><h2>LCA records, OPT tracking, and a reviewed public file.</h2><p>Organize immigration compliance evidence, draft documents, and track worker authorization in one workspace. Enabled per group. Your team controls the facts and the public release of documents.</p></div>
-<div class="grid2" style="margin-top:24px">
-<article class="card"><h3>Labor Condition Applications</h3><p>Create employer-owned LCA records independently of candidates; optionally link an opportunity and add workers later. Import draft or certified ETA-9035/9035E PDFs, review extracted sections B, C, D and F, or prepare sections A–K manually. Structured extraction comes first, with optional configured OCR/model assistance when needed. Export a filled preparation PDF; official filing remains in DOL FLAG.</p></article>
-<article class="card"><h3>OPT &amp; STEM OPT dashboard</h3><p>Track OPT and STEM OPT authorization dates, recorded unemployment periods and totals, I-983 status, reporting checkpoints, and worker documents. Review overdue checkpoints and records expiring within 60 days. This is record tracking; it does not generate or sign Form I-983, submit to SEVIS, or determine work authorization.</p></article>
-<article class="card"><h3>I-983 Training Plan tracking</h3><p>For STEM OPT records, record preparation, signature and DSO handoff status, submission and endorsement dates, supervisor contacts, and updated I-20 dates. Attach the actual I-983 and supporting records. Status entries track work performed outside JobSeam; they do not execute signatures or submit a training plan.</p></article>
-<article class="card"><h3>Evaluation schedule management</h3><p>Record reporting and evaluation due dates and completion statuses. Distinguish six-month validation checkpoints from the 12-month and final self-evaluations. The dashboard highlights recorded overdue dates; users confirm the applicable schedule with their DSO. Automated email reminders are not included in this tracker.</p></article>
-<article class="card"><h3>Unemployment days tracker</h3><p>Log unemployment start and end dates, recorded day counts, and notes. Review totals and threshold indicators for standard OPT or STEM OPT. Totals depend on entered periods; they are review aids, not an independently verified eligibility or live unemployment determination.</p></article>
-<article class="card"><h3>Document attachments per record</h3><p>Attach I-983 PDFs, I-20 copies, EAD card copies, evaluation forms, and offer letters directly to each OPT record. Documents are stored per worker and accessible to authorized users. Download or delete attachments from the Documents tab without leaving the record.</p></article>
-<article class="card"><h3>12 PAF document templates</h3><p>Generate 12 review templates individually or together as a ZIP, with PDF as the default and editable Word output available. Includes cover/checklist, rate of pay, prevailing-wage source, notice, posting acknowledgment, benefits, actual-wage methodology, optional duties, and conditional employer documents. Attach the certified LCA and original evidence separately. Employee LCA receipts remain separate private worker records.</p></article>
-<article class="card"><h3>Reusable employer defaults</h3><p>Start with system templates, apply reviewed group defaults, and override them per LCA. Save representatives, document time zone, display locations, benefits, actual-wage methodology, and conditional employer information. Highlighted defaults require employer confirmation; policy facts are not inferred from wage level.</p></article><article class="card"><h3>Worksites, notice and review</h3><p>Keep worksite addresses, notice methods, dates, audience, display locations, and evidence together. Physical posting supports two distinct location rows and additional locations. Save supporting details in the workspace and use linked review messages to locate missing fields.</p></article>
-<article class="card"><h3>Reviewed public PAF pages</h3><p>Company administrators can explicitly publish reviewed PDFs to an employer-specific Public Access File page that visitors can open without an account. Withdraw access when needed. Candidate profiles, private notes, payroll records, and petitions stay outside the public page.</p></article>
-<article class="card"><h3>Prevailing wage reference</h3><p>Preserve the LCA wage source, series, area, wage level, retrieval date, and employer-recorded reference values. Compare entered pay and wage references using comparable periods and retain supporting evidence. Built-in historical estimates are indicative only; they are not a live verified FLAG rate or a DOL determination.</p></article>
-<article class="card"><h3>SOC classification records</h3><p>Use the position SOC code to retrieve suggested O*NET duties with source and retrieval details. Review the suggestions and retain employer-specific responsibilities. SOC and wage level do not establish an employer’s benefits policy, actual-wage methodology, or petition eligibility.</p></article>
-<article class="card"><h3>Compliance Reference library</h3><p>Open PAF checklists, access and retention guidance, workflow instructions, and official DOL and eCFR links from the System menu. Flag discrepancies through Ideas or contact support with the source details.</p></article>
-<article class="card"><h3>I-9 and E-Verify tracking</h3><p>Track I-9 completion status and E-Verify case numbers for every consultant. Record section completion dates, re-verification dates, and E-Verify status without replacing a dedicated I-9 or E-Verify system. Review recorded re-verification dates and statuses with your team.</p></article>
-</div>
-<div style="margin-top:20px;padding:14px 18px;background:var(--bg2,#f8fafc);border:1px solid var(--line);border-radius:8px">
-<p class="small" style="margin:0"><strong>Who uses the Immigration Hub:</strong> Staffing agencies tracking placed H-1B and OPT workers; employers (HR teams) managing their own worker compliance; education and international-student advisors coordinating records with a DSO; and consulting firms tracking consultant authorization status across client engagements. The Immigration Hub is enabled per group by the system administrator.</p>
-</div>
-<p class="small" style="margin-top:16px">Generated drafts are unsigned and private. Public release requires a separate administrator review of a PDF. JobSeam does not file LCAs or H-1B petitions, certify compliance, or replace legal review and required inspection arrangements.</p>
-<a class="text-link" href="/faq#compliance">Read the compliance FAQ →</a></div></section>
-
-<section class="section">
-<div class="wrap">
-<div class="eyebrow">Immigration Hub</div>
-<h2>OPT &amp; STEM OPT dashboard and LCA workspace, in the product.</h2>
-<p style="max-width:600px;font-size:15px;color:var(--muted);margin-bottom:28px">Stat tiles, worker grid, I-983 status, evaluation schedule, unemployment days, and document attachments: all on one page per worker. LCA records are employer-scoped with worksite evidence, PAF drafts, and a reviewed public file.</p>
-<div class="grid2" style="margin-bottom:8px">
-  <figure class="product" style="margin:0">
-    <div class="product-top">
-      <span>JOBSEAM / OPT &amp; STEM OPT TRACKER</span>
-      <span>AUTHORIZATION DASHBOARD</span>
-    </div>
-    <img src="/screenshots/screen_opt_tracker_stats.png" width="1440" height="900" alt="JobSeam OPT and STEM OPT tracker dashboard with stat tiles, worker grid, and authorization dates" loading="lazy" style="width:100%;height:auto">
-    <figcaption>OPT tracker showing the worker register, authorization filters and evaluation summary.</figcaption>
-  </figure>
-  <figure class="product" style="margin:0">
-    <div class="product-top">
-      <span>JOBSEAM / LCA COMPLIANCE</span>
-      <span>EMPLOYER RECORDS</span>
-    </div>
-    <img src="/screenshots/lca-register-light.png" width="1280" height="720" alt="JobSeam LCA register showing employer, record status and employment dates" loading="lazy" style="width:100%;height:auto">
-    <figcaption>LCA register with employer, filing status, worksite count and employment dates. Sample data.</figcaption>
-  </figure>
-</div>
-<p class="small">Immigration Hub is enabled per group by the system administrator. Modules are not available on accounts without a US market enabled.</p>
-</div>
-</section>
-
-<section class="section"><div class="wrap"><div class="section-heading"><h2>PAF preparation and reusable defaults.</h2><p>Current interface examples with synthetic data. Employer review is required before using generated documents.</p></div><div class="grid2"><figure class="card"><img src="/screenshots/paf-policy-review-light.png" width="1280" height="720" alt="Employer LCA policy review before preparing PAF drafts" loading="lazy" style="width:100%;height:auto"><figcaption>Review the employer policy and supporting information before preparing PAF drafts.</figcaption></figure><figure class="card"><img src="/screenshots/paf-defaults-light.png" width="1280" height="720" alt="LCA settings for representatives, document time zone and group policy defaults" loading="lazy" style="width:100%;height:auto"><figcaption>Review and reuse group representatives and employer policy defaults.</figcaption></figure></div></div></section>
 <section class="section"><div class="wrap"><h2>Standard team plans. Custom options when needed.</h2><p>Compare published monthly and annual pricing for Solo, Early Adopter, Starter, and Growth. Private hosting, custom integration development, assisted legacy-data migration, and dedicated services are scoped separately.</p><div class="actions"><a class="button" href="/pricing">View plans &amp; included scope →</a><a class="text-link" href="/contact#sales">Contact Sales for a custom quote →</a></div></div></section>
 </main>
-<footer>
-<div class="wrap foot">
-<div>
-<a class="brand" href="/">Job<span>Seam</span>
-</a>
-<p class="parent-brand">A product of <a class="parent-logo" href="https://quezaal.com/jobseam"><img src="/assets/quezaal-logo.png" alt="Quezaal Inc." width="320" height="132" loading="lazy"></a></p>
-</div>
-<nav class="foot-links footer-navigation" aria-label="Footer navigation">
-<section><h2>Product</h2>
-<a href="/how-it-works">How It Works</a>
-<a href="/features" aria-current="page">Features</a>
-<a href="/jobseam-onepager">Product Overview</a>
-<a href="/jobseam-feature-guide-detailed">Feature Guide</a>
-<a href="/jobseam-video">Product Walkthrough</a>
-</section>
-<section><h2>Solutions</h2>
-<a href="/talent">Talent</a>
-<a href="/staffing">Employers &amp; Recruiters</a>
-</section>
-<section><h2>Resources</h2>
-<a href="/faq">FAQ</a>
-<a href="/contact">Contact</a>
-<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
-</section>
-</nav>
-</div>
-<div class="wrap footer-utility">
-<div class="footer-primary-links"><a href="/">Home</a><a href="/pricing">Pricing</a><a href="/demo">Book a Demo ↗</a></div>
-<div class="footer-legal-links"><a href="https://quezaal.com/privacy">Privacy</a><a href="https://quezaal.com/terms">Terms</a><a href="mailto:hello@jobseam.com">hello@jobseam.com</a></div>
-</div>
-</footer>
+<!-- include:footer -->
 </body>
 </html>

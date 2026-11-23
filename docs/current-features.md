@@ -1,5 +1,10 @@
 # JobSeam current features and workflow scope
 
+## Command Center
+
+The staff landing page brings together recent jobs, consultant reviews, work authorization alerts and run status. The marketing screenshot is a light-theme capture from the application using local synthetic API fixtures. Its workspace, sign-in, consultant names, job details and counts are samples. Use a fixture-based capture for future replacements.
+
+
 Reviewed against the application source on October 30, 2026. This describes implemented code, not a production deployment certification. Availability depends on deployment version, group feature configuration, role, supported market, and configured providers. Historical plans are not a feature contract.
 
 ## Supported audiences

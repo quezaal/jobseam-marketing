@@ -1,0 +1,39 @@
+.compare-controls { margin-block: 1.25rem; }
+.compare-controls[hidden], .compare-table [hidden] { display: none; }
+.compare-options, .compare-filter { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.compare-filter { margin-top: .8rem; }
+.compare-controls button, .compare-filter select {
+  min-height: 44px;
+  padding: .4rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.compare-controls button[aria-pressed="true"] { background: #e7efdd; border-color: #829b6e; color: #29421d; }
+.compare-table :is(th, td) { min-width: 11rem; vertical-align: top; }
+.compare-table :is(th, td)[data-platform="0"] { border-inline: 1px solid var(--line); }
+.compare-table th[scope="row"] { text-align: left; }
+.compare-targets { margin-block: 1.5rem; }
+.compare-targets details { margin-block: 1rem; }
+.compare-product { display: inline-flex; align-items: stretch; gap: .2rem; }
+.compare-handle {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  cursor: grab;
+  touch-action: none;
+}
+.compare-handle:active { cursor: grabbing; }
+.compare-handle[hidden] { display: none; }
+.compare-table th .compare-handle { margin-inline-start: .35rem; }
+.compare-drop-target { outline: 2px dashed #658749; outline-offset: -2px; }
+
+.compare-filter-label { font-weight: 700; margin-block: .7rem .35rem; }
+.compare-filter .compare-filter-label { margin: 0; min-width: 10rem; }
+@media (max-width: 640px) { .compare-filter .compare-filter-label { flex-basis: 100%; } }

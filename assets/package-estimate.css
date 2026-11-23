@@ -1,0 +1,13 @@
+.package-estimate { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1rem; margin-block: 1.5rem; align-items: start; }
+.package-estimate [hidden], .package-estimate[hidden] { display: none; }
+.package-estimate label { display: block; font-weight: 650; margin-top: .65rem; }
+.package-estimate select, .package-estimate input[type="number"] {
+  width: 100%; box-sizing: border-box; min-height: 44px; margin-block: .25rem .55rem; padding: .4rem .55rem; font: inherit;
+  background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: .4rem;
+}
+.package-estimate fieldset { padding: 0; border: 0; margin: 1rem 0 0; }
+.package-estimate legend { font-weight: 700; }
+.package-option { padding-block: .45rem; border-top: 1px solid var(--line); }
+.package-option p, .package-summary p { margin-block: .4rem; }
+#package-total { margin: .85rem 0; padding-top: .5rem; border-top: 1px solid var(--line); }
+@media (max-width: 720px) { .package-estimate { grid-template-columns: 1fr; } }

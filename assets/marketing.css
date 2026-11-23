@@ -306,3 +306,12 @@ section[aria-label],section[id]{scroll-margin-top:20px}
   .product-overview-page .card { padding: 9px; break-inside: avoid; }
   .product-overview-page .overview-print-pricing { display: block; border-top: 1px solid var(--line); padding-top: 8px; font-size: 10px; }
 }
+
+.page-disclosure summary { cursor: pointer; font-weight: 700; padding-block: .45rem; }
+.page-disclosure[open] summary { margin-bottom: .7rem; }
+
+.command-intro { max-width: 48rem; }
+.command-hero .command-preview { margin: 1.6rem 0 0; max-width: 72rem; padding: .65rem; transform: none; }
+.command-preview img { display: block; width: 100%; height: auto; border-radius: .45rem; }
+.command-preview figcaption { padding: .4rem .15rem 0; }
+@media (max-width: 640px) { .command-hero .command-preview { padding: .35rem; } }

@@ -23,7 +23,7 @@ The [connected recruiting campaign](campaigns/2026-11-connected-recruiting/READM
 
 The current short overview, two-page flyer, original system visual and blog-ready copy live together in [collateral/product-overview](collateral/product-overview/README.md). Open its [download library](collateral/product-overview/index.html) locally. The static build publishes the public kit at `/collateral/product-overview/`; internal evidence notes and generators are excluded.
 
-Static website for jobseam.com. No build step. Preview from this directory with `python3 serve.py 8080`, then open http://localhost:8080. This resolves clean URLs such as `/how-it-works` and `/talent`, and redirects old `.html` links while keeping query strings. Stop any old server on port 8080 first. The standard `python3 -m http.server` does not resolve these clean routes.
+Static website for jobseam.com. Preview from this directory with `python3 serve.py 8080`, then open http://localhost:8080. This resolves clean URLs such as `/how-it-works` and `/talent`, and redirects old `.html` links while keeping query strings. Stop any old server on port 8080 first. The standard `python3 -m http.server` does not resolve these clean routes.
 
 ## Current sales pages
 
@@ -32,7 +32,7 @@ Static website for jobseam.com. No build step. Preview from this directory with 
 - `how-it-works.html`: dedicated step-by-step workflow and product walkthrough.
 - `features.html`: capability overview linking to the detailed feature reference.
 - `pricing.html`: monthly Solo $99, Early Adopter $199, Starter $299, Growth $699. Annual prepayment is $990 / $1,990 / $2,990 / $6,990. Trial requests use the demo page. Enterprise inquiry. Core matching, employer LCA, 12 PDF/Word PAF templates and OPT/STEM OPT record tracking in every listed team plan, subject to module/US-market enablement.
-- `demo.html`: existing Quezaal 20-minute Calendly booking, with a direct-link fallback. Sales-page demo links open the same Calendly popup as the original site when the widget is available; they navigate to this page if it is unavailable.
+- `demo.html`: 20-minute demo and trial requests by email. Gmail and mail-app drafts preserve the selected plan, billing preference and use case.
 - `jobseam-onepager.html`: concise product overview replacing unvalidated outcome claims.
 - `assets/marketing.css` and `assets/marketing.js`: shared responsive styles and booking integration.
 
@@ -41,13 +41,11 @@ The existing detailed feature guide remains available for evaluation. `index_v1.
 ## Before paid traffic
 
 1. Confirm availability of the first-five-company founding offer and the capacity/feature entitlements in the actual application. These changes affect marketing only, not billing or product authorization. The founding offer is $199/month or $1,990 prepaid for the first year, 5 users, 100 consultants, 1 mailbox and US market, with no setup fee. Confirm annual cancellation/refund terms in the order form; annual prepayment is not a month-to-month commitment. Profitability has not been established: verify infrastructure, AI, data, email and support costs before enrollment. There is no fabricated remaining-spots counter.
-2. In the existing Calendly event, configure work email, company, optional phone, and team/consultant count as appropriate. Confirm scheduling availability and invitation delivery. Resume sharing is coordinated after booking; this site does not upload resumes.
+2. Verify the sales mailbox can receive demo and trial requests. The visitor reviews and sends the email draft.
 3. Connect the correct JobSeam GTM/GA4 account using your approved analytics/consent setup. Set exactly one owner-approved destination in `assets/analytics-config.js`: `ga4MeasurementId` OR `gtmContainerId`. Both are empty until the owner selects an account. The shared loader supports either mode, and refuses to load when both are set. Direct GA4 maps the confirmed booking signal to `jobseam_demo_booked`; GTM uses the existing data-layer event. Apply your approved consent settings before enabling. Do not install a second loader or count both GA4-imported and direct Ads conversions as Primary.
-4. Map the `jobseam_demo_booked` data-layer event to the demo-booked conversion. Only a `calendly.event_scheduled` message from the embedded or popup calendar's window and exact Calendly origin, with a scheduled-event URI, can emit it. Duplicates in the same page are ignored. The URI and contact details are not sent to the data layer. Calendar views, page views, CTA clicks and form starts do not emit this event.
-5. Verify one test booking in Calendly, its delivered invitation, and the analytics debugger before making the conversion Primary in Google Ads. Remove the earlier generic Form event from Primary optimization in the relevant campaign. Account settings are not changed by this repository.
-6. Bookings through the direct external fallback link need Calendly-side integration or webhook confirmation; this page cannot observe them. UTM attribution is retained in session storage where available and passed to the calendar. Do not put personal data in campaign parameters.
+4. A compose click is not a booking or a confirmed email. Track booked demos only after the sales team confirms them.
+5. Review any existing ad account conversion settings for the retired calendar flow before measuring campaign results.
 
-The event integration follows Calendly's documentation: https://developer.calendly.com/api-docs/overview/embedding/notifying-the-parent-window and https://calendly.com/help/advanced-calendly-embed-for-developers.
 
 Send product ads to jobseam.com. Quezaal remains the parent-company credibility site at https://quezaal.com/jobseam. Its product, portfolio, and services pages share the job market intelligence positioning. This review has not been deployed.
 
@@ -73,7 +71,13 @@ Quezaal’s `/talent` hosts Quick Submit and full recruiting profile forms. JobS
 
 ## Clean URLs and hosting
 
-HTML files remain the single editable source per page. Shared navigation, footer links, canonical metadata, and sitemap entries use extensionless URLs. Apache deployments can use the included `.htaccess`; other hosts need equivalent clean-URL routing. For static directory-only hosting, run `python3 build.py` and publish `_site/`, which contains generated route directories and assets. Generated output is not a second editable source.
+See the [maintainer runbook](docs/MAINTAINING_AND_PUBLISHING.md) for editing, previewing, validating, publishing, and rollback.
+
+Page HTML remains the editable source for page content. Edit [partials/navigation.json](partials/navigation.json) to change a menu label, link or order in both the header and footer. The layout templates are in [partials/header.html](partials/header.html) and [partials/footer.html](partials/footer.html). Main marketing and help pages use the same templates. Standalone walkthrough and collateral layouts have their own navigation.
+
+Run `python3 build.py` and publish `_site/` on static hosts. The build writes complete HTML, including navigation, so it works without client-side templating. The local `serve.py` preview renders the same includes. Deploying the root source HTML directly would leave includes unresolved.
+
+Set the email recipient and optional hosted Zoho booking URL in [site-config.json](site-config.json). See [demo and Zoho Bookings setup](docs/demo-bookings-setup.md).
 
 Quick Submit and full recruiting applications now live on Quezaal. JobSeam’s `/talent#submit` retains an informational anchor for older links and presents the separate service choice.
 
@@ -137,7 +141,7 @@ Footer navigation mirrors Product, Solutions, and Resources with the same destin
 - `sales@jobseam.com`: plans, demos, employer/recruiter inquiries, and product walkthrough inquiries.
 - `support@jobseam.com`: existing-customer help.
 
-The Contact form opens an encoded mailto draft in the visitor’s email application. It does not submit or store a message, and the visitor must send the draft. Direct email links remain available. Existing Calendly booking remains separate. Quezaal recruiting requests still link to Quezaal’s own Talent page and are not routed to JobSeam product support. Email account creation and delivery verification are outside this repository.
+The Contact form opens an encoded mailto draft in the visitor’s email application. It does not submit or store a message, and the visitor must send the draft. Direct email links remain available. The demo page uses the separate sales mailbox. Quezaal recruiting requests still link to Quezaal’s own Talent page and are not routed to JobSeam product support. Email account creation and delivery verification are outside this repository.
 
 
 ## Latest compliance positioning and billing options

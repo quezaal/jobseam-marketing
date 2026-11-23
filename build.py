@@ -2,6 +2,8 @@
 from pathlib import Path
 import shutil
 
+from site_render import render_page
+
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / '_site'
 OUT.mkdir(exist_ok=True)
@@ -17,7 +19,7 @@ for source in ROOT.iterdir():
     if source.suffix == '.html':
         target = OUT / ('index.html' if source.stem == 'index' else source.stem + '/index.html')
         target.parent.mkdir(exist_ok=True)
-        shutil.copy2(source, target)
+        target.write_text(render_page(ROOT, source), encoding="utf-8")
     elif source.suffix.lower() in ('.ico', '.png', '.jpg', '.pdf', '.pptx', '.xml', '.txt') or source.name == 'CNAME':
         shutil.copy2(source, OUT / source.name)
 # Publish only the reviewed public product kit. Internal notes and generators stay local.

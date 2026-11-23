@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Preview clean marketing URLs: python3 serve.py [port]."""
 from functools import partial
+from io import BytesIO
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit, urlunsplit
 import sys
+
+from site_render import render_page
 
 ROOT = Path(__file__).resolve().parent
 
@@ -22,6 +25,19 @@ class Handler(SimpleHTTPRequestHandler):
         if candidate.is_relative_to(ROOT) and path != '/' and candidate.with_suffix('.html').is_file() and not candidate.suffix:
             self.path = urlunsplit(('', '', path.rstrip('/') + '.html', url.query, ''))
         return True
+
+    def send_head(self):
+        path = Path(self.translate_path(self.path)).resolve()
+        if path == ROOT:
+            path = ROOT / 'index.html'
+        if path.parent == ROOT and path.suffix == '.html' and path.is_file():
+            body = render_page(ROOT, path).encode('utf-8')
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.send_header('Content-Length', str(len(body)))
+            self.end_headers()
+            return BytesIO(body)
+        return super().send_head()
 
     def do_GET(self):
         if self.resolve_page():

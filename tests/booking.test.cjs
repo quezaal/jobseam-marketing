@@ -1,72 +1,36 @@
-const { test } = require('node:test');
+const test = require('node:test');
 const assert = require('node:assert/strict');
-const vm = require('node:vm');
 const fs = require('node:fs');
-const code = fs.readFileSync(require('node:path').join(__dirname, '../assets/marketing.js'), 'utf8');
-function setup(search = '', blocked = false, links = []) {
-  const source = {};
-  const nodes = {
-    'booking-calendar': { querySelector: () => ({contentWindow: source}), replaceChildren() {} },
-    'booking-success': {hidden: true}, 'booking-fallback': {}, 'plan-interest': {hidden: true}
-  };
-  let listener, script;
-  const window = { dispatchEvent() {}, location: {search, href: 'https://jobseam.com/'}, addEventListener: (_, fn) => listener = fn };
-  const document = {querySelectorAll: () => links, querySelector: () => null, getElementById: id => nodes[id], createElement: () => ({}), head: {appendChild: x => script = x}};
-  vm.runInNewContext(code, {CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options.detail; } }, window, document, URL, URLSearchParams, sessionStorage: {
-    getItem() { if (blocked) throw Error(); return null; }, setItem() { if (blocked) throw Error(); }
-  }});
-  const event = {origin: 'https://calendly.com', source, data: {event: 'calendly.event_scheduled', payload: {event: {uri: 'https://api.calendly.com/scheduled_events/example'}}}};
-  return {window, nodes, event, send: e => listener(e), script};
+const vm = require('node:vm');
+const path = require('node:path');
+
+const script = fs.readFileSync(path.join(__dirname, '../assets/marketing.js'), 'utf8');
+
+function draft(search, nodes = { 'demo-gmail': {}, 'demo-email': { dataset: { recipient: 'connect@quezaal.com' } }, 'plan-interest': { hidden: true } }) {
+  vm.runInNewContext(script, { URL, URLSearchParams, window: { location: { search } }, document: { getElementById: id => nodes[id] } });
+  return nodes;
 }
-test('only a confirmed embedded booking emits once, without contact information', () => {
-  const s = setup('?plan=founding');
-  assert.equal(s.window.dataLayer, undefined);
-  s.send(s.event); s.send(s.event);
-  assert.equal(s.window.dataLayer.length, 1);
-  assert.equal(s.window.dataLayer[0].event, 'jobseam_demo_booked');
-  assert.equal(s.window.dataLayer[0].plan_interest, 'founding');
-  assert.equal(s.nodes['booking-success'].hidden, false);
-  assert.deepEqual(Object.keys(s.window.dataLayer[0]).sort(), ['event','plan_interest','product']);
-});
-test('rejects wrong origin, wrong iframe, intermediate steps and missing confirmation', () => {
-  const s = setup();
-  s.send({...s.event, origin:'https://example.com'});
-  s.send({...s.event, source:{}});
-  s.send({...s.event, data:{event:'calendly.event_type_viewed'}});
-  s.send({...s.event, data:{event:'calendly.event_scheduled'}});
-  assert.equal(s.window.dataLayer, undefined);
-  assert.equal(s.nodes['booking-success'].hidden, true);
-});
-test('fallback retains campaign attribution and works with storage blocked', () => {
-  const s = setup('?utm_source=youtube&plan=unknown&email=private', true);
-  assert.equal(s.nodes['booking-fallback'].href, 'https://calendly.com/connect-quezaal/20min?utm_source=youtube');
-  assert.equal(s.nodes['plan-interest'].hidden, true);
-  assert.equal(s.script.src, 'https://assets.calendly.com/assets/external/widget.js');
+
+test('Gmail and mail app carry the same trial and plan choice', () => {
+  const nodes = draft('?trial=1&plan=early_adopter&billing=annual&use_case=staffing');
+  const gmail = new URL(nodes['demo-gmail'].href);
+  const email = new URL(nodes['demo-email'].href);
+  assert.equal(gmail.origin, 'https://mail.google.com');
+  assert.equal(gmail.searchParams.get('to'), 'connect@quezaal.com');
+  assert.equal(email.pathname, 'connect@quezaal.com');
+  assert.equal(gmail.searchParams.get('su'), 'JobSeam free trial request');
+  assert.equal(gmail.searchParams.get('body'), email.searchParams.get('body'));
+  assert.match(gmail.searchParams.get('body'), /Founding Offer.*\nBilling preference: annual.*\nUse case: Recruiting and staffing/);
+  assert.match(nodes['plan-interest'].textContent, /No card or bank details required/);
 });
 
-test('clean demo URLs retain popup booking and use-case links retain their page journey', () => {
-  for (const path of ['/demo?plan=growth', '/demo.html?plan=growth', '/demo/']) {
-    let click, prevented = false, opened = false;
-    const link = {href: 'https://jobseam.com' + path, addEventListener: (_, fn) => click = fn};
-    const s = setup('', false, [link]);
-    s.window.Calendly = {initPopupWidget() { opened = true; }};
-    click({button: 0, preventDefault() { prevented = true; }});
-    assert.ok(prevented);
-    assert.ok(opened);
-  }
-  let intercepted = false;
-  setup('', false, [{href: 'https://jobseam.com/demo?use_case=education', addEventListener() { intercepted = true; }}]);
-  assert.equal(intercepted, false);
+test('unknown parameters are omitted and standard requests use the demo subject', () => {
+  const nodes = draft('?trial=yes&plan=bad&use_case=unknown&billing=invalid&body=unexpected');
+  const gmail = new URL(nodes['demo-gmail'].href);
+  assert.equal(gmail.searchParams.get('su'), 'JobSeam demo request');
+  assert.doesNotMatch(gmail.searchParams.get('body'), /unknown|invalid|unexpected|Plan:/);
 });
 
-test('annual price selection reaches the demo page without losing billing context', () => {
-  let click, prevented = false, opened = false;
-  const link = {href: 'https://jobseam.com/demo?plan=founding&billing=monthly', addEventListener: (_, fn) => click = fn};
-  const s = setup('?plan=founding&billing=annual', false, [link]);
-  assert.match(s.nodes['plan-interest'].textContent, /annual billing/);
-  link.href = 'https://jobseam.com/demo?plan=growth&billing=annual';
-  s.window.Calendly = {initPopupWidget() { opened = true; }};
-  click({button: 0, preventDefault() { prevented = true; }});
-  assert.equal(prevented, false);
-  assert.equal(opened, false);
+test('pages without demo controls require no integration', () => {
+  assert.doesNotThrow(() => draft('', {}));
 });

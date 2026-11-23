@@ -3,22 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Book a personalized 20-minute demo | JobSeam</title>
-<meta name="description" content="Explore JobSeam for your workflow. Book a 20-minute walkthrough of requirement ingestion, ranked matches and RTR with the Quezaal team.">
+<title>Request a personalized 20-minute demo | JobSeam</title>
+<meta name="description" content="Explore JobSeam for your workflow. Request a 20-minute walkthrough of requirement ingestion, ranked matches and RTR with the Quezaal team.">
 <link rel="canonical" href="https://jobseam.com/demo">
-<meta property="og:title" content="Book a personalized 20-minute demo">
-<meta property="og:description" content="Explore JobSeam for your workflow. Book a 20-minute walkthrough of requirement ingestion, ranked matches and RTR with the Quezaal team.">
+<meta property="og:title" content="Request a personalized 20-minute demo">
+<meta property="og:description" content="Explore JobSeam for your workflow. Request a 20-minute walkthrough of requirement ingestion, ranked matches and RTR with the Quezaal team.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jobseam.com/demo">
 <meta property="og:image" content="https://jobseam.com/screenshots/screen_match_scored.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Book a JobSeam Demo: 20 Minutes">
+<meta name="twitter:title" content="Request a JobSeam Demo: 20 Minutes">
 <meta name="twitter:description" content="Explore market demand, talent matching, and opportunity workflows. Use sample data or bring an anonymized resume.">
 <meta name="twitter:image" content="https://jobseam.com/screenshots/screen_match_scored.png">
 <link rel="stylesheet" href="/assets/marketing.css">
 <link rel="stylesheet" href="/assets/journey.css">
 <script defer src="/assets/journey.js"></script>
-<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 <script defer src="/assets/analytics-config.js"></script>
 <script defer src="/assets/analytics.js"></script>
 <script defer src="/assets/marketing.js">
@@ -29,31 +28,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header>
-<div class="wrap nav">
-<a class="brand" href="/" aria-label="JobSeam home">Job<span>Seam</span>
-<small>JOB MARKET INTELLIGENCE</small>
-</a>
-<nav aria-label="Main navigation" class="site-navigation">
-<a href="/">Home</a>
-<details class="nav-group"><summary>Product <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
-<a href="/how-it-works">How It Works</a>
-<a href="/features">Features</a>
-</div></details>
-<details class="nav-group"><summary>Solutions <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
-<a href="/talent">Talent</a>
-<a href="/staffing">Employers &amp; Recruiters</a>
-</div></details>
-<a href="/pricing">Pricing</a>
-<details class="nav-group"><summary>Resources <span aria-hidden="true" class="nav-chevron">⌄</span></summary><div class="nav-submenu">
-<a href="/faq">FAQ</a>
-<a href="/contact">Contact</a>
-<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
-</div></details>
-<a href="/demo" class="button" aria-current="page">Book a Demo ↗</a>
-</nav>
-</div>
-</header>
+<!-- include:header -->
 <main id="main">
 <section class="hero">
 <div class="wrap page-title">
@@ -61,6 +36,8 @@
 <h1 id="journey-demo-title">Explore the market. <em>See your next move.</em>
 </h1>
 <p id="journey-demo-intro">See job market insights, AI talent matching, and the workflow that fits your goals. Bring an anonymized resume if you like, or we’ll use sample data.</p>
+<div class="actions"><a class="button outline" href="/#explore-sample">Try the interactive sample</a><a class="text-link" href="/jobseam-video">Watch the walkthrough →</a></div>
+<p class="small">Available anytime. No account or meeting required for the sample.</p>
 </div>
 </section>
 <section class="section">
@@ -72,54 +49,22 @@
 <li>Explore market dashboards, relevant opportunities, and skill matching.</li>
 <li>Review your next steps and access options. For staffing teams, we can also show requirement ingestion and RTR.</li>
 </ol>
-<p>Remove personal contact details and confidential client information from any resume you choose to share. We’ll coordinate sharing it after you book.</p>
-<p class="small">Prefer email? <a href="mailto:sales@jobseam.com">sales@jobseam.com</a>.</p>
-<p class="small">Book a free personalized demo or ask for a 14-day free trial. No card or bank details are required for the trial.</p>
-<p id="plan-interest" class="small" hidden>
-</p>
-<a id="booking-fallback" class="text-link" href="https://calendly.com/connect-quezaal/20min" target="_blank" rel="noopener">Open the booking calendar in a new tab ↗</a>
-<p class="small" style="margin-top:16px">Scheduling is provided by Calendly. <a href="https://quezaal.com/privacy">Read our privacy policy.</a>
-</p>
+<p>Ask for a 20-minute demo or a 14-day free trial. No card or bank details are required for the trial.</p>
 </div>
-<div>
-<div id="booking-success" class="success" role="status" hidden>Your demo is booked. Check your email for the invitation and meeting details.</div>
-<div id="booking-calendar" class="booking">
-<p class="booking-note">Choose a time in the calendar. If it doesn’t load, use the booking link alongside it.</p>
+<div class="card">
+<h2>Request a time by email</h2>
+<!-- include:demo-booking -->
+<p>Prefer email? Send two times that work for you and your time zone. We’ll reply to agree on a time.</p>
+<p id="plan-interest" class="small" hidden></p>
+<div class="actions">
+<a id="demo-gmail" class="button" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{DEMO_RECIPIENT_ENCODED}}&amp;su=JobSeam%20demo%20request" target="_blank" rel="noopener">Open in Gmail ↗</a>
+<a id="demo-email" data-recipient="{{DEMO_RECIPIENT}}" class="text-link" href="mailto:{{DEMO_RECIPIENT}}?subject=JobSeam%20demo%20request">Use another email app</a>
 </div>
+<p class="small">Review and send the draft from your email account. You can also write to <a href="mailto:{{DEMO_RECIPIENT}}">{{DEMO_RECIPIENT}}</a>.</p>
 </div>
 </div>
 </section>
 <section class="section"><div class="wrap"><h2>What happens after your demo?</h2><div class="grid3"><article class="card"><h3>Confirm the fit</h3><p>Review your goals and decide whether the demonstrated workflow meets your needs.</p></article><article class="card"><h3>Agree on access</h3><p id="journey-plan-copy">Choose an available staffing plan, or discuss access options for education and individual use. Confirm scope, pricing, payment arrangements, and onboarding responsibilities with our team before joining.</p><a id="journey-plan-link" href="/pricing">Review staffing plans →</a></article><article class="card"><h3>Get started</h3><p>After you agree to join, coordinate onboarding and access to the JobSeam-hosted workspace with our team.</p></article></div></div></section></main>
-<footer>
-<div class="wrap foot">
-<div>
-<a class="brand" href="/">Job<span>Seam</span>
-</a>
-<p class="parent-brand">A product of <a class="parent-logo" href="https://quezaal.com/jobseam"><img src="/assets/quezaal-logo.png" alt="Quezaal Inc." width="320" height="132" loading="lazy"></a></p>
-</div>
-<nav class="foot-links footer-navigation" aria-label="Footer navigation">
-<section><h2>Product</h2>
-<a href="/how-it-works">How It Works</a>
-<a href="/features">Features</a>
-<a href="/jobseam-onepager">Product Overview</a>
-<a href="/jobseam-feature-guide-detailed">Feature Guide</a>
-<a href="/jobseam-video">Product Walkthrough</a>
-</section>
-<section><h2>Solutions</h2>
-<a href="/talent">Talent</a>
-<a href="/staffing">Employers &amp; Recruiters</a>
-</section>
-<section><h2>Resources</h2>
-<a href="/faq">FAQ</a>
-<a href="/contact">Contact</a>
-<a href="/immigration-updates">Immigration &amp; Labor Updates</a>
-</section>
-</nav>
-</div>
-<div class="wrap footer-utility">
-<div class="footer-primary-links"><a href="/">Home</a><a href="/pricing">Pricing</a><a href="/demo" aria-current="page">Book a Demo ↗</a></div>
-<div class="footer-legal-links"><a href="https://quezaal.com/privacy">Privacy</a><a href="https://quezaal.com/terms">Terms</a><a href="mailto:hello@jobseam.com">hello@jobseam.com</a></div>
-</div>
-</footer>
+<!-- include:footer -->
 </body>
 </html>

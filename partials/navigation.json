@@ -1,0 +1,24 @@
+[
+  {"href": "/", "label": "Home"},
+  {"label": "Product", "items": [
+    {"href": "/how-it-works", "label": "How It Works"},
+    {"href": "/features", "label": "Features"},
+    {"href": "/compare", "label": "Compare Platforms"}
+  ]},
+  {"href": "/seambud", "label": "SeamBud", "footer_group": "Product"},
+  {"label": "Solutions", "items": [
+    {"href": "/talent", "label": "Talent"},
+    {"href": "/staffing", "label": "Employers & Recruiters"}
+  ]},
+  {"href": "/pricing", "label": "Pricing"},
+  {"label": "Resources", "items": [
+    {"href": "/help", "label": "Knowledge Base"},
+    {"href": "/faq", "label": "FAQ"},
+    {"href": "/jobseam-onepager", "label": "Product Overview"},
+    {"href": "/jobseam-feature-guide-detailed", "label": "Feature Guide"},
+    {"href": "/jobseam-video", "label": "Product Walkthrough"},
+    {"href": "/immigration-updates", "label": "Immigration & Labor Updates"},
+    {"href": "/contact", "label": "Contact"}
+  ]},
+  {"href": "/demo", "label": "Request a Demo ↗", "button": true}
+]
