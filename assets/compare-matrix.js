@@ -8,7 +8,8 @@ const compareButtons = [...compareOptions.querySelectorAll('[data-compare-platfo
 const defaultPlatforms = compareButtons.filter(button => button.getAttribute('aria-pressed') === 'true')
   .map(button => button.dataset.comparePlatform);
 let selectedPlatforms = [...defaultPlatforms];
-const tableRows = [...compareTable.rows].map(row => ({
+const groupRows = [...compareTable.querySelectorAll('[data-compare-group]')];
+const tableRows = [...compareTable.rows].filter(row => !row.hasAttribute('data-compare-group')).map(row => ({
   row,
   cells: new Map([...row.querySelectorAll('[data-platform]')].map(cell => [cell.dataset.platform, cell])),
 }));
@@ -76,6 +77,7 @@ function updateComparison() {
   const active = document.activeElement;
   let shown = 0;
   let total = 0;
+  const visibleGroups = new Set();
   for (const platform of order) {
     const { wrapper, button, handle } = products.get(platform);
     button.setAttribute('aria-pressed', String(selected.has(platform)));
@@ -94,8 +96,15 @@ function updateComparison() {
         (filters.category && row.dataset.compareCategory !== filters.category) ||
         (filters.status && row.dataset.compareStatus !== filters.status)
       );
-      if (!row.hidden) shown++;
+      if (!row.hidden) {
+        shown++;
+        visibleGroups.add(row.dataset.compareCategory);
+      }
     }
+  }
+  for (const row of groupRows) {
+    row.hidden = !visibleGroups.has(row.dataset.compareGroup);
+    row.cells[0].colSpan = selected.size + 2;
   }
   if (active !== document.body && active.isConnected && !active.closest('[hidden]')) active.focus({ preventScroll: true });
   for (const button of filterButtons) {

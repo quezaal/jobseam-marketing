@@ -37,3 +37,18 @@
 .compare-filter-label { font-weight: 700; margin-block: .7rem .35rem; }
 .compare-filter .compare-filter-label { margin: 0; min-width: 10rem; }
 @media (max-width: 640px) { .compare-filter .compare-filter-label { flex-basis: 100%; } }
+
+.compare-controls {
+  padding: 1rem 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: .85rem;
+}
+.compare-controls button[data-filter-category],
+.compare-controls button[data-filter-status] { border-radius: 2rem; }
+.compare-filter .compare-options { flex: 1 1 28rem; }
+.compare-group th {
+  background: #e7efdd;
+  color: #29421d;
+  text-align: left;
+}

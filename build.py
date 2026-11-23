@@ -22,6 +22,12 @@ for source in ROOT.iterdir():
         target.write_text(render_page(ROOT, source), encoding="utf-8")
     elif source.suffix.lower() in ('.ico', '.png', '.jpg', '.pdf', '.pptx', '.xml', '.txt') or source.name == 'CNAME':
         shutil.copy2(source, OUT / source.name)
+# Publish only this archive by direct URL. Other internal pages stay out.
+archive = ROOT / 'docs' / 'internal' / 'compare_after_20261122.html'
+if archive.is_file():
+    target = OUT / archive.stem / 'index.html'
+    target.parent.mkdir(exist_ok=True)
+    target.write_text(render_page(ROOT, archive), encoding='utf-8')
 # Publish only the reviewed public product kit. Internal notes and generators stay local.
 kit = ROOT / 'collateral' / 'product-overview'
 if kit.exists():

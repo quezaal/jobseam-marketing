@@ -51,7 +51,7 @@ python3 build.py
 Verify the generated output before publishing:
 
 - Open or inspect `_site/index.html`, `_site/pricing/index.html`, and `_site/demo/index.html`. Check that they contain full navigation, and that include markers or unresolved demo placeholders are absent.
-- Confirm expected images and scripts exist under `_site/screenshots/` and `_site/assets/`. Check that internal archives, drafts and source configuration files are absent. Review unexpected root-level files before building.
+- Confirm expected images and scripts exist under `_site/screenshots/` and `_site/assets/`. Check that internal drafts and source configuration files are absent. The allowlisted `/compare_after_20261122/` archive is a public direct link with a robots no-index directive. Keep it out of the menus and sitemap, and leave it crawlable so search engines can read the directive. Review unexpected root-level files before building.
 - To smoke-test the artifact, run `python3 -m http.server 9091 --directory _site`. Check `/`, `/pricing/`, `/features/`, `/compare/`, and `/demo/`. This validates the generated directories separately from the development preview.
 - Test the sticky tabs and pricing handoff at desktop and mobile widths.
 

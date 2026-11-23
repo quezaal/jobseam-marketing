@@ -23,3 +23,9 @@ This Black Friday, bring one vendor requirement and see who on your bench might 
 ## Flyer and publishing notes
 
 Open the [printable flyer](flyer.html) and save as PDF for LinkedIn or direct sharing. Use the Thanksgiving copy as the main post. The Black Friday version gives an alternate publishing day; it uses the same offer without implying a discount or deadline. Confirm availability before posting. A seasonal discount, price lock, or limited allocation can be advertised after its terms are confirmed.
+
+## Site banner
+
+The Cyber Monday Founding Offer campaign closes at the end of November 30, 2026, Central Time. The banner uses the existing 14-day trial and Founding Offer terms. The campaign date controls the banner, and Sales confirms availability and renewal terms separately. The pricing page remains available after the campaign.
+
+Set the display date and the matching ISO timestamp together in `partials/header.html`. For this campaign, midnight on December 1 Central Standard Time is the cutoff. The countdown uses that same fixed deadline for every visitor and the banner hides at expiry. Preview the site on desktop and mobile before publishing.

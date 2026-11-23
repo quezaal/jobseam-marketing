@@ -21,6 +21,17 @@ Reviewed against the application source on October 30, 2026. This describes impl
 
 Job-market ingestion and analytics, supported source/market selection, resume and roster import, AI enrichment and two-way matching, requirements ingestion, recruiter analysis, submission/RTR tracking, placement pipeline, team and pod administration, configurable terminology, portals, invoicing and timesheets are available according to configuration. External data sources, email delivery, AI providers and background-check integrations require their own configuration and may incur provider charges. A configured integration is not evidence that production credentials or government approvals are active.
 
+## Recent workflow review
+
+Reviewed the November 2026 application feature inventory, verification register, email intake guides, and SeamBud report and outreach guides against the marketing site.
+
+- **Consultant reports.** Saved-field and supported plain-language requests run through a reviewed report plan. Configured evidence extraction can fill supported fields from retained intake messages and readable résumé text. Conflicts and missing data remain visible in preview and blank in CSV. Download access is scoped and audited. Reports expire after 24 hours.
+- **Jobs mailbox.** Scheduled polling selects unread messages. A dated rescan checks read and unread messages from the saved date, with a 14-day default when the date is blank. Extracted requirements go to Requirements Inbox for review.
+- **Opportunity outreach.** Staff can review the exact consultant email, capture decisions through a private link or the consultant portal, and separately approve an anonymous terms inquiry when the original listing names a contact. Identifying outreach has its own permissions, agreement evidence and review steps. Applying is a separate action.
+- **Compliance availability.** I-9 and E-Verify tracking are implemented. I-9 automation and the direct E-Verify integration are in development. DOL wage reference lookup was validated in testing. Customer enablement is scoped separately.
+
+Application report and opportunity validation used synthetic data or fixtures. Production delivery and provider activation require separate checks.
+
 ## Immigration → LCA: employer first
 
 1. Create an employer LCA manually or import a draft/certified ETA-9035/9035E PDF. A candidate is not required; an opportunity/requirement reference is optional.
