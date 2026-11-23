@@ -57,7 +57,10 @@ Verify the generated output before publishing:
 
 ## 3. Publish and check the live site
 
-1. Use the existing JobSeam host’s release process. If it has a build-command setting, use `python3 build.py` with publish directory `_site`. If releases are uploaded manually, upload the contents of `_site/` as the site root. Retain the previous known-good artifact or deployment for rollback.
+1. The JobSeam site uses GitHub Pages with the custom domain `jobseam.com`. Commit and push the reviewed source changes and [Pages workflow](../.github/workflows/pages.yml) to `main`. In the GitHub repository, open **Settings → Pages → Build and deployment → Source**, then select **GitHub Actions**. The branch publishing menu accepts only the repository root or `/docs`. The workflow builds `_site/`, uploads it as the Pages artifact, and deploys it. Keep `_site/` Git-ignored. [GitHub Pages publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+   After switching the source, open **Actions → Publish JobSeam to GitHub Pages → Run workflow**, choose `main`, and run it. Future pushes to `main` trigger it automatically. Verify that **Settings → Pages** still lists `jobseam.com` as the custom domain. This publishing change requires no Cloudflare DNS edits.
+
 2. Record the source commit and the host’s deployment identifier. The repository’s video transcript workflow builds an artifact. Publishing uses a separate hosting step. A maintainer needs the production host and its release access before taking over.
 3. On the live hostname, open the homepage, Features, Compare, Pricing, and Demo in a fresh browser session. Confirm the route, navigation, images and trial handoff. If the Zoho appointment flow is enabled, verify invitation delivery and calendar sync through an authorized test appointment.
 4. If the release is bad, restore the previous host deployment or redeploy the previous known-good artifact. Fix the source, build a fresh artifact, and verify the affected routes before publishing again.

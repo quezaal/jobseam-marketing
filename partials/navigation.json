@@ -2,7 +2,12 @@
   {"href": "/", "label": "Home"},
   {"label": "Product", "items": [
     {"href": "/how-it-works", "label": "How It Works"},
-    {"href": "/features", "label": "Features"},
+    {"href": "/features", "label": "All Features"},
+    {"href": "/features#command-center", "label": "Command Center"},
+    {"href": "/features#existing-bench", "label": "Bench Sales & Recruiting"},
+    {"href": "/features#consultant-workspace", "label": "Consultant Management"},
+    {"href": "/features#work-authorization", "label": "Immigration & HR Compliance"},
+    {"href": "/how-it-works#vendor-requirements", "label": "Vendor Requirements & Submissions"},
     {"href": "/compare", "label": "Compare Platforms"}
   ]},
   {"href": "/seambud", "label": "SeamBud", "footer_group": "Product"},
